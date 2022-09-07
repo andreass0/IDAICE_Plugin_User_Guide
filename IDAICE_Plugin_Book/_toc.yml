@@ -1,0 +1,16 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+parts:
+  - caption: Inhalt
+    chapters:
+      - file: Introduction
+      - file: Getting_started_with_the_IDAICE_Plugin
+      - file: Setting_up_a_problem
+      - file: Running_a_simulation
+      - file: Results_of_the_simulation
+      - file: SIMULTAN_Datastructure_to_incorporate_the_IDAICE_Data_model
+      - file: LICENSE
+      - file: References
