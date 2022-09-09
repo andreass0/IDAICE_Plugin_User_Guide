@@ -1,10 +1,9 @@
 (intro)=
 
-# RFEM-Plugin User Guide
+# IDA-ICE-Plugin User Guide
 
-This user guide should help navigate the RFEM-Plugin which enables structural analysis with the SIMULTAN datamodel based
-on the finite element
-software [RFEM 6 by Dlubal](https://www.dlubal.com/en/downloads-and-information/documents/online-manuals/rfem-6).
+This user guide should help navigate the IDA-ICE-Plugin which enables dynamic multizone climate and energy simulations
+with the simulations software [IDA-ICE](https://www.equa.se/de/ida-ice) in SIMULTAN.
 
 ```{tableofcontents}
 ```

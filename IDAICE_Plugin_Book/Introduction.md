@@ -2,41 +2,32 @@
 
 # Introduction
 
-## What is the RFEM-Plugin?
+## What is the IDA-ICE-Plugin?
 
-The RFEM-plugin (in the following referred to as "the plugin") enables structural analysis with the finite element
-software [RFEM 6 by Dlubal](https://www.dlubal.com/en/downloads-and-information/documents/online-manuals/rfem-6) for the
-SIMULTAN-data model. This is achieved by exporting all necessary data for rudimental structural analysis into an
-XML-file which can be imported into RFEM 6.
+The IDA-ICE-Plugin (in the following referred to as "the plugin") enables dynamic multizone climate and energy
+simulations with the software [IDA-ICE](https://www.equa.se/de/ida-ice) in the SIMULTAN-Data Model.
 
-## Functionality covered by the RFEM-Plugin
+## Functionality covered by the IDA-ICE-Plugin
 
 In the current state of development the plugin is able to export:
 
 - Geometry
 - Material data
-- Loads
-    - Nodal
-    - Line
-    - Surface
-- Supports with certain nonlinear behaviour
-    - Nodal
-    - Line
-    - Surface
-- Structural components and their hinges with certain nonlinear behaviour
-    - Beams
-    - Columns
-    - Surfaces
+- Shading data
+- Internal loads
+- Information to build the HVAC-System based on the ESBO-Plant functionality in IDA-ICE
+
+Import:
+- Simulation results for all simulation zones of the energy calculation
 
 What we are not able to do right now:
 
-- Import results back into the SIMULTAN-data model (since in its current state there is now mesh visualization
-  implemented in SIMULTAN-data model)
-- Track changes made in the RFEM-data model but not in the SIMULTAN-data model
+- Export detailed HVAC-System logic
+- Import all simulation results
 
 ## Project
 
-The development of the RFEM-Plugin is the result of the FFG-research project "Ganzheitliche Gebaeudesimulation"
+The development of the IDA-ICE-Plugin is the result of the FFG-research project "Ganzheitliche Gebaeudesimulation"
 supervised by Christoph Bauer. Additional information about the project and project outcomes can be found under these
 links:
 
@@ -57,9 +48,9 @@ Information and publications about SIMULTAN:
 
 ## Authors
 
-Project supervision of the development of the RFEM-Plugin was done by Andreas Sarkany and Bernhard Steiner. Core
-development of the software was conducted by Zsombor Jarosi. Additional Feedback and testing was provided by Thomas Rabl
-and Thomas Bednar.
+Project supervision of the development of the IDA-ICE-Plugin was done by Andreas Sarkany and Bernhard Steiner. Core
+development of the software was conducted by Zsombor Jarosi. Additional Feedback and testing was provided by Markus
+Steinwender, Paul Track and Thomas Bednar.
 
 ## Getting help
 

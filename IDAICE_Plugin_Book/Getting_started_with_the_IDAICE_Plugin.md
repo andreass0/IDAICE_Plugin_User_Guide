@@ -1,6 +1,6 @@
 (Getting_started_with_the_RFem_Plugin)=
 
-# Getting started with the RFEM Plugin
+# Getting started with the IDA-ICE Plugin
 
 ## Installing the SIMULTAN-Editor
 
@@ -9,9 +9,9 @@ found <strike>here</strike>. The SIMULTAN Editor enables you to interact
 with the SIMULTAN data model through a user interface. A comprehensive user-guide how to install and interact with the
 SIMULTAN Editor can be found under this [link](https://github.com/bph-tuwien/SIMULTAN.Documentation/wiki).
 
-## Installing the RFEM Plugin
+## Installing the IDA-ICE Plugin
 
-After installing the SIMULTAN Editor you can install the RFEM Plugin via the Plugin Manager {numref}`plugin_manager`.
+After installing the SIMULTAN Editor you can install the IDA-ICE Plugin via the Plugin Manager {numref}`plugin_manager`.
 Either download the plugin from the SIMULTAN Server (not possible yet) or install from your local disk with the
 installation file.
 
@@ -20,18 +20,18 @@ installation file.
 height: 250px
 name: plugin_manager
 ---
-Plugin Manager in he SIMULTAN Editor.
+Plugin Manager in the SIMULTAN Editor.
 ```
 
-When the installation was successful a new tab will be added to your taskbar named RFEM Plugin
-{numref}`rfem_plugin_new_tab`.
+When the installation was successful a new tab will be added to your taskbar named `IDA ICE Plugin`
+{numref}`idaice_plugin`.
 
-```{figure} img/rfem_plugin_new_tab.png
+```{figure} img/idaice_plugin.png
 ---
 height: 200px
-name: rfem_plugin_new_tab
+name: idaice_plugin
 ---
-New tab added to the taskbar of the SIMULTAN Editor after installing the RFEM Plugin.
+New tab added to the taskbar of the SIMULTAN Editor after installing the IDA-ICE Plugin.
 ```
 
 ## Run the example
