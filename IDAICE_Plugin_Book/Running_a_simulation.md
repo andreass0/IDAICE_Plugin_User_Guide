@@ -2,65 +2,49 @@
 
 # Running a simulation
 
-## Exporting the SIMULTAN-model to RFEM
+## Exporting the SIMULTAN-model to IDA-ICE
 
 When modelling according to the conventions described in chapter [Setting up a problem](Setting_up_a_problem.md) the
-model is ready to be exported. This can be done by clicking the `Export Model` button when you are inside the RFEM
-Plugin in the SIMULTAN Editor {numref}`export`.
+model is ready to be exported. This can be done by clicking the `Export Model` button when you are inside the IDA-ICE
+Plugin in the SIMULTAN Editor {numref}`export_model`.
 
-```{figure} img/export.png
+```{figure} img/export_model.png
 ---
-height: 250px
-name: export
+height: 200px
+name: export_model
 ---
-Export button to create the XML-file to import into RFEM 6.
+Export button to create the file structure to import into IDA-ICE.
 ```
 
 After clicking the button you will be prompted with a `save dialogue`. Please specify the location where you want to
-save the XML-file and confirm.
+save the project directory and confirm.
 
-## Importing into RFEM
+## Importing into IDA-ICE
 
-To import the XML-file open RFEM 6 and choose the `Import XML function` {numref}`import_xml`.
+To import the project simply open the project in IDA-ICE as you would do usually.
 
-```{figure} img/import_xml.png
+```{figure} img/open_idaice.png
 ---
 height: 250px
-name: import_xml
+name: open_idaice
 ---
-Import XML function in RFEM 6.
+Open the exported project in IDA-ICE.
 ```
 
-Navigate to the location on your disk where you have saved the exported model and confirm to load it. After the model is
-loaded the it will appear in RFEM 6 and is ready for further manipulation {numref}`model_in_rfem`.
 
-```{figure} img/model_in_rfem.jpg
+## Running a simulation in IDA-ICE
+
+Run the simulation via the `Simulation` tab in IDA-ICE. 
+
+```{figure} img/simulation_tab.png
 ---
-height: 250px
-name: model_in_rfem
+height: 350px
+name: simulation_tab
 ---
-Imported model in RFEM 6 based on an export from a SIMULTAN model.
+Simulation tab. Choose the cases you want to run or simply run the whole simulation.
 ```
-
-```{warning}
-In the current state of development the plugin is **NOT** bidirectional. Any adaptations done in RFEM are only 
-available in RFEM and cannot be retrieved into the SIMULTAN datamodel. This is a funcitonality which will be 
-implemented in the future. For now use RFEM as a solver and adjust the model in the SIMULTAN Editor.  
-```
-
-## Running a simulation in RFEM
-
-To run a simulation create load combinations in RFEM and run the simulation as usual in the finite element software.
 
 ```{note}
-Maybe some equal instances of faces or vertices will be detected by RFEM. Ignore this message for now. This is a known
-behaviour of the plugin. The exploration of this will be part of our future development.
-```
-
-```{figure} img/plausibility_check_rfem.png
----
-height: 250px
-name: plausibility_check_rfem
----
-Ignore the plausibility check.
+To import the results into SIMULTAN you need to run the `Energy Load` simulation. For now only those results will be 
+imported into SIMULTAN. 
 ```

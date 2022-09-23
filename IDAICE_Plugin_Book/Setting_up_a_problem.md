@@ -1,12 +1,11 @@
 # Setting up a problem
 
-A short overview of the representation of the data in the data model will be given in the beginning. After that the
-tutorial focuses on modelling with the implemented user interface of the plugin.
+A short overview of the representation of the data in the data model will be given in the beginning.
 
 ## Datastructure for the plugin
 
 In {numref}`struct_comp` a simplified depiction of the needed datastructure to run the plugin is given. This data
-structure holds all the necessary information to enable dynamic multizone climate and energy simulations in IDA-ICE
+structure holds all the necessary information to enable simplified dynamic multizone climate and energy simulations in IDA-ICE
 
 ```{figure} img/struct_component.jpg
 ---
@@ -139,6 +138,7 @@ Needed parameters of the window component for the simulation.
 ```
 
 #### Shading building components: Key parameter and layer parameters
+
 To export the shading components of your datamodel please follow these instructions:
 
 - Add a new parameter named `IDA-ICE_surface_types` to your shading component.
@@ -153,7 +153,127 @@ name: shade_para
 ---
 Needed parameters of the shading component for the simulation.
 ```
+
 ### HVAC-System
+
+The HVAC-System is implemented via the ESBO-Plant of IDA-ICE. {numref}`esbo_simultan` shows all the possible inputs
+which are exported with the plugin.
+
+```{figure} img/esbo_simultan.png
+---
+height: 350px
+name: esbo_simultan
+---
+SIMULTAN components for the different ESBO-Plant components.
+```
+
+These components confine the defining parameters for the different HVAC-components. {numref}`ambient_air_to_brine_para`
+to {numref}`liquid_circuit` show the different parameters which have to be incorporated in the data model to export the
+different modules of the ESBO-Plant successfully.
+
+```{tip}
+Use the template which holds all the possible ESBO-Plant inputs and delete what you don't need. Refrain from manual 
+modelling as much as possible.
+```
+
+```{figure} img/ambient_air_to_brine_para.png
+---
+height: 250px
+name: ambient_air_to_brine_para
+---
+SIMULTAN components with the underlying defining parameters for the different ESBO-Plant components.
+```
+
+```{figure} img/ambient_air_to_water_para.png
+---
+height: 250px
+name: ambient_air_to_water_para
+---
+SIMULTAN components with the underlying defining parameters for the different ESBO-Plant components.
+```
+
+```{figure} img/generic_cold_water.png
+---
+height: 350px
+name: generic_cold_water
+---
+SIMULTAN components with the underlying defining parameters for the different ESBO-Plant components.
+```
+
+```{figure} img/generic_photo.png
+---
+height: 350px
+name: generic_photo
+---
+SIMULTAN components with the underlying defining parameters for the different ESBO-Plant components.
+```
+
+```{figure} img/generic_topup.png
+---
+height: 300px
+name: generic_topup
+---
+SIMULTAN components with the underlying defining parameters for the different ESBO-Plant components.
+```
+
+```{figure} img/liquid_circuit.png
+---
+height: 200px
+name: liquid_circuit
+---
+SIMULTAN components with the underlying defining parameters for the different ESBO-Plant components.
+```
+
+```{note}
+If you are exporting redundant HVAC-Systems or HVAC-Systems which are in conflict with each other for the 
+dynamic simulation IDA-ICE will show an error message.
+```
+
+### Internal Gains
+
+The modelling of internal gains due to occupant behaviour is also possible. The SIMULTAN representation is stored under
+the component `Nutzung`. This component stores sub-components for each simulation-zone and the assigned internal gains.
+
+```{figure} img/inernal_gains_comp.png
+---
+height: 400px
+name: inernal_gains_comp
+---
+SIMULTAN components with the underlying defining parameters for the different ESBO-Plant components.
+```
+
+The sub-components consist of `Equipment`, `Light`, `Occupants` each with the needed parameters to describe the needed
+information for the simulation.
+
+**Equipment**
+
+```{figure} img/equipment_para.png
+---
+height: 300px
+name: equipment_para
+---
+SIMULTAN component for the description of internal gains by equipments with the underlying defining parameters.
+```
+
+**Light**
+
+```{figure} img/light_para.png
+---
+height: 200px
+name: equipment_para
+---
+SIMULTAN component for the description of internal gains by light with the underlying defining parameters.
+```
+
+**Occupants**
+
+```{figure} img/occupant_para.png
+---
+height: 200px
+name: equipment_para
+---
+SIMULTAN component for the description of internal gains by occupants with the underlying defining parameters.
+```
 
 ## Connecting components with the geometry
 
