@@ -36,7 +36,7 @@ New tab added to the taskbar of the SIMULTAN Editor after installing the IDA-ICE
 
 ## Run the example
 
-To check if everything was installed properly please run one of the examples provided where
+To check if everything was installed properly please open `install_test_model.simultan` from the examples provided where
 you [downloaded](https://github.com/bph-tuwien/GBS.Plugins/releases) the installation file of the plugin. Open the
 example in your SIMULTAN Editor (username and password is "admin"), and follow the instructions in the
 chapter [Running a simulation](Running_a_simulation.md). If this works fine and you are getting plausible results the

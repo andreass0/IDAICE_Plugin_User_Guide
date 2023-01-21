@@ -4,15 +4,15 @@ A short overview of the representation of the data in the data model will be giv
 
 ## Datastructure for the plugin
 
-In {numref}`struct_comp` a simplified depiction of the needed datastructure to run the plugin is given. This data
-structure holds all the necessary information to enable simplified dynamic multizone climate and energy simulations in IDA-ICE
+In {numref}`ida_data` a simplified depiction of the needed datastructure to run the plugin is given. This data structure
+holds all the necessary information to enable simplified dynamic multizone climate and energy simulations in IDA-ICE
 
-```{figure} img/struct_component.jpg
+```{figure} img/schematic_comp_ida.jpg
 ---
-height: 250px
-name: struct_comp
+height: 500px
+name: ida_data
 ---
-Simplified depiction of the representation of the structural analysis component.
+Simplified depiction of the needed datastructure to run the plugin is given.
 ```
 
 A more in depth look into the SIMULTAN representation of the data for building physics simulations is given in the
@@ -34,7 +34,7 @@ for further information on how to use this Geometry Editor.
 ### Modelling guidelines
 
 ```{important}
-Either import or start with the provided template file `_temp.simultan`. All the necessary datastructure to operate the
+Either import or start with the provided template file `template_esbo_and_shades.simultan`. All the necessary datastructure to operate the
 IDA-ICE-plugin will be provided there.
 ```
 
@@ -54,8 +54,7 @@ For the simulation the reference geometry is exported to IDA-ICE, therefore all 
 needed for the simulation has to be linked to this model.
 
 ```{note}
-If you are only concerned with structural analysis it is enough to have all the necessary information in the 
-struct_analysis.simgeo file.
+The geometry file for the IDA-ICE analysis has to be called idaice_analysis.simgeo.
 ```
 
 ## Components used for the building physics simulation
