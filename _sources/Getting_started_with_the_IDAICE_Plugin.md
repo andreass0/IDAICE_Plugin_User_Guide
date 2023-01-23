@@ -1,4 +1,4 @@
-(Getting_started_with_the_RFem_Plugin)=
+(Getting_started_with_the_IDAICE_Plugin)=
 
 # Getting started with the IDA-ICE Plugin
 
@@ -14,7 +14,7 @@ SIMULTAN Editor can be found under this [link](https://github.com/bph-tuwien/SIM
 After installing the SIMULTAN Editor you can install the IDA-ICE Plugin via the Plugin Manager {numref}`plugin_manager`.
 Either download the plugin from the SIMULTAN Server (not possible yet) or install from your local disk with the
 installation file.
-
+cd 
 ```{figure} img/plugin_manager.png
 ---
 height: 250px
