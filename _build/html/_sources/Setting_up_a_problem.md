@@ -59,8 +59,18 @@ needed for the simulation has to be linked to this model.
 The geometry file for the IDA-ICE analysis has to be called **idaice_analysis.simgeo**.
 ```
 
-## Components used for the building physics simulation
+## User Interface <!-- Neuer Sektor | Reihenfolge mit oberigen Kapitel vllt tauschen -->
 
+The IDA-ICE-Plugin comes with a user interface {numref}`UserInterface_example` to help with the creation of the needed data structure for the plugin. The user interface is very user-friendly and ensures that you keep an overview and do not make any unnecessary mistakes by navigating manually. <!-- Formulierung nochmal überarbeiten!!-->
+
+```{figure} img/Beispiel-UserInterface.png
+---
+height: 700px
+name: UserInterface_example
+---
+a method of the IDA-ICE user interface 
+```
+<!-- Wortwahl: "Method"-->
 ### Building Envelope
 
 Since most of the data of the building envelope will already be provided with an architectual model the structure of the
@@ -91,16 +101,29 @@ procedure is analogues for the other opaque building components.
 
 To export the external walls of your datamodel please follow these instructions:
 
-- Add a new parameter named `IDA-ICE_surface_types` on the top level of your building component
-- Write `EXTERNAL-WALL` as a text <!-- Fetter Druck --> into the newly added parameter.
+- Open the construction tab in Simultan <!-- Kontrollieren -->
 
-```{figure} img/ext_wall_para.png
+```{figure} img/position-construction.png
 ---
-height: 350px
-name: ext_wall_para
+name: position-construction
 ---
-External Wall parameter for export with the plugin.
+The construction tab
 ```
+
+- The construction tab with all its functions <!-- VLlt bisschen kleiner -->
+
+```{figure} img/overview-constructiontab.png
+---
+name: img/overview-constructiontab.png
+---
+Brief overview of the functions of the construction tab
+```
+
+1. **Select construction:**  
+provides an overview of all objects that are already connected to IDA-ICE Surface Types. It gives you a good overview and lets you edit all the surfaces connected  to the IDA-ICE-Plugin with just a few clicks. <!-- Ausdruck! -->
+2. **Edit construction:**   
+This is where the important information for the export to IDA-ICE is added. <!-- Auschmücken und Unterpunkte näher erklären! -->
+
 
 The plugin recognizes this component now as an external wall for IDA-ICE to be exported by the plugin. The layers have
 to be model as sub components and should contain the following parameters:
@@ -121,18 +144,6 @@ Key parameter for other opaque building components:
 - `ROOF`
 ```
 
-### User Interface <!-- Neuer Sektor | Reihenfolge mit oberigen Kapitel vllt tauschen -->
-
-The IDA-ICE-Plugin comes with a user interface {numref}`UserInterface_example` to help with the creation of the needed data structure for the plugin. The user interface is very user-friendly and ensures that you keep an overview and do not make any unnecessary mistakes by navigating manually. <!-- Formulierung nochmal überarbeiten!!-->
-
-```{figure} img/Beispiel-UserInterface.png
----
-height: 700px
-name: UserInterface_example
----
-a method of the IDA-ICE user interface 
-```
-<!-- Wortwahl: "Method"-->
 
 #### Transparent building components: Key parameter and layer parameters
 
