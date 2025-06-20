@@ -519,7 +519,7 @@ procedure is analogues for the other opaque building components.</p>
 </figcaption>
 </figure>
 <ul class="simple">
-<li><p>The construction tab with all its functions <!-- VLlt bisschen kleiner --></p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">construction</span></code> tab with all its functions <!-- Vllt bisschen kleiner --></p></li>
 </ul>
 <figure class="align-default" id="img-overview-constructiontab-png">
 <img alt="_images/overview-constructiontab.png" src="_images/overview-constructiontab.png" />
@@ -528,13 +528,26 @@ procedure is analogues for the other opaque building components.</p>
 </figcaption>
 </figure>
 <ol class="arabic simple">
-<li><p><strong>Select construction:</strong><br />
-provides an overview of all objects that are already connected to IDA-ICE Surface Types. It gives you a good overview and lets you edit all the surfaces connected  to the IDA-ICE-Plugin with just a few clicks. <!-- Ausdruck! --></p></li>
-<li><p><strong>Edit construction:</strong><br />
-This is where the important information for the export to IDA-ICE is added. <!-- Auschmücken und Unterpunkte näher erklären! --></p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">Select</span> <span class="pre">construction:</span></code></strong><br />
+Provides an overview of all objects that are already connected to IDA-ICE Surface Types. It gives you a good overview and lets you edit all the surfaces connected to the IDA-ICE-Plugin with just a few clicks. <!-- Ausdruck! --></p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">Edit</span> <span class="pre">construction:</span></code></strong><br />
+This is where the important information for the export to IDA-ICE is added. <!-- Auschmücken und Unterpunkte näher erklären! --><br />
+2.1 <strong>Consturction Name</strong><br />
+2.2 <strong>Surface Type:</strong> <a class="reference internal" href="#opaque-building-components-key-parameter-and-layer-parameters"><span class="xref myst">opaque building components</span></a><br />
+2.3 <strong>Layers: Shows</strong> the structure of the selected construction and the different materials it is made of. You can click on all other materials for more information, <!-- Platzhalter, verlinkung zu Materials --></p>
+<ul class="simple">
+<li><p>Layer Name: Shows the name of your choosen Layer. <!-- Kontrollieren ob es wirklich nur diese Funktion hat! --></p></li>
+<li><p>Material: Shows the material of your choosen Layer</p></li>
+<li><p>Thickness: Shows the Thickness (m) of your choosen Layer</p></li>
+</ul>
+</li>
 </ol>
-<p>The plugin recognizes this component now as an external wall for IDA-ICE to be exported by the plugin. The layers have
-to be model as sub components and should contain the following parameters:</p>
+<p>All changes have a direct impact on the data model. This makes it possible to make changes quickly and effectively without losing the overview! <!-- Probieren ob automatisch jede komponente in der geometrie einem IDA-ICE surface type zugewissen wird, bzw. ob auch objekte ohne zuweisung im User Interface angezeigt werden--></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>It is very important to work carefully in the user interface, because changes are applied directly, even without explicitly saving or simply closing the user interface.</p>
+</div>
+<!-- Meldung vllt verschieben (UserInterface) falls es auf alle tabs zutrifft!-->
 <figure class="align-default" id="layer-para">
 <a class="reference internal image-reference" href="img/layer_para.png"><img alt="img/layer_para.png" src="img/layer_para.png" style="height: 500px;" />
 </a>

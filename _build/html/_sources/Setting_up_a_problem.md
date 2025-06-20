@@ -110,7 +110,7 @@ name: position-construction
 The construction tab
 ```
 
-- The construction tab with all its functions <!-- VLlt bisschen kleiner -->
+- The `construction` tab with all its functions <!-- Vllt bisschen kleiner -->
 
 ```{figure} img/overview-constructiontab.png
 ---
@@ -119,14 +119,25 @@ name: img/overview-constructiontab.png
 Brief overview of the functions of the construction tab
 ```
 
-1. **Select construction:**  
-provides an overview of all objects that are already connected to IDA-ICE Surface Types. It gives you a good overview and lets you edit all the surfaces connected  to the IDA-ICE-Plugin with just a few clicks. <!-- Ausdruck! -->
-2. **Edit construction:**   
-This is where the important information for the export to IDA-ICE is added. <!-- Auschmücken und Unterpunkte näher erklären! -->
+1. **`Select construction:`**  
+Provides an overview of all objects that are already connected to IDA-ICE Surface Types. It gives you a good overview and lets you edit all the surfaces connected to the IDA-ICE-Plugin with just a few clicks. <!-- Ausdruck! -->
+2. **`Edit construction:`**   
+This is where the important information for the export to IDA-ICE is added. <!-- Auschmücken und Unterpunkte näher erklären! -->  
+2.1 **Consturction Name**  
+2.2 **Surface Type:** [opaque building components](#opaque-building-components-key-parameter-and-layer-parameters)  
+2.3 **Layers: Shows** the structure of the selected construction and the different materials it is made of. You can click on all other materials for more information, <!-- Platzhalter, verlinkung zu Materials -->
 
+    - Layer Name: Shows the name of your choosen Layer. <!-- Kontrollieren ob es wirklich nur diese Funktion hat! -->
+    - Material: Shows the material of your choosen Layer
+    - Thickness: Shows the Thickness (m) of your choosen Layer
 
-The plugin recognizes this component now as an external wall for IDA-ICE to be exported by the plugin. The layers have
-to be model as sub components and should contain the following parameters:
+All changes have a direct impact on the data model. This makes it possible to make changes quickly and effectively without losing the overview! <!-- Probieren ob automatisch jede komponente in der geometrie einem IDA-ICE surface type zugewissen wird, bzw. ob auch objekte ohne zuweisung im User Interface angezeigt werden-->
+
+```{warning}
+It is very important to work carefully in the user interface, because changes are applied directly, even without explicitly saving or simply closing the user interface.
+```
+<!-- Meldung vllt verschieben (UserInterface) falls es auf alle tabs zutrifft!-->
+
 
 ```{figure} img/layer_para.png
 ---
