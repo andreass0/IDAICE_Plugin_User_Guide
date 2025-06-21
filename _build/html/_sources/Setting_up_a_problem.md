@@ -2,6 +2,8 @@
 
 A short overview of the representation of the data in the data model will be given in the beginning.
 
+---
+
 ## Datastructure for the plugin
 
 In {numref}`ida_data` a simplified depiction of the needed datastructure to run the plugin is given. This data structure
@@ -26,11 +28,15 @@ consuming efforts when trying to fix those.
 ```
 <!-- Link zu Templates fehlt -->
 
+---
+
 ## Geometrical modelling
 
 The geometry is created in the Geometry Editor of the SIMULTAN Editor. Please consult
 the [SIMULTAN Editor User Guide](https://github.com/bph-tuwien/SIMULTAN.Documentation/wiki)
 for further information on how to use this Geometry Editor. Or watch our [Videos on YouTube](https://www.youtube.com/watch?v=YDDNtA6lkFU&t=1s). <!-- Neu -->
+
+---
 
 ### Modelling guidelines
 
@@ -59,6 +65,8 @@ needed for the simulation has to be linked to this model.
 The geometry file for the IDA-ICE analysis has to be called **idaice_analysis.simgeo**.
 ```
 
+---
+
 ## User Interface <!-- Neuer Sektor | Reihenfolge mit oberigen Kapitel vllt tauschen -->
 
 The IDA-ICE-Plugin comes with a user interface {numref}`UserInterface_example` to help with the creation of the needed data structure for the plugin. The user interface is very user-friendly and ensures that you keep an overview and do not make any unnecessary mistakes by navigating manually. <!-- Formulierung nochmal überarbeiten!!-->
@@ -71,6 +79,9 @@ name: UserInterface_example
 a method of the IDA-ICE user interface 
 ```
 <!-- Wortwahl: "Method"-->
+
+---
+
 ### Building Envelope
 
 Since most of the data of the building envelope will already be provided with an architectual model the structure of the
@@ -94,6 +105,8 @@ building envelope IDA-ICE is differentiating between the following main categori
     - Door
 - **Shading building components**
 
+---
+
 #### Opaque building components: Key parameter and layer parameters
 
 The data structure for building components to be exported with the plugin will be explained for an external wall. The
@@ -114,22 +127,31 @@ The construction tab
 
 ```{figure} img/overview-constructiontab.png
 ---
-name: img/overview-constructiontab.png
+name: overview-constructiontab
 ---
 Brief overview of the functions of the construction tab
+```
+
+```{note}
+To create a new construction, press the NEW button, then simply assign the following parameters to your preferences. The parameters are explained in more detail below.
+
+This is how quickly it is possible to create new constructions with the IDA-ICE user interface!
 ```
 
 1. **`Select construction:`**  
 Provides an overview of all objects that are already connected to IDA-ICE Surface Types. It gives you a good overview and lets you edit all the surfaces connected to the IDA-ICE-Plugin with just a few clicks. <!-- Ausdruck! -->
 2. **`Edit construction:`**   
 This is where the important information for the export to IDA-ICE is added. <!-- Auschmücken und Unterpunkte näher erklären! -->  
+
+
 2.1 **Consturction Name**  
 2.2 **Surface Type:** [opaque building components](#opaque-building-components-key-parameter-and-layer-parameters)  
-2.3 **Layers: Shows** the structure of the selected construction and the different materials it is made of. You can click on all other materials for more information, <!-- Platzhalter, verlinkung zu Materials -->
+2.3 **Layers:**  
+Shows the structure of the selected construction and the different materials it is made of. You can click on all other materials for further information. 
 
-    - Layer Name: Shows the name of your choosen Layer. <!-- Kontrollieren ob es wirklich nur diese Funktion hat! -->
-    - Material: Shows the material of your choosen Layer
-    - Thickness: Shows the Thickness (m) of your choosen Layer
+- Layer Name: Shows the name of your choosen Layer. <!-- Kontrollieren ob es wirklich nur diese Funktion hat! -->
+- Material: Shows the material of your choosen Layer, <!-- Platzhalter, verlinkung zu Materials -->
+- Thickness: Shows the Thickness (m) of your choosen Layer
 
 All changes have a direct impact on the data model. This makes it possible to make changes quickly and effectively without losing the overview! <!-- Probieren ob automatisch jede komponente in der geometrie einem IDA-ICE surface type zugewissen wird, bzw. ob auch objekte ohne zuweisung im User Interface angezeigt werden-->
 
@@ -138,43 +160,50 @@ It is very important to work carefully in the user interface, because changes ar
 ```
 <!-- Meldung vllt verschieben (UserInterface) falls es auf alle tabs zutrifft!-->
 
-
-```{figure} img/layer_para.png
 ---
-height: 500px
-name: layer_para
----
-Needed Layer parameters of the building component for the simulation.
-```
-
-```{note}
-Key parameter for other opaque building components:
-- `INTERNAL-WALL`
-- `EXTERNAL-SLAB`
-- `INTERNAL-SLAB`
-- `ROOF`
-```
-
 
 #### Transparent building components: Key parameter and layer parameters
 
-The datastructure to export transparent building components will be shown for a window. The procedure is analogues for a
-door.
+The datastructure to export transparent building components will be shown for a Fenster (window). The procedure is analogues for a
+door and other `glass constructions`. <!-- -->
 
-To export the external walls of your datamodel please follow these instructions:
-
-- Add a new parameter named `IDA-ICE_surface_types` to your window component.
-- Write `GLASS_CONSTRUCTION` as a text into the newly added parameter.
-
-The needed parameters to enable the export and simulation with the plugin can be seen in {numref}`window_para`.
-
-```{figure} img/window_para.png
+```{figure} img/TransperentBuildingComponents-UI.png
 ---
-height: 700px
-name: window_para
+name: TransperentBuildingComponents-UI
 ---
-Needed parameters of the window component for the simulation.
+Example of the data structure for a window
 ```
+
+The “Glass Constructions definitions” tab is pretty much identical in structure to [“Constructions definitions”](#opaque-building-components-key-parameter-and-layer-parameters). The only difference is in the parameters.
+
+The parameters in the image relate to the material properties of transparent components (such as windows) in the IDA ICE building simulation software. These values strongly influence the thermal and solar behavior of the glazing. Here is an explanation of the terms and their meaning.  
+
+1. **Name:**  
+Any name to name the glass constructions.  
+2. **Solar Heat Gain Coeff(g)**  
+Proportion of solar radiation that enters the building through the window (direct + secondary through heating of the glass).
+3. **Solar Transmittance(T)**  
+Proportion of directly transmitted solar radiation (without secondary heat conduction).  
+4. **Visible Transmittance(Tvis):**
+Proportion of visible light that passes through the glazing.  
+5. **Thermal Conductivity(U):**  
+Heat transfer coefficient - how well the window conducts heat.  
+6. **Internal Emissivity:**  
+Radiant heat emission from the inner surface (e.g. glass) to the inside.  
+7. **External Emissivity:**
+The opposite of 6. so for the outside of the window  
+
+
+```{note}
+These values are used in IDA ICE to:
+
+- Calculate heat loss in winter and heat input in summer
+- simulate the daylight input, risk of overheating and the energy requirement for heating/cooling
+- find optimal window configurations in terms of energy efficiency
+```
+
+***
+
 
 #### Shading building components: Key parameter and layer parameters
 
