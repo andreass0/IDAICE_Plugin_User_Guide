@@ -474,15 +474,19 @@ needed for the simulation has to be linked to this model.</p>
 <hr class="docutils" />
 <section id="user-interface">
 <h2>User Interface <!-- Neuer Sektor | Reihenfolge mit oberigen Kapitel vllt tauschen --><a class="headerlink" href="#user-interface" title="Link to this heading">#</a></h2>
-<p>The IDA-ICE-Plugin comes with a user interface <a class="reference internal" href="#userinterface-example"><span class="std std-numref">Fig. 5</span></a> to help with the creation of the needed data structure for the plugin. The user interface is very user-friendly and ensures that you keep an overview and do not make any unnecessary mistakes by navigating manually. <!-- Formulierung nochmal überarbeiten!!--></p>
-<figure class="align-default" id="userinterface-example">
-<a class="reference internal image-reference" href="_images/Beispiel-UserInterface.png"><img alt="_images/Beispiel-UserInterface.png" src="_images/Beispiel-UserInterface.png" style="height: 700px;" />
-</a>
+<p>The IDA-ICE-Plugin comes with a user interface <code class="xref std std-numref docutils literal notranslate"><span class="pre">UserInterface_example</span></code> to help with the creation of the needed data structure for the plugin. The user interface is very user-friendly and ensures that you keep an overview and do not make any unnecessary mistakes by navigating manually. <!-- Formulierung nochmal überarbeiten!!--></p>
+<figure class="align-default" id="position-construction">
+<img alt="_images/position-construction.png" src="_images/position-construction.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 5 </span><span class="caption-text">a method of the IDA-ICE user interface</span><a class="headerlink" href="#userinterface-example" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 5 </span><span class="caption-text">Possibilities with the IDA-ICE plugin</span><a class="headerlink" href="#position-construction" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>It is very important to work carefully in the user interface, because changes are applied directly, even without explicitly saving or simply closing the user interface.</p>
+</div>
 <!-- Wortwahl: "Method"-->
+<!-- noch klären wie es wirklich intern in ida-ice vorgeht und werter bearbeitet, ... -->
 <hr class="docutils" />
 <section id="building-envelope">
 <h3>Building Envelope<a class="headerlink" href="#building-envelope" title="Link to this heading">#</a></h3>
@@ -512,25 +516,16 @@ building envelope IDA-ICE is differentiating between the following main categori
 <hr class="docutils" />
 <section id="opaque-building-components-key-parameter-and-layer-parameters">
 <h4>Opaque building components: Key parameter and layer parameters<a class="headerlink" href="#opaque-building-components-key-parameter-and-layer-parameters" title="Link to this heading">#</a></h4>
-<p>The data structure for building components to be exported with the plugin will be explained for an external wall. The
-procedure is analogues for the other opaque building components.</p>
-<p>To export the external walls of your datamodel please follow these instructions:</p>
+<p>in the example you can see the data structure for a <strong>GROUND-SLAB</strong>. The procedure is analogues for the other opaque building components.</p>
+<p>To export Opaque building components using the IDA-ICE user interface, please follow these instructions:</p>
 <ul class="simple">
-<li><p>Open the construction tab in Simultan <!-- Kontrollieren --></p></li>
-</ul>
-<figure class="align-default" id="position-construction">
-<img alt="_images/position-construction.png" src="_images/position-construction.png" />
-<figcaption>
-<p><span class="caption-number">Fig. 7 </span><span class="caption-text">The construction tab</span><a class="headerlink" href="#position-construction" title="Link to this image">#</a></p>
-</figcaption>
-</figure>
-<ul class="simple">
+<li><p>Open the <code class="docutils literal notranslate"><span class="pre">construction</span></code> tab in Simultan <!-- Kontrollieren --></p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">construction</span></code> tab with all its functions <!-- Vllt bisschen kleiner --></p></li>
 </ul>
 <figure class="align-default" id="overview-constructiontab">
 <img alt="_images/overview-constructiontab.png" src="_images/overview-constructiontab.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 8 </span><span class="caption-text">Brief overview of the functions of the construction tab</span><a class="headerlink" href="#overview-constructiontab" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 7 </span><span class="caption-text">Brief overview of the functions of the construction tab</span><a class="headerlink" href="#overview-constructiontab" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <div class="admonition note">
@@ -547,18 +542,13 @@ This is where the important information for the export to IDA-ICE is added. <!--
 <p>2.1 <strong>Consturction Name</strong><br />
 2.2 <strong>Surface Type:</strong> <a class="reference internal" href="#opaque-building-components-key-parameter-and-layer-parameters"><span class="xref myst">opaque building components</span></a><br />
 2.3 <strong>Layers:</strong><br />
-Shows the structure of the selected construction and the different materials it is made of. You can click on all other materials for further information.</p>
+Shows the structure of the selected construction and the different materials it is made of. You can switch between materials for further information. These are displayed in the three parameters <strong>layer name</strong>, <strong>material</strong> and <strong>thickness</strong>.</p>
 <ul class="simple">
 <li><p>Layer Name: Shows the name of your choosen Layer. <!-- Kontrollieren ob es wirklich nur diese Funktion hat! --></p></li>
 <li><p>Material: Shows the material of your choosen Layer, <!-- Platzhalter, verlinkung zu Materials --></p></li>
 <li><p>Thickness: Shows the Thickness (m) of your choosen Layer</p></li>
 </ul>
 <p>All changes have a direct impact on the data model. This makes it possible to make changes quickly and effectively without losing the overview! <!-- Probieren ob automatisch jede komponente in der geometrie einem IDA-ICE surface type zugewissen wird, bzw. ob auch objekte ohne zuweisung im User Interface angezeigt werden--></p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>It is very important to work carefully in the user interface, because changes are applied directly, even without explicitly saving or simply closing the user interface.</p>
-</div>
-<!-- Meldung vllt verschieben (UserInterface) falls es auf alle tabs zutrifft!-->
 </section>
 <hr class="docutils" />
 <section id="transparent-building-components-key-parameter-and-layer-parameters">
@@ -568,7 +558,7 @@ door and other <code class="docutils literal notranslate"><span class="pre">glas
 <figure class="align-default" id="transperentbuildingcomponents-ui">
 <img alt="_images/TransperentBuildingComponents-UI.png" src="_images/TransperentBuildingComponents-UI.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 9 </span><span class="caption-text">Example of the data structure for a window</span><a class="headerlink" href="#transperentbuildingcomponents-ui" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 8 </span><span class="caption-text">Example of the data structure for a window</span><a class="headerlink" href="#transperentbuildingcomponents-ui" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>The “Glass Constructions definitions” tab is pretty much identical in structure to <a class="reference internal" href="#opaque-building-components-key-parameter-and-layer-parameters"><span class="xref myst">“Constructions definitions”</span></a>. The only difference is in the parameters.</p>
@@ -580,7 +570,7 @@ Any name to name the glass constructions.</p></li>
 Proportion of solar radiation that enters the building through the window (direct + secondary through heating of the glass).</p></li>
 <li><p><strong>Solar Transmittance(T)</strong><br />
 Proportion of directly transmitted solar radiation (without secondary heat conduction).</p></li>
-<li><p><strong>Visible Transmittance(Tvis):</strong>
+<li><p><strong>Visible Transmittance(Tvis):</strong><br />
 Proportion of visible light that passes through the glazing.</p></li>
 <li><p><strong>Thermal Conductivity(U):</strong><br />
 Heat transfer coefficient - how well the window conducts heat.</p></li>
@@ -602,34 +592,79 @@ The opposite of 6. so for the outside of the window</p></li>
 <hr class="docutils" />
 <section id="shading-building-components-key-parameter-and-layer-parameters">
 <h4>Shading building components: Key parameter and layer parameters<a class="headerlink" href="#shading-building-components-key-parameter-and-layer-parameters" title="Link to this heading">#</a></h4>
-<p>To export the shading components of your datamodel please follow these instructions:</p>
-<ul class="simple">
-<li><p>Add a new parameter named <code class="docutils literal notranslate"><span class="pre">IDA-ICE_surface_types</span></code> to your shading component.</p></li>
-<li><p>Write <code class="docutils literal notranslate"><span class="pre">SHADE</span></code> as a text into the newly added parameter.</p></li>
-</ul>
-<p>The needed parameters to enable the export and simulation with the plugin can be seen in <a class="reference internal" href="#shade-para"><span class="std std-numref">Fig. 10</span></a>.</p>
-<figure class="align-default" id="shade-para">
-<a class="reference internal image-reference" href="img/shade_para.png"><img alt="img/shade_para.png" src="img/shade_para.png" style="height: 250px;" />
-</a>
+<p>A central element in IDA-ICE is the consideration of shading, as it has a considerable influence on daylight, cooling and heating loads and the indoor climate. This is why the plugin has a separate area for this, as you can see in <a class="reference internal" href="#shades-ui"><span class="std std-numref">Fig. 9</span></a>.</p>
+<figure class="align-default" id="shades-ui">
+<img alt="_images/Shades-UI.png" src="_images/Shades-UI.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 10 </span><span class="caption-text">Needed parameters of the shading component for the simulation.</span><a class="headerlink" href="#shade-para" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 9 </span><span class="caption-text">User Interface Shading Surface definitions</span><a class="headerlink" href="#shades-ui" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
+<p>As you can see, we have decided to use the same structure throughout the Plugin. So that users can find their way around as quickly as possible and concentrate on the essentials.</p>
+<p>The individual parameters relate to the surface properties of a material or surface in IDA ICE. They influence thermal radiation, light reflection and the transmission of daylight and energy. Here is a detailed explanation of the individual parameters:</p>
+<ol class="arabic simple">
+<li><p><strong>Name:</strong><br />
+Any name to name the shading.</p></li>
+<li><p><strong>Longwave Emissivity:</strong><br />
+Indicates how strongly a surface can emit long-wave heat radiation (infrared).</p></li>
+<li><p><strong>Shortwave Reflectance:</strong><br />
+Proportion of short-wave sunlight reflected by the surface (in %).</p></li>
+<li><p><strong>Roughness:</strong><br />
+Beschreibt, wie rau eine Oberfläche ist, was sich auf die Streuung von Licht auswirkt.</p></li>
+<li><p><strong>Specularity:</strong><br />
+How strongly a surface reflects (directionally).</p></li>
+<li><p><strong>Transparency:</strong><br />
+How much visible light is transmitted through the surface.</p></li>
+</ol>
+<p>The needed parameters to enable the export and simulation with the plugin can be seen in <code class="xref std std-numref docutils literal notranslate"><span class="pre">shade_para</span></code>.</p>
+<p>The parameters for the shadings change for each material. This is precisely why this user interface is so important. In IDA-ICE, a distinction is made not only between materials but also between shading types. Here is the most important thing you need to know about them:</p>
+<hr class="docutils" />
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Shading Type</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Typical Parameter Variability</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Fixed Shading</p></td>
+<td><p>Overhangs, balconies, louvers – permanently attached to the facade</p></td>
+<td><p>Material (e.g., concrete, metal, wood), size, transparency (e.g., perforated panels)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Horizontal Shading</p></td>
+<td><p>Horizontal louvers, awnings</p></td>
+<td><p>Material, spacing, angle, transparency</p></td>
+</tr>
+<tr class="row-even"><td><p>Vertical Shading</p></td>
+<td><p>Side fins, vertical louvers</p></td>
+<td><p>Material, height, spacing, transparency</p></td>
+</tr>
+<tr class="row-odd"><td><p>Context/Environmental Shading</p></td>
+<td><p>Neighboring buildings, trees, walls</p></td>
+<td><p>Shape, size, material (e.g., tree crowns as partially transparent)</p></td>
+</tr>
+<tr class="row-even"><td><p>Window-Integrated Shading</p></td>
+<td><p>Blinds, roller shades, venetian blinds mounted on the window</p></td>
+<td><p>Material, opening degree, control (fixed/variable), transparency</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- überlegen rauszulöschen, unnötige information, nicht auf das wesentliche konzentriet-->
 </section>
 </section>
 <section id="hvac-system">
 <h3>HVAC-System<a class="headerlink" href="#hvac-system" title="Link to this heading">#</a></h3>
-<p>The HVAC-System is implemented via the ESBO-Plant of IDA-ICE. <a class="reference internal" href="#esbo-simultan"><span class="std std-numref">Fig. 11</span></a> shows all the possible inputs
+<p>The HVAC-System is implemented via the ESBO-Plant of IDA-ICE. <a class="reference internal" href="#esbo-simultan"><span class="std std-numref">Fig. 10</span></a> shows all the possible inputs
 which are exported with the plugin.</p>
 <figure class="align-default" id="esbo-simultan">
 <a class="reference internal image-reference" href="img/esbo_simultan.png"><img alt="img/esbo_simultan.png" src="img/esbo_simultan.png" style="height: 350px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 11 </span><span class="caption-text">SIMULTAN components for the different ESBO-Plant components.</span><a class="headerlink" href="#esbo-simultan" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 10 </span><span class="caption-text">SIMULTAN components for the different ESBO-Plant components.</span><a class="headerlink" href="#esbo-simultan" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>These components confine the defining parameters for the different HVAC-components. <a class="reference internal" href="#ambient-air-to-brine-para"><span class="std std-numref">Fig. 12</span></a>
-to <a class="reference internal" href="#liquid-circuit"><span class="std std-numref">Fig. 17</span></a> show the different parameters which have to be incorporated in the data model to export the
+<p>These components confine the defining parameters for the different HVAC-components. <a class="reference internal" href="#ambient-air-to-brine-para"><span class="std std-numref">Fig. 11</span></a>
+to <a class="reference internal" href="#liquid-circuit"><span class="std std-numref">Fig. 16</span></a> show the different parameters which have to be incorporated in the data model to export the
 different modules of the ESBO-Plant successfully.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -640,42 +675,42 @@ modelling as much as possible.</p>
 <a class="reference internal image-reference" href="img/ambient_air_to_brine_para.png"><img alt="img/ambient_air_to_brine_para.png" src="img/ambient_air_to_brine_para.png" style="height: 250px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 12 </span><span class="caption-text">SIMULTAN components with the underlying defining parameters for the different ESBO-Plant components.</span><a class="headerlink" href="#ambient-air-to-brine-para" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 11 </span><span class="caption-text">SIMULTAN components with the underlying defining parameters for the different ESBO-Plant components.</span><a class="headerlink" href="#ambient-air-to-brine-para" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <figure class="align-default" id="ambient-air-to-water-para">
 <a class="reference internal image-reference" href="img/ambient_air_to_water_para.png"><img alt="img/ambient_air_to_water_para.png" src="img/ambient_air_to_water_para.png" style="height: 250px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 13 </span><span class="caption-text">SIMULTAN components with the underlying defining parameters for the different ESBO-Plant components.</span><a class="headerlink" href="#ambient-air-to-water-para" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 12 </span><span class="caption-text">SIMULTAN components with the underlying defining parameters for the different ESBO-Plant components.</span><a class="headerlink" href="#ambient-air-to-water-para" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <figure class="align-default" id="generic-cold-water">
 <a class="reference internal image-reference" href="img/generic_cold_water.png"><img alt="img/generic_cold_water.png" src="img/generic_cold_water.png" style="height: 350px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 14 </span><span class="caption-text">SIMULTAN components with the underlying defining parameters for the different ESBO-Plant components.</span><a class="headerlink" href="#generic-cold-water" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 13 </span><span class="caption-text">SIMULTAN components with the underlying defining parameters for the different ESBO-Plant components.</span><a class="headerlink" href="#generic-cold-water" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <figure class="align-default" id="generic-photo">
 <a class="reference internal image-reference" href="img/generic_photo.png"><img alt="img/generic_photo.png" src="img/generic_photo.png" style="height: 350px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 15 </span><span class="caption-text">SIMULTAN components with the underlying defining parameters for the different ESBO-Plant components.</span><a class="headerlink" href="#generic-photo" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 14 </span><span class="caption-text">SIMULTAN components with the underlying defining parameters for the different ESBO-Plant components.</span><a class="headerlink" href="#generic-photo" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <figure class="align-default" id="generic-topup">
 <a class="reference internal image-reference" href="img/generic_topup.png"><img alt="img/generic_topup.png" src="img/generic_topup.png" style="height: 300px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 16 </span><span class="caption-text">SIMULTAN components with the underlying defining parameters for the different ESBO-Plant components.</span><a class="headerlink" href="#generic-topup" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 15 </span><span class="caption-text">SIMULTAN components with the underlying defining parameters for the different ESBO-Plant components.</span><a class="headerlink" href="#generic-topup" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <figure class="align-default" id="liquid-circuit">
 <a class="reference internal image-reference" href="img/liquid_circuit.png"><img alt="img/liquid_circuit.png" src="img/liquid_circuit.png" style="height: 200px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 17 </span><span class="caption-text">SIMULTAN components with the underlying defining parameters for the different ESBO-Plant components.</span><a class="headerlink" href="#liquid-circuit" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 16 </span><span class="caption-text">SIMULTAN components with the underlying defining parameters for the different ESBO-Plant components.</span><a class="headerlink" href="#liquid-circuit" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <div class="admonition note">
@@ -692,7 +727,7 @@ the component <code class="docutils literal notranslate"><span class="pre">Nutzu
 <a class="reference internal image-reference" href="img/inernal_gains_comp.png"><img alt="img/inernal_gains_comp.png" src="img/inernal_gains_comp.png" style="height: 400px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 18 </span><span class="caption-text">SIMULTAN components with the underlying defining parameters for the different ESBO-Plant components.</span><a class="headerlink" href="#inernal-gains-comp" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 17 </span><span class="caption-text">SIMULTAN components with the underlying defining parameters for the different ESBO-Plant components.</span><a class="headerlink" href="#inernal-gains-comp" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>The sub-components consist of <code class="docutils literal notranslate"><span class="pre">Equipment</span></code>, <code class="docutils literal notranslate"><span class="pre">Light</span></code>, <code class="docutils literal notranslate"><span class="pre">Occupants</span></code> each with the needed parameters to describe the needed
@@ -702,7 +737,7 @@ information for the simulation.</p>
 <a class="reference internal image-reference" href="img/equipment_para.png"><img alt="img/equipment_para.png" src="img/equipment_para.png" style="height: 300px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 19 </span><span class="caption-text">SIMULTAN component for the description of internal gains by equipments with the underlying defining parameters.</span><a class="headerlink" href="#equipment-para" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 18 </span><span class="caption-text">SIMULTAN component for the description of internal gains by equipments with the underlying defining parameters.</span><a class="headerlink" href="#equipment-para" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p><strong>Light</strong></p>
@@ -710,7 +745,7 @@ information for the simulation.</p>
 <a class="reference internal image-reference" href="img/light_para.png"><img alt="img/light_para.png" src="img/light_para.png" style="height: 200px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 20 </span><span class="caption-text">SIMULTAN component for the description of internal gains by light with the underlying defining parameters.</span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 19 </span><span class="caption-text">SIMULTAN component for the description of internal gains by light with the underlying defining parameters.</span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p><strong>Occupants</strong></p>
@@ -718,7 +753,7 @@ information for the simulation.</p>
 <a class="reference internal image-reference" href="img/occupant_para.png"><img alt="img/occupant_para.png" src="img/occupant_para.png" style="height: 200px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 21 </span><span class="caption-text">SIMULTAN component for the description of internal gains by occupants with the underlying defining parameters.</span><a class="headerlink" href="#id2" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 20 </span><span class="caption-text">SIMULTAN component for the description of internal gains by occupants with the underlying defining parameters.</span><a class="headerlink" href="#id2" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>

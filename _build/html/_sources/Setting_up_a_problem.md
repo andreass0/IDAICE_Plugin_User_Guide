@@ -71,15 +71,19 @@ The geometry file for the IDA-ICE analysis has to be called **idaice_analysis.si
 
 The IDA-ICE-Plugin comes with a user interface {numref}`UserInterface_example` to help with the creation of the needed data structure for the plugin. The user interface is very user-friendly and ensures that you keep an overview and do not make any unnecessary mistakes by navigating manually. <!-- Formulierung nochmal überarbeiten!!-->
 
-```{figure} img/Beispiel-UserInterface.png
+```{figure} img/position-construction.png
 ---
-height: 700px
-name: UserInterface_example
+name: position-construction
 ---
-a method of the IDA-ICE user interface 
+Possibilities with the IDA-ICE plugin
 ```
-<!-- Wortwahl: "Method"-->
 
+```{warning}
+It is very important to work carefully in the user interface, because changes are applied directly, even without explicitly saving or simply closing the user interface.
+```
+
+<!-- Wortwahl: "Method"-->
+<!-- noch klären wie es wirklich intern in ida-ice vorgeht und werter bearbeitet, ... -->
 ---
 
 ### Building Envelope
@@ -109,20 +113,11 @@ building envelope IDA-ICE is differentiating between the following main categori
 
 #### Opaque building components: Key parameter and layer parameters
 
-The data structure for building components to be exported with the plugin will be explained for an external wall. The
-procedure is analogues for the other opaque building components.
+in the example you can see the data structure for a **GROUND-SLAB**. The procedure is analogues for the other opaque building components.
 
-To export the external walls of your datamodel please follow these instructions:
+To export Opaque building components using the IDA-ICE user interface, please follow these instructions:
 
-- Open the construction tab in Simultan <!-- Kontrollieren -->
-
-```{figure} img/position-construction.png
----
-name: position-construction
----
-The construction tab
-```
-
+- Open the `construction` tab in Simultan <!-- Kontrollieren -->
 - The `construction` tab with all its functions <!-- Vllt bisschen kleiner -->
 
 ```{figure} img/overview-constructiontab.png
@@ -147,18 +142,13 @@ This is where the important information for the export to IDA-ICE is added. <!--
 2.1 **Consturction Name**  
 2.2 **Surface Type:** [opaque building components](#opaque-building-components-key-parameter-and-layer-parameters)  
 2.3 **Layers:**  
-Shows the structure of the selected construction and the different materials it is made of. You can click on all other materials for further information. 
+Shows the structure of the selected construction and the different materials it is made of. You can switch between materials for further information. These are displayed in the three parameters **layer name**, **material** and **thickness**.
 
 - Layer Name: Shows the name of your choosen Layer. <!-- Kontrollieren ob es wirklich nur diese Funktion hat! -->
 - Material: Shows the material of your choosen Layer, <!-- Platzhalter, verlinkung zu Materials -->
 - Thickness: Shows the Thickness (m) of your choosen Layer
 
 All changes have a direct impact on the data model. This makes it possible to make changes quickly and effectively without losing the overview! <!-- Probieren ob automatisch jede komponente in der geometrie einem IDA-ICE surface type zugewissen wird, bzw. ob auch objekte ohne zuweisung im User Interface angezeigt werden-->
-
-```{warning}
-It is very important to work carefully in the user interface, because changes are applied directly, even without explicitly saving or simply closing the user interface.
-```
-<!-- Meldung vllt verschieben (UserInterface) falls es auf alle tabs zutrifft!-->
 
 ---
 
@@ -184,7 +174,7 @@ Any name to name the glass constructions.
 Proportion of solar radiation that enters the building through the window (direct + secondary through heating of the glass).
 3. **Solar Transmittance(T)**  
 Proportion of directly transmitted solar radiation (without secondary heat conduction).  
-4. **Visible Transmittance(Tvis):**
+4. **Visible Transmittance(Tvis):**  
 Proportion of visible light that passes through the glazing.  
 5. **Thermal Conductivity(U):**  
 Heat transfer coefficient - how well the window conducts heat.  
@@ -207,20 +197,47 @@ These values are used in IDA ICE to:
 
 #### Shading building components: Key parameter and layer parameters
 
-To export the shading components of your datamodel please follow these instructions:
+A central element in IDA-ICE is the consideration of shading, as it has a considerable influence on daylight, cooling and heating loads and the indoor climate. This is why the plugin has a separate area for this, as you can see in {numref}`Shades-UI`.
 
-- Add a new parameter named `IDA-ICE_surface_types` to your shading component.
-- Write `SHADE` as a text into the newly added parameter.
+```{figure} img/Shades-UI.png
+---
+name: Shades-UI
+---
+User Interface Shading Surface definitions
+```
+
+As you can see, we have decided to use the same structure throughout the Plugin. So that users can find their way around as quickly as possible and concentrate on the essentials.
+
+The individual parameters relate to the surface properties of a material or surface in IDA ICE. They influence thermal radiation, light reflection and the transmission of daylight and energy. Here is a detailed explanation of the individual parameters:
+
+1. **Name:**  
+Any name to name the shading.  
+2. **Longwave Emissivity:**  
+Indicates how strongly a surface can emit long-wave heat radiation (infrared).  
+3. **Shortwave Reflectance:**  
+Proportion of short-wave sunlight reflected by the surface (in %).  
+4. **Roughness:**  
+Beschreibt, wie rau eine Oberfläche ist, was sich auf die Streuung von Licht auswirkt.  
+5.  **Specularity:**  
+How strongly a surface reflects (directionally).  
+6.  **Transparency:**  
+How much visible light is transmitted through the surface.  
 
 The needed parameters to enable the export and simulation with the plugin can be seen in {numref}`shade_para`.
 
-```{figure} img/shade_para.png
+The parameters for the shadings change for each material. This is precisely why this user interface is so important. In IDA-ICE, a distinction is made not only between materials but also between shading types. Here is the most important thing you need to know about them:
+
 ---
-height: 250px
-name: shade_para
----
-Needed parameters of the shading component for the simulation.
-```
+
+| Shading Type                   | Description                                                          | Typical Parameter Variability                                   |
+|-------------------------------|----------------------------------------------------------------------|------------------------------------------------------------------|
+| Fixed Shading                  | Overhangs, balconies, louvers – permanently attached to the facade   | Material (e.g., concrete, metal, wood), size, transparency (e.g., perforated panels) |
+| Horizontal Shading             | Horizontal louvers, awnings                                          | Material, spacing, angle, transparency                           |
+| Vertical Shading               | Side fins, vertical louvers                                          | Material, height, spacing, transparency                          |
+| Context/Environmental Shading  | Neighboring buildings, trees, walls                                  | Shape, size, material (e.g., tree crowns as partially transparent) |
+| Window-Integrated Shading      | Blinds, roller shades, venetian blinds mounted on the window         | Material, opening degree, control (fixed/variable), transparency |
+<!-- überlegen rauszulöschen, unnötige information, nicht auf das wesentliche konzentriet-->
+
 
 ### HVAC-System
 
