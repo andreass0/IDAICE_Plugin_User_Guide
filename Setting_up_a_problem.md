@@ -145,7 +145,7 @@ This is where the important information for the export to IDA-ICE is added. <!--
 Shows the structure of the selected construction and the different materials it is made of. You can switch between materials for further information. These are displayed in the three parameters **layer name**, **material** and **thickness**.
 
 - Layer Name: Shows the name of your choosen Layer. <!-- Kontrollieren ob es wirklich nur diese Funktion hat! -->
-- Material: Shows the material of your choosen Layer, <!-- Platzhalter, verlinkung zu Materials -->
+- Material: Shows the material of your choosen Layer, [**Materials**](#materials) 
 - Thickness: Shows the Thickness (m) of your choosen Layer
 
 All changes have a direct impact on the data model. This makes it possible to make changes quickly and effectively without losing the overview! <!-- Probieren ob automatisch jede komponente in der geometrie einem IDA-ICE surface type zugewissen wird, bzw. ob auch objekte ohne zuweisung im User Interface angezeigt werden-->
@@ -238,81 +238,90 @@ The parameters for the shadings change for each material. This is precisely why 
 | Window-Integrated Shading      | Blinds, roller shades, venetian blinds mounted on the window         | Material, opening degree, control (fixed/variable), transparency |
 <!-- überlegen rauszulöschen, unnötige information, nicht auf das wesentliche konzentriet-->
 
+---
 
 ### HVAC-System
 
 The HVAC-System is implemented via the ESBO-Plant of IDA-ICE. {numref}`esbo_simultan` shows all the possible inputs
 which are exported with the plugin.
 
-```{figure} img/esbo_simultan.png
+```{figure} img/Esbo-UI.png
 ---
-height: 350px
 name: esbo_simultan
 ---
 SIMULTAN components for the different ESBO-Plant components.
 ```
 
-These components confine the defining parameters for the different HVAC-components. {numref}`ambient_air_to_brine_para`
-to {numref}`liquid_circuit` show the different parameters which have to be incorporated in the data model to export the
-different modules of the ESBO-Plant successfully.
+The **Edit Component** area contains the defining parameters for the various HVAC components. These differ completely between the individual components.
 
 ```{tip}
-Use the template which holds all the possible ESBO-Plant inputs and delete what you don't need. Refrain from manual 
-modelling as much as possible.
+All components can be easily switched off in the user interface. This separates all data connected to the component. As you can see in the screenshot. 
 ```
 
-```{figure} img/ambient_air_to_brine_para.png
+```{figure} img/ESBOplant-UI.png
 ---
-height: 250px
-name: ambient_air_to_brine_para
+name: esbo_off
 ---
-SIMULTAN components with the underlying defining parameters for the different ESBO-Plant components.
+A switched off component
 ```
 
-```{figure} img/ambient_air_to_water_para.png
+Like all other functions in the IDA-ICE-Plugin, changes in the user interface have a direct effect on the data structure. As a result, these functions are powerful and should be used with caution. In the following scrennshots {numref}`system-on` and {numref}`system_off` I have shown the effects on Building Services when an **HVAC-System** is switched off in **ESBO-plant**.
+
+
+
+```{figure} img/esbo-on.png
 ---
-height: 250px
-name: ambient_air_to_water_para
+name: system-on
 ---
-SIMULTAN components with the underlying defining parameters for the different ESBO-Plant components.
+HVAC-System turned on
 ```
 
-```{figure} img/generic_cold_water.png
+```{figure} img/esbo_off.png
 ---
-height: 350px
-name: generic_cold_water
+name: system_off
 ---
-SIMULTAN components with the underlying defining parameters for the different ESBO-Plant components.
+HVAC-System turned off
 ```
 
-```{figure} img/generic_photo.png
----
-height: 350px
-name: generic_photo
----
-SIMULTAN components with the underlying defining parameters for the different ESBO-Plant components.
-```
 
-```{figure} img/generic_topup.png
----
-height: 300px
-name: generic_topup
----
-SIMULTAN components with the underlying defining parameters for the different ESBO-Plant components.
-```
-
-```{figure} img/liquid_circuit.png
----
-height: 200px
-name: liquid_circuit
----
-SIMULTAN components with the underlying defining parameters for the different ESBO-Plant components.
-```
-
-```{note}
+```{warning}
 If you are exporting redundant HVAC-Systems or HVAC-Systems which are in conflict with each other for the 
 dynamic simulation IDA-ICE will show an error message.
 ```
+<!-- nicht sicher ob es auch beim User Interface noch passend ist-->
+<!-- am ende noch bisschen text eventuelle noch bisschen informationen über HVAC SYstem / Esbo-Plant in IDA ICE allgemein-->
+
+### Materials
+<!-- anordnung der Überschirft klären!!-->
+
+`Materials` have been given their own area in the **IDA-ICE-Plugin**. This once again allows users to keep their materials organized and to proceed in a structured manner.
+
+```{figure} img/materials_UI.png
+---
+name: materials_UI
+---
+User Interface for materials
+```
+
+As you can see, we have also used a simple layout here to maximize user-friendliness. In **the materials definitions section**, you can **delete** materials, **copy** materials to customize them and **create completely new materials**. To do the latter, fill in the parameters using the description below.
+
+1. **Name:**  
+Any name to name the material.
+2. **Thermal Conductivity:**  
+Indicates how well the material conducts heat.  
+Value 0: This means that the material does not conduct any heat at all - it acts as perfect insulation (which does not occur in reality).
+3. **Density:**  
+Indicates how much mass one cubic meter of the material has.
+4. **Specific Heat:**  
+Indicates how much energy (in joules) is required to heat 1 kg of material by 1 Kelvin.
+
+```{note}
+These parameters are essential for thermal simulation in IDA ICE. They determine how the material as part of a component (e.g. wall, floor) conducts and stores heat.
+```
+
+The newly created material is then displayed directly in the construction tab under **material**. This means that materials only have to be created once and can then be universally linked to the various components.
+
+---
 
 ### Internal Gains
 
@@ -329,7 +338,7 @@ SIMULTAN components with the underlying defining parameters for the different ES
 
 The sub-components consist of `Equipment`, `Light`, `Occupants` each with the needed parameters to describe the needed
 information for the simulation.
-
+<!-- Herrausfinden ob diese Kapitel noch notwendig sind!!!-->
 **Equipment**
 
 ```{figure} img/equipment_para.png
