@@ -36,3 +36,11 @@ name: results_graph
 ---
 Parameters with timeseries for the individual results of the simulation zones
 ```
+
+---
+
+## Sync Import
+
+The “Sync Import” function enables changes in IDA-ICE to be quickly transferred to SIMULTAN. Without having to import the IDA-ICE file (.idm) again. This saves computing power and time.
+
+<!-- Richtigkeit kontrollieren!-->

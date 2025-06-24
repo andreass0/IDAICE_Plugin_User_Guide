@@ -339,6 +339,7 @@ SIMULTAN components with the underlying defining parameters for the different ES
 The sub-components consist of `Equipment`, `Light`, `Occupants` each with the needed parameters to describe the needed
 information for the simulation.
 <!-- Herrausfinden ob diese Kapitel noch notwendig sind!!!-->
+<!-- SyncImport und Taxonomie Update nicht hinzugefügt, keine Information darüber, wenn es hinzugefügt wird dann in Results_of_the_simulation.md-->
 **Equipment**
 
 ```{figure} img/equipment_para.png
