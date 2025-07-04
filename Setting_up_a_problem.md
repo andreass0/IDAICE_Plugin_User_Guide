@@ -4,6 +4,8 @@ A short overview of the representation of the data in the data model will be giv
 
 ---
 
+<!-- Taxonomien einfügen, Taxonomien sind einzigartige Schlüssel, SImultan arbeitet im Hintergrund anssschließlich über die Keys, abhängigkeiten | Plugin erwartet bei bestimmt zugewiesenen TExonomien bestimmte WErte usw. VIdeo 00:02:02-->
+
 ## Datastructure for the plugin
 
 In {numref}`ida_data` a simplified depiction of the needed datastructure to run the plugin is given. This data structure
@@ -330,7 +332,6 @@ the component `Nutzung`. This component stores sub-components for each simulatio
 
 ```{figure} img/inernal_gains_comp.png
 ---
-height: 400px
 name: inernal_gains_comp
 ---
 SIMULTAN components with the underlying defining parameters for the different ESBO-Plant components.
@@ -344,7 +345,6 @@ information for the simulation.
 
 ```{figure} img/equipment_para.png
 ---
-height: 300px
 name: equipment_para
 ---
 SIMULTAN component for the description of internal gains by equipments with the underlying defining parameters.
@@ -354,7 +354,6 @@ SIMULTAN component for the description of internal gains by equipments with the 
 
 ```{figure} img/light_para.png
 ---
-height: 200px
 name: equipment_para
 ---
 SIMULTAN component for the description of internal gains by light with the underlying defining parameters.
@@ -364,7 +363,6 @@ SIMULTAN component for the description of internal gains by light with the under
 
 ```{figure} img/occupant_para.png
 ---
-height: 200px
 name: equipment_para
 ---
 SIMULTAN component for the description of internal gains by occupants with the underlying defining parameters.

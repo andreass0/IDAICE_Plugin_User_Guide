@@ -17,7 +17,6 @@ installation file.
 
 ```{figure} img/plugin_manager.png
 ---
-height: 250px
 name: plugin_manager
 ---
 Plugin Manager in the SIMULTAN Editor.
@@ -28,7 +27,6 @@ When the installation was successful a new tab will be added to your taskbar nam
 
 ```{figure} img/idaice_plugin.png
 ---
-height: 200px
 name: idaice_plugin
 ---
 New tab added to the taskbar of the SIMULTAN Editor after installing the IDA-ICE Plugin.

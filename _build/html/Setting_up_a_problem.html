@@ -417,12 +417,13 @@ document.write(`
 <h1>Setting up a problem<a class="headerlink" href="#setting-up-a-problem" title="Link to this heading">#</a></h1>
 <p>A short overview of the representation of the data in the data model will be given in the beginning.</p>
 <hr class="docutils" />
+<!-- Taxonomien einfügen, Taxonomien sind einzigartige Schlüssel, SImultan arbeitet im Hintergrund anssschließlich über die Keys, abhängigkeiten | Plugin erwartet bei bestimmt zugewiesenen TExonomien bestimmte WErte usw. VIdeo 00:02:02-->
 <section id="datastructure-for-the-plugin">
 <h2>Datastructure for the plugin<a class="headerlink" href="#datastructure-for-the-plugin" title="Link to this heading">#</a></h2>
 <p>In <a class="reference internal" href="#ida-data"><span class="std std-numref">Fig. 3</span></a> a simplified depiction of the needed datastructure to run the plugin is given. This data structure
 holds all the necessary information to enable simplified dynamic multizone climate and energy simulations in IDA-ICE</p>
 <figure class="align-default" id="ida-data">
-<a class="reference internal image-reference" href="img/schematic_comp_ida.jpg"><img alt="img/schematic_comp_ida.jpg" src="img/schematic_comp_ida.jpg" style="height: 500px;" />
+<a class="reference internal image-reference" href="_images/schematic_comp_ida.jpg"><img alt="_images/schematic_comp_ida.jpg" src="_images/schematic_comp_ida.jpg" style="height: 500px;" />
 </a>
 <figcaption>
 <p><span class="caption-number">Fig. 3 </span><span class="caption-text">Simplified depiction of the needed datastructure to run the plugin is given.</span><a class="headerlink" href="#ida-data" title="Link to this image">#</a></p>
@@ -458,7 +459,7 @@ IDA-ICE-plugin will be provided there.</p>
 The reference geometry, representing the outer building envelope, can for example be an architectural model or a
 designated model used for the building physics simulations.</p>
 <figure class="align-default" id="geo-simultan">
-<a class="reference internal image-reference" href="img/geo_simultan.png"><img alt="img/geo_simultan.png" src="img/geo_simultan.png" style="height: 350px;" />
+<a class="reference internal image-reference" href="_images/geo_simultan.png"><img alt="_images/geo_simultan.png" src="_images/geo_simultan.png" style="height: 350px;" />
 </a>
 <figcaption>
 <p><span class="caption-number">Fig. 4 </span><span class="caption-text">Example of the geometry of a <em>Tiny House</em> modelled with the Geometry Editor of the SIMULTAN Editor.</span><a class="headerlink" href="#geo-simultan" title="Link to this image">#</a></p>
@@ -730,8 +731,7 @@ Indicates how much energy (in joules) is required to heat 1 kg of material by 1 
 <p>The modelling of internal gains due to occupant behaviour is also possible. The SIMULTAN representation is stored under
 the component <code class="docutils literal notranslate"><span class="pre">Nutzung</span></code>. This component stores sub-components for each simulation-zone and the assigned internal gains.</p>
 <figure class="align-default" id="inernal-gains-comp">
-<a class="reference internal image-reference" href="img/inernal_gains_comp.png"><img alt="img/inernal_gains_comp.png" src="img/inernal_gains_comp.png" style="height: 400px;" />
-</a>
+<img alt="_images/inernal_gains_comp.png" src="_images/inernal_gains_comp.png" />
 <figcaption>
 <p><span class="caption-number">Fig. 15 </span><span class="caption-text">SIMULTAN components with the underlying defining parameters for the different ESBO-Plant components.</span><a class="headerlink" href="#inernal-gains-comp" title="Link to this image">#</a></p>
 </figcaption>
@@ -739,26 +739,24 @@ the component <code class="docutils literal notranslate"><span class="pre">Nutzu
 <p>The sub-components consist of <code class="docutils literal notranslate"><span class="pre">Equipment</span></code>, <code class="docutils literal notranslate"><span class="pre">Light</span></code>, <code class="docutils literal notranslate"><span class="pre">Occupants</span></code> each with the needed parameters to describe the needed
 information for the simulation.</p>
 <!-- Herrausfinden ob diese Kapitel noch notwendig sind!!!-->
+<!-- SyncImport und Taxonomie Update nicht hinzugefügt, keine Information darüber, wenn es hinzugefügt wird dann in Results_of_the_simulation.md-->
 <p><strong>Equipment</strong></p>
 <figure class="align-default" id="equipment-para">
-<a class="reference internal image-reference" href="img/equipment_para.png"><img alt="img/equipment_para.png" src="img/equipment_para.png" style="height: 300px;" />
-</a>
+<img alt="_images/equipment_para.png" src="_images/equipment_para.png" />
 <figcaption>
 <p><span class="caption-number">Fig. 16 </span><span class="caption-text">SIMULTAN component for the description of internal gains by equipments with the underlying defining parameters.</span><a class="headerlink" href="#equipment-para" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p><strong>Light</strong></p>
 <figure class="align-default" id="id1">
-<a class="reference internal image-reference" href="img/light_para.png"><img alt="img/light_para.png" src="img/light_para.png" style="height: 200px;" />
-</a>
+<img alt="_images/light_para.png" src="_images/light_para.png" />
 <figcaption>
 <p><span class="caption-number">Fig. 17 </span><span class="caption-text">SIMULTAN component for the description of internal gains by light with the underlying defining parameters.</span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p><strong>Occupants</strong></p>
 <figure class="align-default" id="id2">
-<a class="reference internal image-reference" href="img/occupant_para.png"><img alt="img/occupant_para.png" src="img/occupant_para.png" style="height: 200px;" />
-</a>
+<img alt="_images/occupant_para.png" src="_images/occupant_para.png" />
 <figcaption>
 <p><span class="caption-number">Fig. 18 </span><span class="caption-text">SIMULTAN component for the description of internal gains by occupants with the underlying defining parameters.</span><a class="headerlink" href="#id2" title="Link to this image">#</a></p>
 </figcaption>
