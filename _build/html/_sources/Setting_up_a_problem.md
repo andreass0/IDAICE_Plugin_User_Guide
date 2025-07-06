@@ -30,6 +30,40 @@ consuming efforts when trying to fix those.
 ```
 <!-- Link zu Templates fehlt -->
 
+**The data structure can be divided into two parts:**
+1. [taxonomies](#taxonomies)
+2. **components**
+
+---
+
+### Taxonomies
+
+Taxonomies are classification systems used to categorize objects, terms or information into hierarchical groups and subgroups. They are used to structure complex issues and present them clearly. A taxonomy defines the criteria for classification and the relationships between the individual categories.
+
+```{note}
+Components without an assigned taxonomy are irrelevant for the data model and are ignored by SIMULTAN.
+```
+
+---
+
+#### IDA-ICE relevant taxonomies
+
+Together with the IDA-ICE plugin, new taxonomies are also coming which are essential to establish a connection between IDA-ICE and SIMULTAN. The [User Interface](#user-interface) of the IDA-ICE Plugin **automatically** assigns the correct taxonomy to make the data model ready for export to IDA-ICE.
+
+```{figure} img/taxonomies_idaice.png
+---
+name: taxonomies_idaice
+---
+Overview IDA-ICE taxonomies
+```
+
+<!-- nach bedarf noch audführlicher!! -->
+
+---
+
+### Components
+
+
 ---
 
 ## Geometrical modelling
@@ -322,6 +356,29 @@ These parameters are essential for thermal simulation in IDA ICE. They determine
 ```
 
 The newly created material is then displayed directly in the construction tab under **material**. This means that materials only have to be created once and can then be universally linked to the various components.
+
+---
+
+### Taxonomy Update
+
+```{figure} img/taxonomyupdate_button.png
+---
+name: taxonomyupdate_button
+---
+Button to Update IDA-ICE taxonomies
+```
+
+As already mentioned in [Taxonomies](#taxonomies), taxonomies are one of the basic building blocks of SIMULTAN. That's why the plugin has its own button to update taxonomies.
+
+`If you press the button:`
+
+**All taxonomies of the IDA-ICE plugin are restored or updated to the latest version.**
+
+```{warning}
+It does not automatically assign the correct taxonomy to the components again! (if taxonomies were deleted which were linked to components)
+```
+
+<!-- anordnung, vllt. hinter taxonomie überschrift-->
 
 ---
 

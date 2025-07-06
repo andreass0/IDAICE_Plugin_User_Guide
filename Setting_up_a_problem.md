@@ -30,13 +30,52 @@ consuming efforts when trying to fix those.
 ```
 <!-- Link zu Templates fehlt -->
 
+**The data structure can be divided into two parts:**
+1. [taxonomies](#taxonomies)
+2. **components**
+
+---
+
+### Taxonomies
+
+Taxonomies are classification systems used to categorize objects, terms or information into hierarchical groups and subgroups. They are used to structure complex issues and present them clearly. A taxonomy defines the criteria for classification and the relationships between the individual categories.
+
+```{note}
+Components without an assigned taxonomy are irrelevant for the data model and are ignored by SIMULTAN.
+```
+
+---
+
+#### IDA-ICE relevant taxonomies
+
+Together with the IDA-ICE plugin, new taxonomies are also coming which are essential to establish a connection between IDA-ICE and SIMULTAN. The [User Interface](#user-interface) of the IDA-ICE Plugin **automatically** assigns the correct taxonomy to make the data model ready for export to IDA-ICE.
+
+```{figure} img/taxonomies_idaice.png
+---
+name: taxonomies_idaice
+---
+Overview IDA-ICE taxonomies
+```
+
+<!-- nach bedarf noch audführlicher!! -->
+
+---
+
+### Components
+
+
 ---
 
 ## Geometrical modelling
 
 The geometry is created in the Geometry Editor of the SIMULTAN Editor. Please consult
 the [SIMULTAN Editor User Guide](https://github.com/bph-tuwien/SIMULTAN.Documentation/wiki)
-for further information on how to use this Geometry Editor. Or watch our [Videos on YouTube](https://www.youtube.com/watch?v=YDDNtA6lkFU&t=1s). <!-- Neu -->
+for further information on how to use this Geometry Editor. Or watch our [Videos on YouTube](https://www.youtube.com/watch?v=YDDNtA6lkFU&t=1s). <!-- Ursprünglich!! -->
+
+
+
+
+
 
 ---
 
@@ -238,7 +277,7 @@ The parameters for the shadings change for each material. This is precisely why 
 | Vertical Shading               | Side fins, vertical louvers                                          | Material, height, spacing, transparency                          |
 | Context/Environmental Shading  | Neighboring buildings, trees, walls                                  | Shape, size, material (e.g., tree crowns as partially transparent) |
 | Window-Integrated Shading      | Blinds, roller shades, venetian blinds mounted on the window         | Material, opening degree, control (fixed/variable), transparency |
-<!-- überlegen rauszulöschen, unnötige information, nicht auf das wesentliche konzentriet-->
+<!-- vllt. rauszulöschen, irrelevante information-->
 
 ---
 
@@ -322,6 +361,29 @@ These parameters are essential for thermal simulation in IDA ICE. They determine
 ```
 
 The newly created material is then displayed directly in the construction tab under **material**. This means that materials only have to be created once and can then be universally linked to the various components.
+
+---
+
+### Taxonomy Update
+
+```{figure} img/taxonomyupdate_button.png
+---
+name: taxonomyupdate_button
+---
+Button to Update IDA-ICE taxonomies
+```
+
+As already mentioned in [Taxonomies](#taxonomies), taxonomies are one of the basic building blocks of SIMULTAN. That's why the plugin has its own button to update taxonomies.
+
+`If you press the button:`
+
+**All taxonomies of the IDA-ICE plugin are restored or updated to the latest version.**
+
+```{warning}
+It does not automatically assign the correct taxonomy to the components again! (if taxonomies were deleted which were linked to components)
+```
+
+<!-- anordnung, vllt. hinter taxonomie überschrift-->
 
 ---
 

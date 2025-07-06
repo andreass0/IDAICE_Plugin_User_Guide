@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Results of the simulation &#8212; IDA-ICE-Plugin for SIMULTAN (Work in Progress)</title>
+    <title>Sync Import &#8212; IDA-ICE-Plugin for SIMULTAN (Work in Progress)</title>
   
   
   
@@ -57,11 +57,11 @@
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'Results_of_the_simulation';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Sync_Import';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Sync Import" href="Sync_Import.html" />
-    <link rel="prev" title="Running a simulation" href="Running_a_simulation.html" />
+    <link rel="next" title="SIMULTAN Datastructure to incorporate the IDA-ICE Data model" href="SIMULTAN_Datastructure_to_incorporate_the_IDAICE_Data_model.html" />
+    <link rel="prev" title="Results of the simulation" href="Results_of_the_simulation.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -185,8 +185,8 @@
 <li class="toctree-l1"><a class="reference internal" href="Getting_started_with_the_IDAICE_Plugin.html">Getting started with the IDA-ICE Plugin</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Setting_up_a_problem.html">Setting up a problem</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Running_a_simulation.html">Running a simulation</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Results of the simulation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Sync_Import.html">Sync Import</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Results_of_the_simulation.html">Results of the simulation</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Sync Import</a></li>
 <li class="toctree-l1"><a class="reference internal" href="SIMULTAN_Datastructure_to_incorporate_the_IDAICE_Data_model.html">SIMULTAN Datastructure to incorporate the IDA-ICE Data model</a></li>
 <li class="toctree-l1"><a class="reference internal" href="LICENSE.html">Copyright and license agreements</a></li>
 <li class="toctree-l1"><a class="reference internal" href="References.html">References</a></li>
@@ -261,7 +261,7 @@
       
       
       
-      <li><a href="https://github.com/andreass0/IDAICE_Plugin_User_Guide/issues/new?title=Issue%20on%20page%20%2FResults_of_the_simulation.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/andreass0/IDAICE_Plugin_User_Guide/issues/new?title=Issue%20on%20page%20%2FSync_Import.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -291,7 +291,7 @@
       
       
       
-      <li><a href="_sources/Results_of_the_simulation.md" target="_blank"
+      <li><a href="_sources/Sync_Import.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -375,7 +375,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Results of the simulation</h1>
+    <h1>Sync Import</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -385,7 +385,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-of-results">Import of results</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#establish-a-connection-to-ida-ice">Establish a connection to IDA-ICE</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visual-differentiation">Visual differentiation</a></li>
 </ul>
             </nav>
         </div>
@@ -397,38 +398,34 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="results-of-the-simulation">
-<span id="id1"></span><h1>Results of the simulation<a class="headerlink" href="#results-of-the-simulation" title="Link to this heading">#</a></h1>
-<section id="import-of-results">
-<h2>Import of results<a class="headerlink" href="#import-of-results" title="Link to this heading">#</a></h2>
-<p>The results can be imported back into SIMULTAN with the <code class="docutils literal notranslate"><span class="pre">Import</span> <span class="pre">results</span> <span class="pre">button</span></code>. You are prompted with a selection
-dialogue,please choose your main .idm-file to import the results of the energy load simulation.</p>
-<figure class="align-default" id="import-results">
-<img alt="_images/import_results.png" src="_images/import_results.png" />
+  <section class="tex2jax_ignore mathjax_ignore" id="sync-import">
+<span id="id1"></span><h1>Sync Import<a class="headerlink" href="#sync-import" title="Link to this heading">#</a></h1>
+<p>The <code class="docutils literal notranslate"><span class="pre">Sync</span> <span class="pre">Import</span></code> function enables changes in IDA-ICE to be quickly transferred to SIMULTAN. Without having to import the IDA-ICE file (.idm) again. This saves computing power and time.<br />
+The main focus of the <code class="docutils literal notranslate"><span class="pre">Sync</span> <span class="pre">Import</span></code> function is to work with current data. Data can be linked to external applications like IDA-ICE.</p>
+<section id="establish-a-connection-to-ida-ice">
+<h2>Establish a connection to IDA-ICE<a class="headerlink" href="#establish-a-connection-to-ida-ice" title="Link to this heading">#</a></h2>
+<p>To ensure that parameters with certain values are transferred from IDA-ICE to SIMULTAN, make sure that the <code class="docutils literal notranslate"><span class="pre">Sync</span> <span class="pre">with</span> <span class="pre">External</span> <span class="pre">Application</span></code> function is activated in the <strong>Property Editor</strong> under source. Without this setting, the parameter cannot accept external data.</p>
+<figure class="align-default" id="parameter-import-sync">
+<img alt="_images/parameter_import_sync.png" src="_images/parameter_import_sync.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 24 </span><span class="caption-text">Button to import the results of the simulation back into SIMULTAN.</span><a class="headerlink" href="#import-results" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 27 </span><span class="caption-text">Button to receive Data from IDA-ICE.</span><a class="headerlink" href="#parameter-import-sync" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>The results will be stored under the component <code class="docutils literal notranslate"><span class="pre">IDA</span> <span class="pre">ICE</span> <span class="pre">Analysis</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">Results</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">Taxonomie:</span> <span class="pre">Results</span> <span class="pre">Zone</span> <span class="pre">[extension]</span></code>. Under this component the
-plugin creates a sub-component for each simulation Zone in the data model.</p>
-<figure class="align-default" id="results-comp">
-<a class="reference internal image-reference" href="_images/results_comp.png"><img alt="_images/results_comp.png" src="_images/results_comp.png" style="height: 350px;" />
-</a>
+<p>If you now press the Sync Import button, the value from IDA-ICE is read.<br />
+This means that it is always possible to work with realistic and variable data in order to achieve an optimum simulation.</p>
+</section>
+<section id="visual-differentiation">
+<h2>Visual differentiation<a class="headerlink" href="#visual-differentiation" title="Link to this heading">#</a></h2>
+<figure class="align-default" id="source-unterschied">
+<img alt="_images/source_unterschied.png" src="_images/source_unterschied.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 25 </span><span class="caption-text">Component for each of the simulated zones in SIMULTAN</span><a class="headerlink" href="#results-comp" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 28 </span><span class="caption-text">Difference between source types in Simultan.</span><a class="headerlink" href="#source-unterschied" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>Under these components the results of the Energy Load Simulation are stored as timeseries which can be visualized in the
-graph visualization function of the Editor.</p>
-<figure class="align-default" id="results-graph">
-<img alt="_images/results_graph.png" src="_images/results_graph.png" />
-<figcaption>
-<p><span class="caption-number">Fig. 26 </span><span class="caption-text">Parameters with timeseries for the individual results of the simulation zones</span><a class="headerlink" href="#results-graph" title="Link to this image">#</a></p>
-</figcaption>
-</figure>
-<!-- bild ist veraltet finde die angeziegt analyse nicht im aktuellen model!-->
-<hr class="docutils" />
-<!-- nicht ganz passend, nochmals überarbeiten!--></section>
+<p>In <a class="reference internal" href="#source-unterschied"><span class="std std-numref">Fig. 28</span></a> you can see that the differently selected source types can also be distinguished visually with different icons.</p>
+<!-- Richtigkeit kontrollieren!-->
+<!-- alles selber testen um sicher zu gehen dass alles auch so funktioniert!-->
+<!-- funtkioniert noch nicht richtig im JupyterBuch --></section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -462,20 +459,20 @@ graph visualization function of the Editor.</p>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="Running_a_simulation.html"
+       href="Results_of_the_simulation.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Running a simulation</p>
+        <p class="prev-next-title">Results of the simulation</p>
       </div>
     </a>
     <a class="right-next"
-       href="Sync_Import.html"
+       href="SIMULTAN_Datastructure_to_incorporate_the_IDAICE_Data_model.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Sync Import</p>
+        <p class="prev-next-title">SIMULTAN Datastructure to incorporate the IDA-ICE Data model</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -495,7 +492,8 @@ graph visualization function of the Editor.</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-of-results">Import of results</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#establish-a-connection-to-ida-ice">Establish a connection to IDA-ICE</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visual-differentiation">Visual differentiation</a></li>
 </ul>
   </nav></div>
 

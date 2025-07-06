@@ -14,7 +14,7 @@ name: import_results
 Button to import the results of the simulation back into SIMULTAN.
 ```
 
-The results will be stored under the component `IDA ICE Analysis` -> `Results`. Under this component the
+The results will be stored under the component `IDA ICE Analysis` -> `Results` -> `Taxonomie: Results Zone [extension]`. Under this component the
 plugin creates a sub-component for each simulation Zone in the data model.
 
 ```{figure} img/results_comp.png
@@ -36,10 +36,4 @@ Parameters with timeseries for the individual results of the simulation zones
 ```
 <!-- bild ist veraltet finde die angeziegt analyse nicht im aktuellen model!-->
 ---
-
-## Sync Import
-
-The “Sync Import” function enables changes in IDA-ICE to be quickly transferred to SIMULTAN. Without having to import the IDA-ICE file (.idm) again. This saves computing power and time.
-
-<!-- Richtigkeit kontrollieren!-->
-<!-- für sync import eigen seite machen-->
+<!-- nicht ganz passend, nochmals überarbeiten!-->
