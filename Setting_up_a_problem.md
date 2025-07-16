@@ -72,11 +72,82 @@ The geometry is created in the Geometry Editor of the SIMULTAN Editor. Please co
 the [SIMULTAN Editor User Guide](https://github.com/bph-tuwien/SIMULTAN.Documentation/wiki)
 for further information on how to use this Geometry Editor. Or watch our [Videos on YouTube](https://www.youtube.com/watch?v=YDDNtA6lkFU&t=1s). <!-- Ursprünglich!! -->
 
+---
 
+### Related to IDA-ICE
 
+Geometric modeling is a core aspect of SIMULTAN, so a few important things need to be taken into account here. So that a stable data structure can be created.
+<!-- Inhaltlich stärkere Einleitung, Momentan nur Platzhalter!!-->
 
+---
 
+#### Assign components to the correct areas
 
+The basis of every SIMULTAN file is the assignment of geometries. This means that all walls, ceilings and floors (all types of surfaces) must also be assigned. As you can see in the following pictures {numref}`flächen_zuweisen` and {numref}`zuordnung_geometrie`! <!-- Inhaltlich das ganze Kapitel nochmal kontrollieren!-->
+
+```{figure} img/flächen_zuweisen.png
+---
+name: flächen_zuweisen
+---
+Assigned components
+```
+```{figure} img/zuordnugn_geometrie.png
+---
+name: zuordnung_geometrie
+---
+Data which is connected with the surface
+```
+
+In {numref}`flächen_zuweisen` under  `Components` you can see that the selected surface is connected to **6-AW_ZW**. For further Information press the arrow on the right. Once you've done that you end up in the component area where this area is noted.
+
+```{note}
+On the buttom of {numref}`zuordnung_geometrie` you can see how this surface gets connected to the **IDA-ICE-Plugin**. More on this later in the chapter [opaque building components](#opaque-building-components-key-parameter-and-layer-parameters)
+```
+
+---
+
+#### Assign volume to rooms
+
+... this works in the same way as assigning components to the correct surfaces. The only difference is that it now works with volumes instead of surfaces.
+
+```{figure} img/volumen_zuweisen.png
+---
+name: volumen_zuweisen
+---
+Connecting rooms with volumes
+```
+```{important}
+The `4th - 7th button` from the left (yellow gray cube icons) are used to select the different components.   
+- **Vertices**   
+- **Edges**   
+- **Faces**   
+- **Volumes**
+```
+<!-- vollständigkeit prüfen-->
+
+---
+
+#### Setpoints
+
+Just like rooms, `setpoints` are also assigned volumes. Setpoints consist of two parameters, **heating** and **cooling**. Setpoints can be used to define set values for heating and cooling.    Each individual room can have its own **heating** and **cooling** setpoints. <!-- checken -->
+
+```{figure} img/setpoints.png
+---
+name: setpoints
+---
+Setpoints
+```
+```{figure} img/cooling_heating.png
+---
+name: cooling_heating
+---
+Heating and cooling parameters
+```
+
+```{note}
+{numref}`setpoints` | You can see another linked component called `Water Radiator Simple`. This is an **Esbo Plant** component that is also linked to volumes. More about it [the Esbo Plant here](#hvac-system)
+```
+<!-- Information mit Meeting Aufzeichnung checken!!! -->
 ---
 
 ### Modelling guidelines
