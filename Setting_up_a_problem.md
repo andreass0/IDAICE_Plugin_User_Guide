@@ -48,7 +48,7 @@ Components without an assigned taxonomy are irrelevant for the data model and ar
 
 #### IDA-ICE relevant taxonomies
 
-Together with the IDA-ICE plugin, new taxonomies are also coming which are essential to establish a connection between IDA-ICE and SIMULTAN. The [User Interface](#user-interface) of the IDA-ICE Plugin **automatically** assigns the correct taxonomy to make the data model ready for export to IDA-ICE.
+Together with the IDA-ICE plugin, new taxonomies are also coming which are essential to establish a connection between IDA-ICE and SIMULTAN. The [User Interface](#modeling-for-ida-ice) of the IDA-ICE Plugin **automatically** assigns the correct taxonomy to make the data model ready for export to IDA-ICE.
 
 ```{figure} img/taxonomies_idaice.png
 ---
@@ -57,7 +57,9 @@ name: taxonomies_idaice
 Overview IDA-ICE taxonomies
 ```
 
-<!-- nach bedarf noch audführlicher!! -->
+We recommend that you start with one of our `template files`, which ensures an error-free, synchronized simulation to get used to the plugin.   
+To restore the full `taxonomy hierarchy` which is necessary for the **IDA-ICE plugin**, the plugin offers a [solution](#taxonomy-update).
+<!-- vorlage verlinken!-->
 
 ---
 
@@ -127,29 +129,6 @@ The `4th - 7th button` from the left (yellow gray cube icons) are used to select
 
 ---
 
-#### Setpoints
-
-Just like rooms, `setpoints` are also assigned volumes. Setpoints consist of two parameters, **heating** and **cooling**. Setpoints can be used to define set values for heating and cooling.    Each individual room can have its own **heating** and **cooling** setpoints. <!-- checken -->
-
-```{figure} img/setpoints.png
----
-name: setpoints
----
-Setpoints
-```
-```{figure} img/cooling_heating.png
----
-name: cooling_heating
----
-Heating and cooling parameters
-```
-
-```{note}
-{numref}`setpoints` | You can see another linked component called `Water Radiator Simple`. This is an **Esbo Plant** component that is also linked to volumes. More about it [the Esbo Plant here](#hvac-system)
-```
-<!-- Information mit Meeting Aufzeichnung checken!!! -->
----
-
 ### Modelling guidelines
 
 ```{important}
@@ -179,7 +158,96 @@ The geometry file for the IDA-ICE analysis has to be called **idaice_analysis.si
 
 ---
 
-## User Interface <!-- Neuer Sektor | Reihenfolge mit oberigen Kapitel vllt tauschen -->
+## Setpoints
+
+Just like rooms, `setpoints` are also assigned volumes. Setpoints consist of two parameters, **heating** and **cooling**. Setpoints can be used to define set values for heating and cooling. Setpoints define the limit temperatures within a room. If the temperature falls above or below this range, the room temperature must be adjusted.    Each individual room can have its own **heating** and **cooling** setpoints. <!-- checken -->
+
+```{figure} img/setpoints.png
+---
+name: setpoints
+---
+Setpoints
+```
+```{figure} img/cooling_heating.png
+---
+name: cooling_heating
+---
+Heating and cooling parameters
+```
+
+<!-- Information mit Meeting Aufzeichnung checken!!! -->
+---
+
+### Propagation
+
+Within the property manager under Parameters there is the Propagation area. This includes 3 buttons with different functions. As you can see in {numref}`Propagation`
+- Always propagate
+- Propagate if instance
+- Never propagate   
+
+```{figure} img/propagation.png
+---
+name: Propagation
+---
+Propagation buttons
+```
+
+---
+
+#### Never propagate
+
+The `Never propagate` button ensures that the `setpoints for heating and cooling` of each room can be overwritten in the geometry view. <!-- formulierung checken!-->
+
+```{figure} img/never_propagate.png
+---
+name: never_propagate
+---
+Never propagate
+```
+
+---
+
+#### Always propagate
+
+If you press the `Always propagate` button in the component area, the overwriting of the **basic heating and cooling values** in the geometry view is blocked. And the cell is grayed out for visibility.
+
+---
+
+#### Propagate if instance
+
+<!-- konnte keinen unterschied zu Always propagate finden, auch nicht den sinn des overwrite buttons!-->
+---
+
+### Simultaion Data <!-- überlegung doch in Running a Simulation zu geben-->
+
+The Simulation Data section is divided into two parts:
+- **Simulation Phase**
+- **Warmup Phase**   
+
+These two areas contain important parameters for the IDA-ICE simulation.
+
+```{figure} img/Simulation_Data.png
+---
+name: simulation_data
+---
+Simulation Data
+```
+
+---
+
+#### Warmup Phase
+
+`The warmup phase` is an **initialization period** at the beginning of the simulation. During this time, the building model adjusts its internal conditions – such as wall temperatures, indoor climate, and thermal mass – **to reach a realistic thermal balance.** The results from this phase are **not** included in the output statistics. Its sole purpose is to ensure that the main simulation (Simulation Phase) starts from **physically meaningful** and **stable conditions**.
+
+---
+
+#### Simulation Phase
+
+`The simulation phase` is the **main calculation period** during which all desired results of the building model are collected. This phase covers the predefined analysis period (e.g., one year) and computes operating states, room temperatures, energy consumption, and other relevant indicators. **Only values determined during the simulation phase are used for analysis, statistics, and reporting.** Thus, this phase provides the essential basis for evaluating the building and its systems.
+
+---
+
+## Modeling for IDA-ICE
 
 The IDA-ICE-Plugin comes with a user interface {numref}`UserInterface_example` to help with the creation of the needed data structure for the plugin. The user interface is very user-friendly and ensures that you keep an overview and do not make any unnecessary mistakes by navigating manually. <!-- Formulierung nochmal überarbeiten!!-->
 
