@@ -33,7 +33,7 @@ Overview of all opaque building components
    * **Surface Type**
    * **Layers**: Defined by name, material, and thickness
 
-- Layer Name: Shows the name of your choosen layer. <!-- Kontrollieren ob es wirklich nur diese Funktion hat! -->
+- Layer Name: Shows the name of your choosen layer.
 - Material: Shows the material of your choosen layer, [**Materials**](#material-properties)
 - Thickness: Shows the Thickness (m) of your choosen layer
 
@@ -45,7 +45,7 @@ name: overview-constructiontab
 Construction tab overview
 ```
 
-```{note}
+```{warning}
 **Any change made here directly updates the simulation data model.** That's why it is very important to work carefully in the user interface, changes are applied directly, even without explicitly saving or simply closing the user interface.
 ```
 
@@ -129,7 +129,7 @@ The parameters for the shadings change for each material. This is precisely why 
 | Integrated   | Window-mounted          | Venetian blinds            |
 
 ```{note}
-Shading settings influence both energy performance and daylight modeling.
+**Shading settings influence both energy performance and daylight modeling.**
 ```
 
 ---

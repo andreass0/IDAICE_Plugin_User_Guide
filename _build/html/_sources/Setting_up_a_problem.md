@@ -21,6 +21,8 @@ A more in-depth description of the SIMULTAN data representation for building phy
 ```{warning}
 Although it is technically possible to define this structure manually, we strongly recommend using the provided templates to avoid errors. Manual modeling is error-prone and can lead to time-consuming troubleshooting.
 ```
+<!-- templates müsse noch verlinkt werden-->
+
 
 The data structure consists of two main elements:
 
@@ -34,7 +36,7 @@ The data structure consists of two main elements:
 Taxonomies are classification systems used to organize elements into hierarchical categories and subcategories. They help structure complex models and define relationships between entities.
 
 ```{note}
-Components that are not assigned to a taxonomy are ignored by SIMULTAN.
+**Components that are not assigned to a taxonomy are ignored by SIMULTAN.**
 ```
 
 #### IDA-ICE Relevant Taxonomies
@@ -48,9 +50,7 @@ name: taxonomies_idaice
 Overview of IDA-ICE taxonomies
 ```
 
-We recommend starting with one of the provided `template files` <!--Link-->to ensure synchronization and reduce the risk of errors. To restore the complete taxonomy hierarchy required by the plugin, refer to the section on [taxonomy updates](#taxonomy-update). <!-- verknüpfung zur nächsten seite!-->
-
-<!-- TODO: Insert link to taxonomy template file -->
+We recommend starting with one of the provided `template files` <!--Link-->to ensure synchronization and reduce the risk of errors. To restore the complete taxonomy hierarchy required by the plugin, refer to the section on [taxonomy update](Detailed_Modeling_Guide.md#taxonomy-update).
 
 ---
 
@@ -64,8 +64,6 @@ name: components_beispiel
 ---
 Components
 ```
-
-<!-- TODO: Check completeness of components shown in this figure -->
 
 ---
 
@@ -88,6 +86,8 @@ name: flächen_zuweisen
 Assigned components
 ```
 
+In {numref}`flächen_zuweisen`, under `Components`, the selected surface is connected to **6-AW\_ZW**. Clicking the arrow on the right opens the corresponding component.
+
 ```{figure} img/zuordnugn_geometrie.png
 ---
 name: zuordnung_geometrie
@@ -95,13 +95,9 @@ name: zuordnung_geometrie
 Data linked to a surface
 ```
 
-In {numref}`flächen_zuweisen`, under `Components`, the selected surface is connected to **6-AW\_ZW**. Clicking the arrow on the right opens the corresponding component.
-
 ```{note}
-At the bottom of {numref}`zuordnung_geometrie`, the connection to the **IDA-ICE Plugin** is indicated. More information is available in [Opaque Building Components](#opaque-building-components-key-parameter-and-layer-parameters).
+At the bottom of {numref}`zuordnung_geometrie`, the connection to the **IDA-ICE Plugin** is indicated | Can be recognized by the assigned taxonomy *Constructional Element*. More information is available in [Opaque Building Components](#opaque-building-components-key-parameter-and-layer-parameters).
 ```
-
-<!-- TODO: Review this entire section for completeness and consistency -->
 
 #### Assigning Volume to Rooms
 
@@ -129,6 +125,7 @@ The `4th - 7th buttons` from the left (yellow-grey cube icons) allow you to sele
 ```{important}
 Start with or import the provided template file `template_esbo_and_shades.simultan`, which contains all necessary structures for operating the IDA-ICE Plugin.
 ```
+<!-- link zu template fehlt -->
 
 ```{figure} img/geo_simultan.png
 ---
@@ -148,7 +145,11 @@ The geometry file for IDA-ICE must be named **idaice_analysis.simgeo**.
 
 ## Setpoints
 
-Setpoints are defined temperature thresholds used for heating and cooling control. Like rooms, setpoints are assigned to volumes and consist of two parameters: **heating** and **cooling**. These define the acceptable temperature range for each room. If the temperature deviates from this range, heating or cooling is triggered.
+Setpoints are defined temperature thresholds used for heating and cooling control. Like rooms, setpoints are assigned to volumes and consist of two parameters: heating and cooling. These define the acceptable temperature range for each room. If the temperature deviates from this range, heating or cooling is triggered.
+
+```{warning}
+**Setpoints must always be assigned to a volume!**
+``` 
 
 ```{figure} img/setpoints.png
 ---
@@ -170,7 +171,7 @@ Heating and cooling parameters
 
 Propagation controls how values—such as heating and cooling setpoints—are transferred between components and geometry.
 
-You can find the propagation settings under *Parameters > Propagation*.
+**You can find the propagation settings under *Parameters > Propagation*.**
 
 ```{figure} img/propagation.png
 ---
@@ -183,7 +184,7 @@ The three options are:
 
 * **Always propagate**: Prevents changes to setpoints in the geometry view. These values remain fixed.
 * **Never propagate**: Allows manual overwriting of heating and cooling setpoints in the geometry view.
-* **Propagate if instance**: Applies values only to instantiated components. *(Note: If unclear, clarify this setting's behavior.)*
+* **Propagate if instance**: <!-- konnte keinen unterschied zu Always propagate finden, auch nicht den sinn des overwrite buttons!-->
 
 ```{figure} img/never_propagate.png
 ---
@@ -191,6 +192,61 @@ name: never_propagate
 ---
 Never propagate
 ```
+
+---
+
+## Room Unit Exports
+
+**What is a Room Unit in IDA ICE?**   
+A Room Unit in IDA ICE represents a single thermal zone whose indoor climate and energy performance are simulated. It is the core element for modeling room comfort, energy demand, and system operation. All relevant influences and technical systems affecting a room are brought together and calculated within the Room Unit.
+
+**Typical Characteristics of a Room Unit:**
+- **Geometry and Building Elements:**   
+The Room Unit includes the room dimensions and all surfaces with their physical properties.
+- **Usage:**   
+User profiles, occupancy, internal loads (e.g., from equipment or lighting), and schedules are defined here.
+- **Building Systems:**   
+Central interface for heating, cooling, ventilation, shading, and control.
+- **Controls:**   
+Setpoints such as target temperature, CO₂ limits, or humidity levels are applied to the Room Unit.
+- **Energy Flows:**   
+The required energy for heating, cooling, and ventilation as well as internal gains and losses are calculated per Room Unit.
+- **Comfort Evaluation:**   
+Comfort indicators like overheating hours, temperature profiles, or air quality are evaluated for each Room Unit.
+
+### Ideal Heating and Cooling
+
+The Ideal Heater and Ideal Cooler are standard room units for simplified simulation of heating and cooling within a thermal zone. They provide or remove exactly the amount of heat needed to maintain the specified room temperature setpoints—regardless of the technical limitations or control losses typically present in real systems.
+
+```{tip}
+[Temperature setpoints](#setpoints): Define when heating or cooling is activated.
+```
+
+### Simultan Relevant Knowledge
+
+```{figure} img/Ideal_heating_cooling.png
+---
+name: ideal_heating_cooling
+---
+Parameters of ideal heating and cooling
+```
+
+You can find the Ideal Cooler and Heater in SIMULTAN under Building Services. Both components are equipped with many parameters for perfect results.
+
+In {numref}`ideal_heating_cooling` you will see a yellow icon next to the names of the Ideal Cooler and Heater, which indicates that this component is connected to a geometry. Connecting the component to a volume is essential for exporting to IDA-ICE.
+
+### Water Radiator
+
+After using the Ideal Heater/Cooler for simplified, direct room temperature control, the Water Radiator adds realism by simulating an actual hydronic radiator with water flow, heat transfer limits, and response delays. Unlike the Ideal Heater, the Water Radiator reflects physical system constraints and integrates with real heating circuits, making it essential for detailed, system-based simulations.
+
+```{figure} img/water_radiator.png
+---
+name: water_radiator
+---
+Water Radiator
+```
+
+The water radiator behaves in the same way as an ideal heater/cooler. Therefore, it must be assigned to a volume/zone! You find it under Building Services.
 
 ---
 

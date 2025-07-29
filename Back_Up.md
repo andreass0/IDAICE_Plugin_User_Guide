@@ -4,8 +4,6 @@ This chapter provides a brief overview of how data is structured within the unde
 
 ---
 
-<!-- Taxonomien einfügen, Taxonomien sind einzigartige Schlüssel, SImultan arbeitet im Hintergrund anssschließlich über die Keys, abhängigkeiten | Plugin erwartet bei bestimmt zugewiesenen TExonomien bestimmte WErte usw. VIdeo 00:02:02-->
-
 ## Datastructure for the plugin
 
 In {numref}`ida_data` a simplified depiction of the needed datastructure to run the plugin is given. This data structure
@@ -72,7 +70,6 @@ name: components_beispiel
 ---
 Components
 ```
-<!-- vollständigkeit prüfen!-->
 
 ---
 
@@ -80,20 +77,20 @@ Components
 
 The geometry is created in the Geometry Editor of the SIMULTAN Editor. Please consult
 the [SIMULTAN Editor User Guide](https://github.com/bph-tuwien/SIMULTAN.Documentation/wiki)
-for further information on how to use this Geometry Editor. Or watch our [Videos on YouTube](https://www.youtube.com/watch?v=YDDNtA6lkFU&t=1s). <!-- Ursprünglich!! -->
+for further information on how to use this Geometry Editor. Or watch our [Videos on YouTube](https://www.youtube.com/watch?v=YDDNtA6lkFU&t=1s). 
 
 ---
 
 ### Related to IDA-ICE
 
 Geometric modeling is a core aspect of SIMULTAN, so a few important things need to be taken into account here. So that a stable data structure can be created.
-<!-- Inhaltlich stärkere Einleitung, Momentan nur Platzhalter!!-->
+
 
 ---
 
 #### Assign components to the correct areas
 
-The basis of every SIMULTAN file is the assignment of geometries. This means that all surfaces—including walls, ceilings, and floors—must be explicitly assigned. As you can see in the following pictures {numref}`flächen_zuweisen` and {numref}`zuordnung_geometrie`! <!-- Inhaltlich das ganze Kapitel nochmal kontrollieren!-->
+The basis of every SIMULTAN file is the assignment of geometries. This means that all surfaces—including walls, ceilings, and floors—must be explicitly assigned. As you can see in the following pictures {numref}`flächen_zuweisen` and {numref}`zuordnung_geometrie`!
 
 ```{figure} img/flächen_zuweisen.png
 ---
@@ -133,7 +130,7 @@ The `4th - 7th button` from the left (yellow gray cube icons) are used to select
 - **Faces**   
 - **Volumes**
 ```
-<!-- vollständigkeit prüfen-->
+
 
 ---
 
@@ -168,7 +165,7 @@ The geometry file for the IDA-ICE analysis has to be called **idaice_analysis.si
 
 ## Setpoints
 
-Just like rooms, `setpoints` are also assigned volumes. Setpoints consist of two parameters, **heating** and **cooling**. Setpoints can be used to define set values for heating and cooling. Setpoints define the limit temperatures within a room. If the temperature falls above or below this range, the room temperature must be adjusted.    Each individual room can have its own **heating** and **cooling** setpoints. <!-- checken -->
+Just like rooms, `setpoints` are also assigned volumes. Setpoints consist of two parameters, **heating** and **cooling**. Setpoints can be used to define set values for heating and cooling. Setpoints define the limit temperatures within a room. If the temperature falls above or below this range, the room temperature must be adjusted.    Each individual room can have its own **heating** and **cooling** setpoints.
 
 ```{figure} img/setpoints.png
 ---
@@ -183,7 +180,6 @@ name: cooling_heating
 Heating and cooling parameters
 ```
 
-<!-- Information mit Meeting Aufzeichnung checken!!! -->
 ---
 
 ### Propagation
@@ -204,7 +200,7 @@ Propagation buttons
 
 #### Never propagate
 
-The `Never propagate` button ensures that the `setpoints for heating and cooling` of each room can be overwritten in the geometry view. <!-- formulierung checken!-->
+The `Never propagate` button ensures that the `setpoints for heating and cooling` of each room can be overwritten in the geometry view.
 
 ```{figure} img/never_propagate.png
 ---
@@ -223,10 +219,10 @@ If you press the `Always propagate` button in the component area, the overwritin
 
 #### Propagate if instance
 
-<!-- konnte keinen unterschied zu Always propagate finden, auch nicht den sinn des overwrite buttons!-->
+
 ---
 
-### Simultaion Data <!-- überlegung doch in Running a Simulation zu geben-->
+### Simultation Data
 
 The simulation data is divided into two distinct phases:
 - **Warm-up Phase**   
@@ -257,7 +253,7 @@ Simulation Data
 
 ## Modeling for IDA-ICE
 
-The IDA-ICE plugin includes a user interface designed to assist users in building the necessary data structure efficiently. The user interface is very user-friendly and ensures that you keep an overview and do not make any unnecessary mistakes by navigating manually. <!-- Formulierung nochmal überarbeiten!!-->
+The IDA-ICE plugin includes a user interface designed to assist users in building the necessary data structure efficiently. The user interface is very user-friendly and ensures that you keep an overview and do not make any unnecessary mistakes by navigating manually. 
 
 ```{figure} img/position-construction.png
 ---
@@ -270,8 +266,6 @@ Possibilities with the IDA-ICE plugin
 It is very important to work carefully in the user interface, because changes are applied directly, even without explicitly saving or simply closing the user interface.
 ```
 
-<!-- Wortwahl: "Method"-->
-<!-- noch klären wie es wirklich intern in ida-ice vorgeht und werter bearbeitet, ... -->
 ---
 
 ### Building Envelope
@@ -301,8 +295,8 @@ in the example you can see the data structure for a **GROUND-SLAB**. The procedu
 
 To export Opaque building components using the IDA-ICE user interface, please follow these instructions:
 
-- Open the `construction` tab in Simultan <!-- Kontrollieren -->
-- The `construction` tab with all its functions <!-- Vllt bisschen kleiner -->
+- Open the `construction` tab in Simultan 
+- The `construction` tab with all its functions 
 
 ```{figure} img/overview-constructiontab.png
 ---
@@ -314,19 +308,19 @@ Brief overview of the functions of the construction tab
 1. **`Select construction:`**  
 Provides an overview of all objects that are already connected to IDA-ICE Surface Types. It gives you a good overview and lets you edit all the surfaces connected to the IDA-ICE-Plugin with just a few clicks. <!-- Ausdruck! -->
 2. **`Edit construction:`**   
-This is where the important information for the export to IDA-ICE is added. <!-- Auschmücken und Unterpunkte näher erklären! -->  
+This is where the important information for the export to IDA-ICE is added. 
 
 
-2.1 **Consturction Name**  
+2.1 **Construction Name**  
 2.2 **Surface Type:** [opaque building components](#opaque-building-components-key-parameter-and-layer-parameters)  
 2.3 **Layers:**  
 Shows the structure of the selected construction and the different materials it is made of. You can switch between materials for further information. These are displayed in the three parameters **layer name**, **material** and **thickness**.
 
-- Layer Name: Shows the name of your choosen layer. <!-- Kontrollieren ob es wirklich nur diese Funktion hat! -->
+- Layer Name: Shows the name of your choosen layer. 
 - Material: Shows the material of your choosen layer, [**Materials**](#material-properties) 
 - Thickness: Shows the Thickness (m) of your choosen layer
 
-All changes have a direct impact on the data model. This makes it possible to make changes quickly and effectively without losing the overview! <!-- Probieren ob automatisch jede komponente in der geometrie einem IDA-ICE surface type zugewissen wird, bzw. ob auch objekte ohne zuweisung im User Interface angezeigt werden-->
+All changes have a direct impact on the data model. This makes it possible to make changes quickly and effectively without losing the overview! 
 
 ---
 
@@ -464,11 +458,10 @@ HVAC-System turned off
 If you are exporting redundant HVAC-Systems or HVAC-Systems which are in conflict with each other for the 
 dynamic simulation IDA-ICE will show an error message.
 ```
-<!-- nicht sicher ob es auch beim User Interface noch passend ist-->
-<!-- am ende noch bisschen text eventuelle noch bisschen informationen über HVAC SYstem / Esbo-Plant in IDA ICE allgemein-->
+
 
 ### Materials
-<!-- anordnung der Überschirft klären!!-->
+
 
 `Materials` have been given their own area in the **IDA-ICE-Plugin**. This once again allows users to keep their materials organized and to proceed in a structured manner.
 
@@ -517,8 +510,6 @@ As already mentioned in [Taxonomies](#taxonomies), taxonomies are one of the bas
 It does not automatically assign the correct taxonomy to the components again! (if taxonomies were deleted which were linked to components)
 ```
 
-<!-- anordnung, vllt. hinter taxonomie überschrift-->
-
 ---
 
 ### Internal Gains
@@ -535,8 +526,7 @@ SIMULTAN components with the underlying defining parameters for the different ES
 
 The sub-components consist of `Equipment`, `Light`, `Occupants` each with the needed parameters to describe the needed
 information for the simulation.
-<!-- Herrausfinden ob diese Kapitel noch notwendig sind!!!-->
-<!-- SyncImport und Taxonomie Update nicht hinzugefügt, keine Information darüber, wenn es hinzugefügt wird dann in Results_of_the_simulation.md-->
+
 **Equipment**
 
 ```{figure} img/equipment_para.png

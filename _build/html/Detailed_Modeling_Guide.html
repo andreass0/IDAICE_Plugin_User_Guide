@@ -190,6 +190,7 @@
 
 
 
+
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Detailed Modeling Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Running_a_simulation.html">Running a simulation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Results_of_the_simulation.html">Results of the simulation</a></li>
@@ -430,7 +431,7 @@ information and can be exported to IDA-ICE.</p>
 <a class="reference internal image-reference" href="_images/Opaque-building-components.png"><img alt="_images/Opaque-building-components.png" src="_images/Opaque-building-components.png" style="height: 225px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 15 </span><span class="caption-text">Overview of all opaque building components</span><a class="headerlink" href="#fig-opaque-building-components" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 17 </span><span class="caption-text">Overview of all opaque building components</span><a class="headerlink" href="#fig-opaque-building-components" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <ol class="arabic simple">
@@ -445,18 +446,18 @@ information and can be exported to IDA-ICE.</p>
 </li>
 </ol>
 <ul class="simple">
-<li><p>Layer Name: Shows the name of your choosen layer. <!-- Kontrollieren ob es wirklich nur diese Funktion hat! --></p></li>
+<li><p>Layer Name: Shows the name of your choosen layer.</p></li>
 <li><p>Material: Shows the material of your choosen layer, <a class="reference internal" href="#material-properties"><span class="xref myst"><strong>Materials</strong></span></a></p></li>
 <li><p>Thickness: Shows the Thickness (m) of your choosen layer</p></li>
 </ul>
 <figure class="align-default" id="overview-constructiontab">
 <img alt="_images/overview-constructiontab.png" src="_images/overview-constructiontab.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 16 </span><span class="caption-text">Construction tab overview</span><a class="headerlink" href="#overview-constructiontab" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 18 </span><span class="caption-text">Construction tab overview</span><a class="headerlink" href="#overview-constructiontab" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
 <p><strong>Any change made here directly updates the simulation data model.</strong> That’s why it is very important to work carefully in the user interface, changes are applied directly, even without explicitly saving or simply closing the user interface.</p>
 </div>
 </section>
@@ -469,7 +470,7 @@ door and other <code class="docutils literal notranslate"><span class="pre">glas
 <figure class="align-default" id="transperentbuildingcomponents-ui">
 <img alt="_images/TransperentBuildingComponents-UI.png" src="_images/TransperentBuildingComponents-UI.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 17 </span><span class="caption-text">Example: window definition UI</span><a class="headerlink" href="#transperentbuildingcomponents-ui" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 19 </span><span class="caption-text">Example: window definition UI</span><a class="headerlink" href="#transperentbuildingcomponents-ui" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>The parameters in the image relate to the material properties of transparent components (such as windows) in the IDA ICE building simulation software. These values strongly influence the thermal and solar behavior of the glazing. Here is an explanation of the terms and their meaning.</p>
@@ -499,11 +500,11 @@ The opposite of 6. so for the outside of the window</p></li>
 <hr class="docutils" />
 <section id="shading-elements">
 <h3>Shading Elements<a class="headerlink" href="#shading-elements" title="Link to this heading">#</a></h3>
-<p>A central element in IDA-ICE is the consideration of shading, as it has a considerable influence on daylight, cooling and heating loads and the indoor climate. This is why the plugin has a separate area for this, as you can see in <a class="reference internal" href="#shades-ui"><span class="std std-numref">Fig. 18</span></a>.</p>
+<p>A central element in IDA-ICE is the consideration of shading, as it has a considerable influence on daylight, cooling and heating loads and the indoor climate. This is why the plugin has a separate area for this, as you can see in <a class="reference internal" href="#shades-ui"><span class="std std-numref">Fig. 20</span></a>.</p>
 <figure class="align-default" id="shades-ui">
 <img alt="_images/Shades-UI.png" src="_images/Shades-UI.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 18 </span><span class="caption-text">User interface for shading definition</span><a class="headerlink" href="#shades-ui" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 20 </span><span class="caption-text">User interface for shading definition</span><a class="headerlink" href="#shades-ui" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p><strong>Parameters include:</strong></p>
@@ -564,12 +565,12 @@ How much visible light is transmitted through the surface.</p></li>
 <hr class="docutils" />
 <section id="hvac-configuration-via-esbo">
 <h2>HVAC Configuration via ESBO<a class="headerlink" href="#hvac-configuration-via-esbo" title="Link to this heading">#</a></h2>
-<p>The HVAC-System is implemented via the ESBO-Plant of IDA-ICE. <a class="reference internal" href="#esbo-simultan"><span class="std std-numref">Fig. 19</span></a> shows all the possible inputs
+<p>The HVAC-System is implemented via the ESBO-Plant of IDA-ICE. <a class="reference internal" href="#esbo-simultan"><span class="std std-numref">Fig. 21</span></a> shows all the possible inputs
 which are exported with the plugin.</p>
 <figure class="align-default" id="esbo-simultan">
 <img alt="_images/Esbo-UI.png" src="_images/Esbo-UI.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 19 </span><span class="caption-text">SIMULTAN components for ESBO systems</span><a class="headerlink" href="#esbo-simultan" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 21 </span><span class="caption-text">SIMULTAN components for ESBO systems</span><a class="headerlink" href="#esbo-simultan" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p><strong>In the plugin UI:</strong></p>
@@ -584,20 +585,20 @@ which are exported with the plugin.</p>
 <figure class="align-default" id="esbo-off">
 <img alt="_images/ESBOplant-UI.png" src="_images/ESBOplant-UI.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 20 </span><span class="caption-text">Component toggled off</span><a class="headerlink" href="#esbo-off" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 22 </span><span class="caption-text">Component toggled off</span><a class="headerlink" href="#esbo-off" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <hr class="docutils" />
 <figure class="align-default" id="system-on">
 <img alt="_images/esbo-on.png" src="_images/esbo-on.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 21 </span><span class="caption-text">HVAC system enabled</span><a class="headerlink" href="#system-on" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 23 </span><span class="caption-text">HVAC system enabled</span><a class="headerlink" href="#system-on" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <figure class="align-default" id="system-off">
 <img alt="_images/esbo_off.png" src="_images/esbo_off.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 22 </span><span class="caption-text">HVAC system disabled</span><a class="headerlink" href="#system-off" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 24 </span><span class="caption-text">HVAC system disabled</span><a class="headerlink" href="#system-off" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <div class="admonition warning">
@@ -613,7 +614,7 @@ the component <code class="docutils literal notranslate"><span class="pre">Nutzu
 <figure class="align-default" id="inernal-gains-comp">
 <img alt="_images/inernal_gains_comp.png" src="_images/inernal_gains_comp.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 23 </span><span class="caption-text">Internal gains definition</span><a class="headerlink" href="#inernal-gains-comp" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 25 </span><span class="caption-text">Internal gains definition</span><a class="headerlink" href="#inernal-gains-comp" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Subcomponents include:</p>
@@ -626,19 +627,19 @@ the component <code class="docutils literal notranslate"><span class="pre">Nutzu
 <figure class="align-default" id="equipment-para">
 <img alt="_images/equipment_para.png" src="_images/equipment_para.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 24 </span><span class="caption-text">Parameters for equipment gains</span><a class="headerlink" href="#equipment-para" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 26 </span><span class="caption-text">Parameters for equipment gains</span><a class="headerlink" href="#equipment-para" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <figure class="align-default" id="light-para">
 <img alt="_images/light_para.png" src="_images/light_para.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 25 </span><span class="caption-text">Parameters for lighting gains</span><a class="headerlink" href="#light-para" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 27 </span><span class="caption-text">Parameters for lighting gains</span><a class="headerlink" href="#light-para" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <figure class="align-default" id="occupant-para">
 <img alt="_images/occupant_para.png" src="_images/occupant_para.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 26 </span><span class="caption-text">Parameters for occupant gains</span><a class="headerlink" href="#occupant-para" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 28 </span><span class="caption-text">Parameters for occupant gains</span><a class="headerlink" href="#occupant-para" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
@@ -649,7 +650,7 @@ the component <code class="docutils literal notranslate"><span class="pre">Nutzu
 <figure class="align-default" id="materials-ui">
 <img alt="_images/materials_UI.png" src="_images/materials_UI.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 27 </span><span class="caption-text">Materials UI</span><a class="headerlink" href="#materials-ui" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 29 </span><span class="caption-text">Materials UI</span><a class="headerlink" href="#materials-ui" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p><strong>Key properties:</strong></p>
@@ -676,7 +677,7 @@ Indicates how much energy (in joules) is required to heat 1 kg of material by 1 
 <figure class="align-default" id="taxonomyupdate-button">
 <img alt="_images/taxonomyupdate_button.png" src="_images/taxonomyupdate_button.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 28 </span><span class="caption-text">Taxonomy update button</span><a class="headerlink" href="#taxonomyupdate-button" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 30 </span><span class="caption-text">Taxonomy update button</span><a class="headerlink" href="#taxonomyupdate-button" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <div class="admonition warning">

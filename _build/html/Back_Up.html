@@ -190,6 +190,7 @@
 
 
 
+
 <li class="toctree-l1"><a class="reference internal" href="Detailed_Modeling_Guide.html">Detailed Modeling Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Running_a_simulation.html">Running a simulation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Results_of_the_simulation.html">Results of the simulation</a></li>
@@ -416,7 +417,7 @@ document.write(`
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#propagate-if-instance">Propagate if instance</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simultaion-data">Simultaion Data <!-- überlegung doch in Running a Simulation zu geben--></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simultation-data">Simultation Data</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#warm-up-phase">Warm-up Phase</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#simulation-phase">Simulation Phase</a></li>
 </ul>
@@ -452,10 +453,9 @@ document.write(`
 <h1>Setting up a problem<a class="headerlink" href="#setting-up-a-problem" title="Link to this heading">#</a></h1>
 <p>This chapter provides a brief overview of how data is structured within the underlying data model.</p>
 <hr class="docutils" />
-<!-- Taxonomien einfügen, Taxonomien sind einzigartige Schlüssel, SImultan arbeitet im Hintergrund anssschließlich über die Keys, abhängigkeiten | Plugin erwartet bei bestimmt zugewiesenen TExonomien bestimmte WErte usw. VIdeo 00:02:02-->
 <section id="datastructure-for-the-plugin">
 <h2>Datastructure for the plugin<a class="headerlink" href="#datastructure-for-the-plugin" title="Link to this heading">#</a></h2>
-<p>In <code class="xref std std-numref docutils literal notranslate"><span class="pre">ida_data</span></code> a simplified depiction of the needed datastructure to run the plugin is given. This data structure
+<p>In <a class="reference internal" href="Setting_up_a_problem.html#ida-data"><span class="std std-numref">Fig. 3</span></a> a simplified depiction of the needed datastructure to run the plugin is given. This data structure
 holds all the necessary information to enable simplified dynamic multizone climate and energy simulations in IDA-ICE</p>
 <figure class="align-default" id="ida-data">
 <a class="reference internal image-reference" href="_images/schematic_comp_ida.jpg"><img alt="_images/schematic_comp_ida.jpg" src="_images/schematic_comp_ida.jpg" style="height: 500px;" />
@@ -511,7 +511,6 @@ To restore the full <code class="docutils literal notranslate"><span class="pre"
 <p><span class="caption-text">Components</span><a class="headerlink" href="#components-beispiel" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<!-- vollständigkeit prüfen!-->
 </section>
 </section>
 <hr class="docutils" />
@@ -519,16 +518,15 @@ To restore the full <code class="docutils literal notranslate"><span class="pre"
 <h2>Geometrical modelling<a class="headerlink" href="#geometrical-modelling" title="Link to this heading">#</a></h2>
 <p>The geometry is created in the Geometry Editor of the SIMULTAN Editor. Please consult
 the <a class="reference external" href="https://github.com/bph-tuwien/SIMULTAN.Documentation/wiki">SIMULTAN Editor User Guide</a>
-for further information on how to use this Geometry Editor. Or watch our <a class="reference external" href="https://www.youtube.com/watch?v=YDDNtA6lkFU&amp;amp;t=1s">Videos on YouTube</a>. <!-- Ursprünglich!! --></p>
+for further information on how to use this Geometry Editor. Or watch our <a class="reference external" href="https://www.youtube.com/watch?v=YDDNtA6lkFU&amp;amp;t=1s">Videos on YouTube</a>.</p>
 <hr class="docutils" />
 <section id="related-to-ida-ice">
 <h3>Related to IDA-ICE<a class="headerlink" href="#related-to-ida-ice" title="Link to this heading">#</a></h3>
 <p>Geometric modeling is a core aspect of SIMULTAN, so a few important things need to be taken into account here. So that a stable data structure can be created.</p>
-<!-- Inhaltlich stärkere Einleitung, Momentan nur Platzhalter!!-->
 <hr class="docutils" />
 <section id="assign-components-to-the-correct-areas">
 <h4>Assign components to the correct areas<a class="headerlink" href="#assign-components-to-the-correct-areas" title="Link to this heading">#</a></h4>
-<p>The basis of every SIMULTAN file is the assignment of geometries. This means that all surfaces—including walls, ceilings, and floors—must be explicitly assigned. As you can see in the following pictures <code class="xref std std-numref docutils literal notranslate"><span class="pre">flächen_zuweisen</span></code> and <code class="xref std std-numref docutils literal notranslate"><span class="pre">zuordnung_geometrie</span></code>! <!-- Inhaltlich das ganze Kapitel nochmal kontrollieren!--></p>
+<p>The basis of every SIMULTAN file is the assignment of geometries. This means that all surfaces—including walls, ceilings, and floors—must be explicitly assigned. As you can see in the following pictures <a class="reference internal" href="Setting_up_a_problem.html#flachen-zuweisen"><span class="std std-numref">Fig. 6</span></a> and <a class="reference internal" href="Setting_up_a_problem.html#zuordnung-geometrie"><span class="std std-numref">Fig. 7</span></a>!</p>
 <figure class="align-default" id="flachen-zuweisen">
 <img alt="_images/fl%C3%A4chen_zuweisen.png" src="_images/fl%C3%A4chen_zuweisen.png" />
 <figcaption>
@@ -541,10 +539,10 @@ for further information on how to use this Geometry Editor. Or watch our <a clas
 <p><span class="caption-text">Data which is connected with the surface</span><a class="headerlink" href="#zuordnung-geometrie" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>In <code class="xref std std-numref docutils literal notranslate"><span class="pre">flächen_zuweisen</span></code> under  <code class="docutils literal notranslate"><span class="pre">Components</span></code> you can see that the selected surface is connected to <strong>6-AW_ZW</strong>. For further Information press the arrow on the right. Once you’ve done that you end up in the component area where this area is noted.</p>
+<p>In <a class="reference internal" href="Setting_up_a_problem.html#flachen-zuweisen"><span class="std std-numref">Fig. 6</span></a> under  <code class="docutils literal notranslate"><span class="pre">Components</span></code> you can see that the selected surface is connected to <strong>6-AW_ZW</strong>. For further Information press the arrow on the right. Once you’ve done that you end up in the component area where this area is noted.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>On the buttom of <code class="xref std std-numref docutils literal notranslate"><span class="pre">zuordnung_geometrie</span></code> you can see how this surface gets connected to the <strong>IDA-ICE-Plugin</strong>. More on this later in the chapter <a class="reference internal" href="#opaque-building-components-key-parameter-and-layer-parameters"><span class="xref myst">opaque building components</span></a></p>
+<p>On the buttom of <a class="reference internal" href="Setting_up_a_problem.html#zuordnung-geometrie"><span class="std std-numref">Fig. 7</span></a> you can see how this surface gets connected to the <strong>IDA-ICE-Plugin</strong>. More on this later in the chapter <a class="reference internal" href="#opaque-building-components-key-parameter-and-layer-parameters"><span class="xref myst">opaque building components</span></a></p>
 </div>
 </section>
 <hr class="docutils" />
@@ -567,7 +565,6 @@ for further information on how to use this Geometry Editor. Or watch our <a clas
 <li><p><strong>Volumes</strong></p></li>
 </ul>
 </div>
-<!-- vollständigkeit prüfen-->
 </section>
 </section>
 <hr class="docutils" />
@@ -579,7 +576,7 @@ for further information on how to use this Geometry Editor. Or watch our <a clas
 IDA-ICE-plugin will be provided there.</p>
 </div>
 <!-- Direkten Link einfügen -->
-<p>In <code class="xref std std-numref docutils literal notranslate"><span class="pre">geo_simultan</span></code> it can be seen that the plugin uses a reference geometry (white) for the dynamic simulation.
+<p>In <a class="reference internal" href="Setting_up_a_problem.html#geo-simultan"><span class="std std-numref">Fig. 9</span></a> it can be seen that the plugin uses a reference geometry (white) for the dynamic simulation.
 The reference geometry, representing the outer building envelope, can for example be an architectural model or a
 designated model used for the building physics simulations.</p>
 <figure class="align-default" id="geo-simultan">
@@ -600,7 +597,7 @@ needed for the simulation has to be linked to this model.</p>
 <hr class="docutils" />
 <section id="setpoints">
 <h2>Setpoints<a class="headerlink" href="#setpoints" title="Link to this heading">#</a></h2>
-<p>Just like rooms, <code class="docutils literal notranslate"><span class="pre">setpoints</span></code> are also assigned volumes. Setpoints consist of two parameters, <strong>heating</strong> and <strong>cooling</strong>. Setpoints can be used to define set values for heating and cooling. Setpoints define the limit temperatures within a room. If the temperature falls above or below this range, the room temperature must be adjusted.    Each individual room can have its own <strong>heating</strong> and <strong>cooling</strong> setpoints. <!-- checken --></p>
+<p>Just like rooms, <code class="docutils literal notranslate"><span class="pre">setpoints</span></code> are also assigned volumes. Setpoints consist of two parameters, <strong>heating</strong> and <strong>cooling</strong>. Setpoints can be used to define set values for heating and cooling. Setpoints define the limit temperatures within a room. If the temperature falls above or below this range, the room temperature must be adjusted.    Each individual room can have its own <strong>heating</strong> and <strong>cooling</strong> setpoints.</p>
 <figure class="align-default" id="id1">
 <img alt="_images/setpoints.png" src="_images/setpoints.png" />
 <figcaption>
@@ -613,11 +610,10 @@ needed for the simulation has to be linked to this model.</p>
 <p><span class="caption-text">Heating and cooling parameters</span><a class="headerlink" href="#cooling-heating" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<!-- Information mit Meeting Aufzeichnung checken!!! -->
 <hr class="docutils" />
 <section id="propagation">
 <h3>Propagation<a class="headerlink" href="#propagation" title="Link to this heading">#</a></h3>
-<p>Within the property manager under Parameters there is the Propagation area. This includes 3 buttons with different functions. As you can see in <code class="xref std std-numref docutils literal notranslate"><span class="pre">Propagation</span></code></p>
+<p>Within the property manager under Parameters there is the Propagation area. This includes 3 buttons with different functions. As you can see in <a class="reference internal" href="Setting_up_a_problem.html#propagation"><span class="std std-numref">Fig. 12</span></a></p>
 <ul class="simple">
 <li><p>Always propagate</p></li>
 <li><p>Propagate if instance</p></li>
@@ -632,7 +628,7 @@ needed for the simulation has to be linked to this model.</p>
 <hr class="docutils" />
 <section id="never-propagate">
 <h4>Never propagate<a class="headerlink" href="#never-propagate" title="Link to this heading">#</a></h4>
-<p>The <code class="docutils literal notranslate"><span class="pre">Never</span> <span class="pre">propagate</span></code> button ensures that the <code class="docutils literal notranslate"><span class="pre">setpoints</span> <span class="pre">for</span> <span class="pre">heating</span> <span class="pre">and</span> <span class="pre">cooling</span></code> of each room can be overwritten in the geometry view. <!-- formulierung checken!--></p>
+<p>The <code class="docutils literal notranslate"><span class="pre">Never</span> <span class="pre">propagate</span></code> button ensures that the <code class="docutils literal notranslate"><span class="pre">setpoints</span> <span class="pre">for</span> <span class="pre">heating</span> <span class="pre">and</span> <span class="pre">cooling</span></code> of each room can be overwritten in the geometry view.</p>
 <figure class="align-default" id="id3">
 <img alt="_images/never_propagate.png" src="_images/never_propagate.png" />
 <figcaption>
@@ -648,12 +644,11 @@ needed for the simulation has to be linked to this model.</p>
 <hr class="docutils" />
 <section id="propagate-if-instance">
 <h4>Propagate if instance<a class="headerlink" href="#propagate-if-instance" title="Link to this heading">#</a></h4>
-<!-- konnte keinen unterschied zu Always propagate finden, auch nicht den sinn des overwrite buttons!-->
 </section>
 </section>
 <hr class="docutils" />
-<section id="simultaion-data">
-<h3>Simultaion Data <!-- überlegung doch in Running a Simulation zu geben--><a class="headerlink" href="#simultaion-data" title="Link to this heading">#</a></h3>
+<section id="simultation-data">
+<h3>Simultation Data<a class="headerlink" href="#simultation-data" title="Link to this heading">#</a></h3>
 <p>The simulation data is divided into two distinct phases:</p>
 <ul class="simple">
 <li><p><strong>Warm-up Phase</strong></p></li>
@@ -681,7 +676,7 @@ needed for the simulation has to be linked to this model.</p>
 <hr class="docutils" />
 <section id="modeling-for-ida-ice">
 <h2>Modeling for IDA-ICE<a class="headerlink" href="#modeling-for-ida-ice" title="Link to this heading">#</a></h2>
-<p>The IDA-ICE plugin includes a user interface designed to assist users in building the necessary data structure efficiently. The user interface is very user-friendly and ensures that you keep an overview and do not make any unnecessary mistakes by navigating manually. <!-- Formulierung nochmal überarbeiten!!--></p>
+<p>The IDA-ICE plugin includes a user interface designed to assist users in building the necessary data structure efficiently. The user interface is very user-friendly and ensures that you keep an overview and do not make any unnecessary mistakes by navigating manually.</p>
 <figure class="align-default" id="position-construction">
 <img alt="_images/position-construction.png" src="_images/position-construction.png" />
 <figcaption>
@@ -692,8 +687,6 @@ needed for the simulation has to be linked to this model.</p>
 <p class="admonition-title">Warning</p>
 <p>It is very important to work carefully in the user interface, because changes are applied directly, even without explicitly saving or simply closing the user interface.</p>
 </div>
-<!-- Wortwahl: "Method"-->
-<!-- noch klären wie es wirklich intern in ida-ice vorgeht und werter bearbeitet, ... -->
 <hr class="docutils" />
 <section id="building-envelope">
 <h3>Building Envelope<a class="headerlink" href="#building-envelope" title="Link to this heading">#</a></h3>
@@ -719,8 +712,8 @@ building envelope IDA-ICE is differentiating between the following main categori
 <p>in the example you can see the data structure for a <strong>GROUND-SLAB</strong>. The procedure is analogues for the other opaque building components.</p>
 <p>To export Opaque building components using the IDA-ICE user interface, please follow these instructions:</p>
 <ul class="simple">
-<li><p>Open the <code class="docutils literal notranslate"><span class="pre">construction</span></code> tab in Simultan <!-- Kontrollieren --></p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">construction</span></code> tab with all its functions <!-- Vllt bisschen kleiner --></p></li>
+<li><p>Open the <code class="docutils literal notranslate"><span class="pre">construction</span></code> tab in Simultan</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">construction</span></code> tab with all its functions</p></li>
 </ul>
 <figure class="align-default" id="overview-constructiontab">
 <img alt="_images/overview-constructiontab.png" src="_images/overview-constructiontab.png" />
@@ -732,18 +725,18 @@ building envelope IDA-ICE is differentiating between the following main categori
 <li><p><strong><code class="docutils literal notranslate"><span class="pre">Select</span> <span class="pre">construction:</span></code></strong><br />
 Provides an overview of all objects that are already connected to IDA-ICE Surface Types. It gives you a good overview and lets you edit all the surfaces connected to the IDA-ICE-Plugin with just a few clicks. <!-- Ausdruck! --></p></li>
 <li><p><strong><code class="docutils literal notranslate"><span class="pre">Edit</span> <span class="pre">construction:</span></code></strong><br />
-This is where the important information for the export to IDA-ICE is added. <!-- Auschmücken und Unterpunkte näher erklären! --></p></li>
+This is where the important information for the export to IDA-ICE is added.</p></li>
 </ol>
-<p>2.1 <strong>Consturction Name</strong><br />
+<p>2.1 <strong>Construction Name</strong><br />
 2.2 <strong>Surface Type:</strong> <a class="reference internal" href="#opaque-building-components-key-parameter-and-layer-parameters"><span class="xref myst">opaque building components</span></a><br />
 2.3 <strong>Layers:</strong><br />
 Shows the structure of the selected construction and the different materials it is made of. You can switch between materials for further information. These are displayed in the three parameters <strong>layer name</strong>, <strong>material</strong> and <strong>thickness</strong>.</p>
 <ul class="simple">
-<li><p>Layer Name: Shows the name of your choosen layer. <!-- Kontrollieren ob es wirklich nur diese Funktion hat! --></p></li>
+<li><p>Layer Name: Shows the name of your choosen layer.</p></li>
 <li><p>Material: Shows the material of your choosen layer, <a class="reference internal" href="#material-properties"><span class="xref myst"><strong>Materials</strong></span></a></p></li>
 <li><p>Thickness: Shows the Thickness (m) of your choosen layer</p></li>
 </ul>
-<p>All changes have a direct impact on the data model. This makes it possible to make changes quickly and effectively without losing the overview! <!-- Probieren ob automatisch jede komponente in der geometrie einem IDA-ICE surface type zugewissen wird, bzw. ob auch objekte ohne zuweisung im User Interface angezeigt werden--></p>
+<p>All changes have a direct impact on the data model. This makes it possible to make changes quickly and effectively without losing the overview!</p>
 </section>
 <hr class="docutils" />
 <section id="transparent-building-components-key-parameter-and-layer-parameters">
@@ -887,12 +880,9 @@ which are exported with the plugin.</p>
 <p>If you are exporting redundant HVAC-Systems or HVAC-Systems which are in conflict with each other for the
 dynamic simulation IDA-ICE will show an error message.</p>
 </div>
-<!-- nicht sicher ob es auch beim User Interface noch passend ist-->
-<!-- am ende noch bisschen text eventuelle noch bisschen informationen über HVAC SYstem / Esbo-Plant in IDA ICE allgemein-->
 </section>
 <section id="materials">
 <h3>Materials<a class="headerlink" href="#materials" title="Link to this heading">#</a></h3>
-<!-- anordnung der Überschirft klären!!-->
 <p><code class="docutils literal notranslate"><span class="pre">Materials</span></code> have been given their own area in the <strong>IDA-ICE-Plugin</strong>. This once again allows users to keep their materials organized and to proceed in a structured manner.</p>
 <figure class="align-default" id="materials-ui">
 <img alt="_images/materials_UI.png" src="_images/materials_UI.png" />
@@ -933,7 +923,6 @@ Indicates how much energy (in joules) is required to heat 1 kg of material by 1 
 <p class="admonition-title">Warning</p>
 <p>It does not automatically assign the correct taxonomy to the components again! (if taxonomies were deleted which were linked to components)</p>
 </div>
-<!-- anordnung, vllt. hinter taxonomie überschrift-->
 </section>
 <hr class="docutils" />
 <section id="internal-gains">
@@ -948,8 +937,6 @@ the component <code class="docutils literal notranslate"><span class="pre">Nutzu
 </figure>
 <p>The sub-components consist of <code class="docutils literal notranslate"><span class="pre">Equipment</span></code>, <code class="docutils literal notranslate"><span class="pre">Light</span></code>, <code class="docutils literal notranslate"><span class="pre">Occupants</span></code> each with the needed parameters to describe the needed
 information for the simulation.</p>
-<!-- Herrausfinden ob diese Kapitel noch notwendig sind!!!-->
-<!-- SyncImport und Taxonomie Update nicht hinzugefügt, keine Information darüber, wenn es hinzugefügt wird dann in Results_of_the_simulation.md-->
 <p><strong>Equipment</strong></p>
 <figure class="align-default" id="equipment-para">
 <img alt="_images/equipment_para.png" src="_images/equipment_para.png" />
@@ -1052,7 +1039,7 @@ for general information on how to link components and geometrical information.</
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#propagate-if-instance">Propagate if instance</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simultaion-data">Simultaion Data <!-- überlegung doch in Running a Simulation zu geben--></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simultation-data">Simultation Data</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#warm-up-phase">Warm-up Phase</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#simulation-phase">Simulation Phase</a></li>
 </ul>
