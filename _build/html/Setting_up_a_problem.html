@@ -190,7 +190,6 @@
 
 
 
-
 <li class="toctree-l1"><a class="reference internal" href="Detailed_Modeling_Guide.html">Detailed Modeling Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Running_a_simulation.html">Running a simulation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Results_of_the_simulation.html">Results of the simulation</a></li>
@@ -411,14 +410,12 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#modeling-guidelines">Modeling Guidelines</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#setpoints">Setpoints</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#propagation-settings">Propagation Settings</a></li>
-</ul>
-</li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#room-unit-exports">Room Unit Exports</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ideal-heating-and-cooling">Ideal Heating and Cooling</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simultan-relevant-knowledge">Simultan Relevant Knowledge</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simultan-relevant-knowledge">SIMULTAN Relevant Knowledge</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#water-radiator">Water Radiator</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setpoints">Setpoints</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#propagation-settings">Propagation Settings</a></li>
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#simulation-data">Simulation Data</a><ul class="visible nav section-nav flex-column">
@@ -448,7 +445,7 @@ document.write(`
 <h1>Data Structure for the Plugin<a class="headerlink" href="#data-structure-for-the-plugin" title="Link to this heading">#</a></h1>
 <p>In <a class="reference internal" href="#ida-data"><span class="std std-numref">Fig. 3</span></a>, a simplified illustration of the required data structure for running the plugin is shown. This structure holds all the necessary information to enable dynamic multizone climate and energy simulations in IDA-ICE.</p>
 <figure class="align-default" id="ida-data">
-<a class="reference internal image-reference" href="_images/schematic_comp_ida.jpg"><img alt="_images/schematic_comp_ida.jpg" src="_images/schematic_comp_ida.jpg" style="height: 500px;" />
+<a class="reference internal image-reference" href="_images/schematic_comp_ida.png"><img alt="_images/schematic_comp_ida.png" src="_images/schematic_comp_ida.png" style="height: 500px;" />
 </a>
 <figcaption>
 <p><span class="caption-number">Fig. 3 </span><span class="caption-text">Simplified representation of the required data structure to run the plugin.</span><a class="headerlink" href="#ida-data" title="Link to this image">#</a></p>
@@ -475,7 +472,7 @@ document.write(`
 </div>
 <section id="ida-ice-relevant-taxonomies">
 <h3>IDA-ICE Relevant Taxonomies<a class="headerlink" href="#ida-ice-relevant-taxonomies" title="Link to this heading">#</a></h3>
-<p>The IDA-ICE plugin introduces new taxonomies essential for establishing the connection between IDA-ICE and SIMULTAN. Tools of the plugin’s <a class="reference internal" href="#modeling-for-ida-ice"><span class="xref myst">user interface</span></a> <!-- verknüpfung zur nächsten seite!-->automatically assign the appropriate taxonomy to each component for compatibility.</p>
+<p>The IDA-ICE plugin introduces new taxonomies essential for establishing the connection between IDA-ICE and SIMULTAN <a class="reference internal" href="#taxonomies-idaice"><span class="std std-numref">Fig. 4</span></a>. Tools of the plugin’s <a class="reference internal" href="#modeling-for-ida-ice"><span class="xref myst">user interface</span></a> <!-- verknüpfung zur nächsten seite!-->automatically assign the appropriate taxonomy to each component for compatibility.</p>
 <figure class="align-default" id="taxonomies-idaice">
 <img alt="_images/taxonomies_idaice.png" src="_images/taxonomies_idaice.png" />
 <figcaption>
@@ -488,11 +485,11 @@ document.write(`
 <hr class="docutils" />
 <section id="components">
 <h2>Components<a class="headerlink" href="#components" title="Link to this heading">#</a></h2>
-<p>Components represent the functional building blocks of a simulation model. Examples include heat pumps, fans, storage tanks, or control valves. Each component has specific properties and parameters relevant to simulation, such as power consumption or temperature change.</p>
+<p>Components represent the functional building blocks of a simulation model as shown in <a class="reference internal" href="#components-beispiel"><span class="std std-numref">Fig. 5</span></a>. Examples include heat pumps, fans. Each component has specific properties and parameters relevant to simulation, such as power consumption.</p>
 <figure class="align-default" id="components-beispiel">
 <img alt="_images/components_beispiel.png" src="_images/components_beispiel.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 5 </span><span class="caption-text">Components</span><a class="headerlink" href="#components-beispiel" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 5 </span><span class="caption-text">Some components of a data model</span><a class="headerlink" href="#components-beispiel" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <hr class="docutils" />
@@ -504,20 +501,21 @@ document.write(`
 <section id="ida-ice-specific-geometry-considerations">
 <h2>IDA-ICE Specific Geometry Considerations<a class="headerlink" href="#ida-ice-specific-geometry-considerations" title="Link to this heading">#</a></h2>
 <p>Since geometric modeling is central to SIMULTAN, several aspects are critical to ensure a consistent and stable data structure.</p>
+<!-- Sitplanner inforamtion hier hinzufügen!! -->
 <section id="assigning-components-to-geometrical-surfaces">
 <h3>Assigning Components to Geometrical Surfaces<a class="headerlink" href="#assigning-components-to-geometrical-surfaces" title="Link to this heading">#</a></h3>
 <p>Each surface—walls, ceilings, and floors—must be explicitly assigned within the model.</p>
 <figure class="align-default" id="flachen-zuweisen">
 <img alt="_images/fl%C3%A4chen_zuweisen.png" src="_images/fl%C3%A4chen_zuweisen.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 6 </span><span class="caption-text">Assigned components</span><a class="headerlink" href="#flachen-zuweisen" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 6 </span><span class="caption-text">Geometry editor view of components assigned to a surface</span><a class="headerlink" href="#flachen-zuweisen" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>In <a class="reference internal" href="#flachen-zuweisen"><span class="std std-numref">Fig. 6</span></a>, under <code class="docutils literal notranslate"><span class="pre">Components</span></code>, the selected surface is connected to <strong>6-AW_ZW</strong>. Clicking the arrow on the right opens the corresponding component.</p>
+<p>In <a class="reference internal" href="#flachen-zuweisen"><span class="std std-numref">Fig. 6</span></a>, under <code class="docutils literal notranslate"><span class="pre">Components</span></code>, the selected surface is connected to <strong>6-AW_ZW</strong>. Clicking the arrow on the right opens the corresponding component <a class="reference internal" href="#zuordnung-geometrie"><span class="std std-numref">Fig. 7</span></a>.</p>
 <figure class="align-default" id="zuordnung-geometrie">
 <img alt="_images/zuordnugn_geometrie.png" src="_images/zuordnugn_geometrie.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 7 </span><span class="caption-text">Data linked to a surface</span><a class="headerlink" href="#zuordnung-geometrie" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 7 </span><span class="caption-text">Component with all its parameters within the component view</span><a class="headerlink" href="#zuordnung-geometrie" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <div class="admonition note">
@@ -527,16 +525,16 @@ document.write(`
 </section>
 <section id="assigning-volume-to-rooms">
 <h3>Assigning Volume to Rooms<a class="headerlink" href="#assigning-volume-to-rooms" title="Link to this heading">#</a></h3>
-<p>The process is analogous to surface assignment, but applies to volumes.</p>
+<p>The process is analogous to surface assignment, but applies to volumes <a class="reference internal" href="#volumen-zuweisen"><span class="std std-numref">Fig. 8</span></a>.</p>
 <figure class="align-default" id="volumen-zuweisen">
 <img alt="_images/volumen_zuweisen.png" src="_images/volumen_zuweisen.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 8 </span><span class="caption-text">Connecting rooms with volumes</span><a class="headerlink" href="#volumen-zuweisen" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 8 </span><span class="caption-text">Selected volume in the geometry editor view</span><a class="headerlink" href="#volumen-zuweisen" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">4th</span> <span class="pre">-</span> <span class="pre">7th</span> <span class="pre">buttons</span></code> from the left (yellow-grey cube icons) allow you to select:</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">4th</span> <span class="pre">-</span> <span class="pre">7th</span> <span class="pre">buttons</span></code> from the left in <a class="reference internal" href="#volumen-zuweisen"><span class="std std-numref">Fig. 8</span></a> (yellow-grey cube icons) allow you to select:</p>
 <ul class="simple">
 <li><p><strong>Vertices</strong></p></li>
 <li><p><strong>Edges</strong></p></li>
@@ -569,51 +567,6 @@ document.write(`
 </div>
 <hr class="docutils" />
 </section>
-<section id="setpoints">
-<h1>Setpoints<a class="headerlink" href="#setpoints" title="Link to this heading">#</a></h1>
-<p>Setpoints are defined temperature thresholds used for heating and cooling control. Like rooms, setpoints are assigned to volumes and consist of two parameters: heating and cooling. These define the acceptable temperature range for each room. If the temperature deviates from this range, heating or cooling is triggered.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p><strong>Setpoints must always be assigned to a volume!</strong></p>
-</div>
-<figure class="align-default" id="id1">
-<img alt="_images/setpoints.png" src="_images/setpoints.png" />
-<figcaption>
-<p><span class="caption-number">Fig. 10 </span><span class="caption-text">Setpoints</span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
-</figcaption>
-</figure>
-<figure class="align-default" id="cooling-heating">
-<img alt="_images/cooling_heating.png" src="_images/cooling_heating.png" />
-<figcaption>
-<p><span class="caption-number">Fig. 11 </span><span class="caption-text">Heating and cooling parameters</span><a class="headerlink" href="#cooling-heating" title="Link to this image">#</a></p>
-</figcaption>
-</figure>
-<hr class="docutils" />
-<section id="propagation-settings">
-<h2>Propagation Settings<a class="headerlink" href="#propagation-settings" title="Link to this heading">#</a></h2>
-<p>Propagation controls how values—such as heating and cooling setpoints—are transferred between components and geometry.</p>
-<p><strong>You can find the propagation settings under <em>Parameters &gt; Propagation</em>.</strong></p>
-<figure class="align-default" id="propagation">
-<img alt="_images/propagation.png" src="_images/propagation.png" />
-<figcaption>
-<p><span class="caption-number">Fig. 12 </span><span class="caption-text">Propagation buttons</span><a class="headerlink" href="#propagation" title="Link to this image">#</a></p>
-</figcaption>
-</figure>
-<p>The three options are:</p>
-<ul class="simple">
-<li><p><strong>Always propagate</strong>: Prevents changes to setpoints in the geometry view. These values remain fixed.</p></li>
-<li><p><strong>Never propagate</strong>: Allows manual overwriting of heating and cooling setpoints in the geometry view.</p></li>
-<li><p><strong>Propagate if instance</strong>: <!-- konnte keinen unterschied zu Always propagate finden, auch nicht den sinn des overwrite buttons!--></p></li>
-</ul>
-<figure class="align-default" id="never-propagate">
-<img alt="_images/never_propagate.png" src="_images/never_propagate.png" />
-<figcaption>
-<p><span class="caption-number">Fig. 13 </span><span class="caption-text">Never propagate</span><a class="headerlink" href="#never-propagate" title="Link to this image">#</a></p>
-</figcaption>
-</figure>
-<hr class="docutils" />
-</section>
-</section>
 <section id="room-unit-exports">
 <h1>Room Unit Exports<a class="headerlink" href="#room-unit-exports" title="Link to this heading">#</a></h1>
 <p><strong>What is a Room Unit in IDA ICE?</strong><br />
@@ -638,36 +591,88 @@ Comfort indicators like overheating hours, temperature profiles, or air quality 
 <p>The Ideal Heater and Ideal Cooler are standard room units for simplified simulation of heating and cooling within a thermal zone. They provide or remove exactly the amount of heat needed to maintain the specified room temperature setpoints—regardless of the technical limitations or control losses typically present in real systems.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p><a class="reference internal" href="#id1">Temperature setpoints</a>: Define when heating or cooling is activated.</p>
+<p><a class="reference internal" href="#id2">Temperature setpoints</a>: Define when heating or cooling is activated.</p>
 </div>
 </section>
 <section id="simultan-relevant-knowledge">
-<h2>Simultan Relevant Knowledge<a class="headerlink" href="#simultan-relevant-knowledge" title="Link to this heading">#</a></h2>
+<h2>SIMULTAN Relevant Knowledge<a class="headerlink" href="#simultan-relevant-knowledge" title="Link to this heading">#</a></h2>
 <figure class="align-default" id="ideal-heating-cooling">
 <img alt="_images/Ideal_heating_cooling.png" src="_images/Ideal_heating_cooling.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 14 </span><span class="caption-text">Parameters of ideal heating and cooling</span><a class="headerlink" href="#ideal-heating-cooling" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 10 </span><span class="caption-text">Parameters of ideal heating and ideal cooling subordinated to the building services component</span><a class="headerlink" href="#ideal-heating-cooling" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>You can find the Ideal Cooler and Heater in SIMULTAN under Building Services. Both components are equipped with many parameters for perfect results.</p>
-<p>In <a class="reference internal" href="#ideal-heating-cooling"><span class="std std-numref">Fig. 14</span></a> you will see a yellow icon next to the names of the Ideal Cooler and Heater, which indicates that this component is connected to a geometry. Connecting the component to a volume is essential for exporting to IDA-ICE.</p>
+<p>Ideal Cooler and Heater can be found in SIMULTAN under Building Services.</p>
+<p>In <a class="reference internal" href="#ideal-heating-cooling"><span class="std std-numref">Fig. 10</span></a> you will see a yellow icon next to the names of the Ideal Cooler and Heater, which indicates that this component is connected to a geometry. Connecting the component to a volume is essential for exporting to IDA-ICE.</p>
 </section>
 <section id="water-radiator">
 <h2>Water Radiator<a class="headerlink" href="#water-radiator" title="Link to this heading">#</a></h2>
-<p>After using the Ideal Heater/Cooler for simplified, direct room temperature control, the Water Radiator adds realism by simulating an actual hydronic radiator with water flow, heat transfer limits, and response delays. Unlike the Ideal Heater, the Water Radiator reflects physical system constraints and integrates with real heating circuits, making it essential for detailed, system-based simulations.</p>
-<figure class="align-default" id="id2">
+<p>After using the Ideal Heater/Cooler for simplified, direct room temperature control, the Water Radiator adds realism by simulating an actual hydronic radiator with water flow, heat transfer limits, and response delays. Unlike the Ideal Heater, the Water Radiator tries to reflect physical system constraints and integrates with real heating circuits, making it essential for detailed, system-based simulations.</p>
+<figure class="align-default" id="id1">
 <img alt="_images/water_radiator.png" src="_images/water_radiator.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 15 </span><span class="caption-text">Water Radiator</span><a class="headerlink" href="#id2" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 11 </span><span class="caption-text">List of parameters for the detailed and simple water radiator</span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>The water radiator behaves in the same way as an ideal heater/cooler. Therefore, it must be assigned to a volume/zone! You find it under Building Services.</p>
+<p>The water radiator behaves in the same way as an ideal heater/cooler. Therefore, it must be assigned to a volume/zone! You find it under Building Services <a class="reference internal" href="#id1"><span class="std std-numref">Fig. 11</span></a>.</p>
+</section>
+<hr class="docutils" />
+<section id="setpoints">
+<h2>Setpoints<a class="headerlink" href="#setpoints" title="Link to this heading">#</a></h2>
+<p>Setpoints are defined temperature thresholds used for heating and cooling control. Like rooms, setpoints are assigned to volumes <a class="reference internal" href="#id2"><span class="std std-numref">Fig. 12</span></a> and consist of two parameters: heating and cooling <a class="reference internal" href="#cooling-heating"><span class="std std-numref">Fig. 13</span></a>. These define the acceptable temperature range for each room. If the temperature deviates from this range, heating or cooling is triggered.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><strong>Setpoints must always be assigned to a volume!</strong></p>
+</div>
+<figure class="align-default" id="id2">
+<img alt="_images/setpoints.png" src="_images/setpoints.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 12 </span><span class="caption-text">Example in which setpoints, water radiator, and a room are assigned to the same volume</span><a class="headerlink" href="#id2" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="cooling-heating">
+<img alt="_images/cooling_heating.png" src="_images/cooling_heating.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 13 </span><span class="caption-text">Setpoint component with his parameters heating and cooling</span><a class="headerlink" href="#cooling-heating" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="setpoints-geometrie-view">
+<img alt="_images/Setpoints_geometrie_view.png" src="_images/Setpoints_geometrie_view.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 14 </span><span class="caption-text">Setpoint adjustments to instances in the geometry editor</span><a class="headerlink" href="#setpoints-geometrie-view" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<!-- neues bild zu Setpoints im geometrie editor-->
+</section>
+<hr class="docutils" />
+<section id="propagation-settings">
+<h2>Propagation Settings<a class="headerlink" href="#propagation-settings" title="Link to this heading">#</a></h2>
+<p>Propagation controls how values—such as heating and cooling setpoints—are transferred between components and geometry.</p>
+<p><strong>You can find the propagation settings under <em>Parameters &gt; Propagation</em>.</strong> <a class="reference internal" href="#propagation"><span class="std std-numref">Fig. 15</span></a></p>
+<figure class="align-default" id="propagation">
+<img alt="_images/propagation.png" src="_images/propagation.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 15 </span><span class="caption-text">Propagation buttons within the Property Editor</span><a class="headerlink" href="#propagation" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The three options are:</p>
+<ul class="simple">
+<li><p><strong>Always propagate</strong>: Prevents changes to setpoints in the geometry view. These values remain fixed.</p></li>
+<li><p><strong>Never propagate</strong>: Allows manual overwriting of heating and cooling setpoints in the geometry view. <a class="reference internal" href="#never-propagate"><span class="std std-numref">Fig. 16</span></a></p></li>
+<li><p><strong>Propagate if instance</strong>: <!-- konnte keinen unterschied zu Always propagate finden, auch nicht den sinn des overwrite buttons!--></p></li>
+</ul>
+<figure class="align-default" id="never-propagate">
+<img alt="_images/never_propagate.png" src="_images/never_propagate.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 16 </span><span class="caption-text">Showcase of how never propagate influences the settings of the geometry editor</span><a class="headerlink" href="#never-propagate" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
 <hr class="docutils" />
 </section>
 </section>
 <section id="simulation-data">
 <h1>Simulation Data<a class="headerlink" href="#simulation-data" title="Link to this heading">#</a></h1>
-<p>The simulation data is divided into two main phases:</p>
+<p><a class="reference internal" href="#id3"><span class="std std-numref">Fig. 17</span></a> The simulation data is divided into two main phases:</p>
 <ol class="arabic simple">
 <li><p><strong>Warm-up Phase</strong></p></li>
 <li><p><strong>Simulation Phase</strong></p></li>
@@ -675,16 +680,16 @@ Comfort indicators like overheating hours, temperature profiles, or air quality 
 <figure class="align-default" id="id3">
 <img alt="_images/Simulation_Data.png" src="_images/Simulation_Data.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 16 </span><span class="caption-text">Simulation Data</span><a class="headerlink" href="#id3" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 17 </span><span class="caption-text">Simulation Data with its subcomponents Simulation Phase and Warmup Phase and their parameters</span><a class="headerlink" href="#id3" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <section id="warm-up-phase">
 <h2>Warm-up Phase<a class="headerlink" href="#warm-up-phase" title="Link to this heading">#</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">The</span> <span class="pre">warm-up</span> <span class="pre">phase</span></code> is an initialization period at the beginning of the simulation. During this time, the building model adjusts its internal conditions – such as wall temperatures, indoor climate, and thermal mass – to reach a realistic thermal balance. The results from this phase are not included in the output statistics. Its sole purpose is to ensure that the main simulation (Simulation Phase) starts from physically meaningful and stable conditions.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Warm-up</span> <span class="pre">phase</span></code> is an initialization period at the beginning of the simulation. During this time, the building model adjusts its internal conditions – such as wall temperatures, indoor climate, and thermal mass – to reach a realistic thermal balance. The results from this phase are not included in the output statistics. Its sole purpose is to ensure that the main simulation (Simulation Phase) starts from physically meaningful and stable conditions.</p>
 </section>
 <section id="simulation-phase">
 <h2>Simulation Phase<a class="headerlink" href="#simulation-phase" title="Link to this heading">#</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">The</span> <span class="pre">simulation</span> <span class="pre">phase</span></code> is the main calculation period during which all desired results of the building model are collected. This phase covers the predefined analysis period (e.g., one year) and computes operating states, room temperatures, energy consumption, and other relevant indicators. Only values determined during the simulation phase are used for analysis, statistics, and reporting. Thus, this phase provides the essential basis for evaluating the building and its systems.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Simulation</span> <span class="pre">phase</span></code> is the main calculation period during which all desired results of the building model are collected. This phase covers the predefined analysis period (e.g., one year) and computes operating states, room temperatures, energy consumption, and other relevant indicators. Only values determined during the simulation phase are used for analysis, statistics, and reporting. Thus, this phase provides the essential basis for evaluating the building and its systems.</p>
 <hr class="docutils" />
 </section>
 </section>
@@ -788,14 +793,12 @@ Comfort indicators like overheating hours, temperature profiles, or air quality 
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#modeling-guidelines">Modeling Guidelines</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#setpoints">Setpoints</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#propagation-settings">Propagation Settings</a></li>
-</ul>
-</li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#room-unit-exports">Room Unit Exports</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ideal-heating-and-cooling">Ideal Heating and Cooling</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simultan-relevant-knowledge">Simultan Relevant Knowledge</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simultan-relevant-knowledge">SIMULTAN Relevant Knowledge</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#water-radiator">Water Radiator</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setpoints">Setpoints</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#propagation-settings">Propagation Settings</a></li>
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#simulation-data">Simulation Data</a><ul class="visible nav section-nav flex-column">

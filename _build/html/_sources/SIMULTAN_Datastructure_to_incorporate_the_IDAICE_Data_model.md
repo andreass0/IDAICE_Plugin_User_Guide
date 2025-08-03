@@ -16,3 +16,4 @@ Currently the data model is undergoing a refactoring process. The detailed data 
 
 ## Data modelling decisions for data representation
   
+  Further information about the plugin can be found in the [PDF](files/development-of-plugins-for-seamless-integration-of.pdf) <!-- erfolgereich hinzugefügt!-->

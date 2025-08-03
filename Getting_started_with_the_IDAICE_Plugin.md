@@ -12,7 +12,7 @@ SIMULTAN Editor can be found under this [link](https://github.com/bph-tuwien/SIM
 ## Installing the IDA-ICE Plugin
 
 After installing the SIMULTAN Editor you can install the IDA-ICE Plugin via the Plugin Manager {numref}`plugin_manager`.
-Either download <!-- Aktualisiert -->the plugin from the SIMULTAN Server, `Plugin-Name: IDAICEPlugin`<!-- Hinzugefügt --> ,or install from your local disk with the
+Either download <!-- Aktualisiert -->the plugin from the SIMULTAN Server, `Plugin-Name: IDAICEPlugin`<!-- Hinzugefügt --> , or install from your local disk with the
 installation file.
 
 ```{figure} img/plugin_manager.png

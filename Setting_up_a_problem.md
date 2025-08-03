@@ -8,7 +8,7 @@ This chapter provides a brief overview of how data is structured within the unde
 
 In {numref}`ida_data`, a simplified illustration of the required data structure for running the plugin is shown. This structure holds all the necessary information to enable dynamic multizone climate and energy simulations in IDA-ICE.
 
-```{figure} img/schematic_comp_ida.jpg
+```{figure} img/schematic_comp_ida.png
 ---
 height: 500px
 name: ida_data
@@ -41,7 +41,7 @@ Taxonomies are classification systems used to organize elements into hierarchica
 
 #### IDA-ICE Relevant Taxonomies
 
-The IDA-ICE plugin introduces new taxonomies essential for establishing the connection between IDA-ICE and SIMULTAN. Tools of the plugin's [user interface](#modeling-for-ida-ice) <!-- verknüpfung zur nächsten seite!-->automatically assign the appropriate taxonomy to each component for compatibility.
+The IDA-ICE plugin introduces new taxonomies essential for establishing the connection between IDA-ICE and SIMULTAN {numref}`taxonomies_idaice`. Tools of the plugin's [user interface](#modeling-for-ida-ice) <!-- verknüpfung zur nächsten seite!-->automatically assign the appropriate taxonomy to each component for compatibility.
 
 ```{figure} img/taxonomies_idaice.png
 ---
@@ -56,13 +56,13 @@ We recommend starting with one of the provided `template files` <!--Link-->to en
 
 ### Components
 
-Components represent the functional building blocks of a simulation model. Examples include heat pumps, fans, storage tanks, or control valves. Each component has specific properties and parameters relevant to simulation, such as power consumption or temperature change.
+Components represent the functional building blocks of a simulation model as shown in {numref}`components_beispiel`. Examples include heat pumps, fans. Each component has specific properties and parameters relevant to simulation, such as power consumption.
 
 ```{figure} img/components_beispiel.png
 ---
 name: components_beispiel
 ---
-Components
+Some components of a data model
 ```
 
 ---
@@ -74,6 +74,7 @@ Geometrical elements are created using the Geometry Editor in SIMULTAN. For deta
 ### IDA-ICE Specific Geometry Considerations
 
 Since geometric modeling is central to SIMULTAN, several aspects are critical to ensure a consistent and stable data structure.
+<!-- Sitplanner inforamtion hier hinzufügen!! -->
 
 #### Assigning Components to Geometrical Surfaces
 
@@ -83,16 +84,16 @@ Each surface—walls, ceilings, and floors—must be explicitly assigned within 
 ---
 name: flächen_zuweisen
 ---
-Assigned components
+Geometry editor view of components assigned to a surface
 ```
 
-In {numref}`flächen_zuweisen`, under `Components`, the selected surface is connected to **6-AW\_ZW**. Clicking the arrow on the right opens the corresponding component.
+In {numref}`flächen_zuweisen`, under `Components`, the selected surface is connected to **6-AW\_ZW**. Clicking the arrow on the right opens the corresponding component {numref}`zuordnung_geometrie`.
 
 ```{figure} img/zuordnugn_geometrie.png
 ---
 name: zuordnung_geometrie
 ---
-Data linked to a surface
+Component with all its parameters within the component view
 ```
 
 ```{note}
@@ -101,17 +102,17 @@ At the bottom of {numref}`zuordnung_geometrie`, the connection to the **IDA-ICE 
 
 #### Assigning Volume to Rooms
 
-The process is analogous to surface assignment, but applies to volumes.
+The process is analogous to surface assignment, but applies to volumes {numref}`volumen_zuweisen`.
 
 ```{figure} img/volumen_zuweisen.png
 ---
 name: volumen_zuweisen
 ---
-Connecting rooms with volumes
+Selected volume in the geometry editor view
 ```
 
 ```{important}
-The `4th - 7th buttons` from the left (yellow-grey cube icons) allow you to select:
+The `4th - 7th buttons` from the left in {numref}`volumen_zuweisen` (yellow-grey cube icons) allow you to select:
 - **Vertices**
 - **Edges**
 - **Faces**
@@ -143,58 +144,6 @@ The geometry file for IDA-ICE must be named **idaice_analysis.simgeo**.
 
 ---
 
-## Setpoints
-
-Setpoints are defined temperature thresholds used for heating and cooling control. Like rooms, setpoints are assigned to volumes and consist of two parameters: heating and cooling. These define the acceptable temperature range for each room. If the temperature deviates from this range, heating or cooling is triggered.
-
-```{warning}
-**Setpoints must always be assigned to a volume!**
-``` 
-
-```{figure} img/setpoints.png
----
-name: setpoints
----
-Setpoints
-```
-
-```{figure} img/cooling_heating.png
----
-name: cooling_heating
----
-Heating and cooling parameters
-```
-
----
-
-### Propagation Settings
-
-Propagation controls how values—such as heating and cooling setpoints—are transferred between components and geometry.
-
-**You can find the propagation settings under *Parameters > Propagation*.**
-
-```{figure} img/propagation.png
----
-name: Propagation
----
-Propagation buttons
-```
-
-The three options are:
-
-* **Always propagate**: Prevents changes to setpoints in the geometry view. These values remain fixed.
-* **Never propagate**: Allows manual overwriting of heating and cooling setpoints in the geometry view.
-* **Propagate if instance**: <!-- konnte keinen unterschied zu Always propagate finden, auch nicht den sinn des overwrite buttons!-->
-
-```{figure} img/never_propagate.png
----
-name: never_propagate
----
-Never propagate
-```
-
----
-
 ## Room Unit Exports
 
 **What is a Room Unit in IDA ICE?**   
@@ -222,37 +171,96 @@ The Ideal Heater and Ideal Cooler are standard room units for simplified simulat
 [Temperature setpoints](#setpoints): Define when heating or cooling is activated.
 ```
 
-### Simultan Relevant Knowledge
+### SIMULTAN Relevant Knowledge
 
 ```{figure} img/Ideal_heating_cooling.png
 ---
 name: ideal_heating_cooling
 ---
-Parameters of ideal heating and cooling
+Parameters of ideal heating and ideal cooling subordinated to the building services component
 ```
-
-You can find the Ideal Cooler and Heater in SIMULTAN under Building Services. Both components are equipped with many parameters for perfect results.
+Ideal Cooler and Heater can be found in SIMULTAN under Building Services. 
 
 In {numref}`ideal_heating_cooling` you will see a yellow icon next to the names of the Ideal Cooler and Heater, which indicates that this component is connected to a geometry. Connecting the component to a volume is essential for exporting to IDA-ICE.
 
 ### Water Radiator
 
-After using the Ideal Heater/Cooler for simplified, direct room temperature control, the Water Radiator adds realism by simulating an actual hydronic radiator with water flow, heat transfer limits, and response delays. Unlike the Ideal Heater, the Water Radiator reflects physical system constraints and integrates with real heating circuits, making it essential for detailed, system-based simulations.
+After using the Ideal Heater/Cooler for simplified, direct room temperature control, the Water Radiator adds realism by simulating an actual hydronic radiator with water flow, heat transfer limits, and response delays. Unlike the Ideal Heater, the Water Radiator tries to reflect physical system constraints and integrates with real heating circuits, making it essential for detailed, system-based simulations.
 
 ```{figure} img/water_radiator.png
 ---
 name: water_radiator
 ---
-Water Radiator
+List of parameters for the detailed and simple water radiator
 ```
 
-The water radiator behaves in the same way as an ideal heater/cooler. Therefore, it must be assigned to a volume/zone! You find it under Building Services.
+The water radiator behaves in the same way as an ideal heater/cooler. Therefore, it must be assigned to a volume/zone! You find it under Building Services {numref}`water_radiator`.
+
+---
+
+### Setpoints
+
+Setpoints are defined temperature thresholds used for heating and cooling control. Like rooms, setpoints are assigned to volumes {numref}`setpoints` and consist of two parameters: heating and cooling {numref}`cooling_heating`. These define the acceptable temperature range for each room. If the temperature deviates from this range, heating or cooling is triggered.
+
+```{warning}
+**Setpoints must always be assigned to a volume!**
+``` 
+
+```{figure} img/setpoints.png
+---
+name: setpoints
+---
+Example in which setpoints, water radiator, and a room are assigned to the same volume
+```
+
+```{figure} img/cooling_heating.png
+---
+name: cooling_heating
+---
+Setpoint component with his parameters heating and cooling
+```
+
+```{figure} img/Setpoints_geometrie_view.png
+---
+name: Setpoints_geometrie_view
+---
+Setpoint adjustments to instances in the geometry editor
+```
+<!-- neues bild zu Setpoints im geometrie editor-->
+
+---
+
+### Propagation Settings
+
+Propagation controls how values—such as heating and cooling setpoints—are transferred between components and geometry.
+
+**You can find the propagation settings under *Parameters > Propagation*.** {numref}`propagation`
+
+```{figure} img/propagation.png
+---
+name: Propagation
+---
+Propagation buttons within the Property Editor
+```
+
+The three options are:
+
+* **Always propagate**: Prevents changes to setpoints in the geometry view. These values remain fixed.
+* **Never propagate**: Allows manual overwriting of heating and cooling setpoints in the geometry view. {numref}`never_propagate`
+* **Propagate if instance**: <!-- konnte keinen unterschied zu Always propagate finden, auch nicht den sinn des overwrite buttons!-->
+
+```{figure} img/never_propagate.png
+---
+name: never_propagate
+---
+Showcase of how never propagate influences the settings of the geometry editor
+```
 
 ---
 
 ## Simulation Data
 
-The simulation data is divided into two main phases:
+{numref}`simulation_data` The simulation data is divided into two main phases:
 
 1. **Warm-up Phase**
 2. **Simulation Phase**
@@ -261,17 +269,17 @@ The simulation data is divided into two main phases:
 ---
 name: simulation_data
 ---
-Simulation Data
+Simulation Data with its subcomponents Simulation Phase and Warmup Phase and their parameters
 ```
 
 ### Warm-up Phase
 
-`The warm-up phase` is an initialization period at the beginning of the simulation. During this time, the building model adjusts its internal conditions – such as wall temperatures, indoor climate, and thermal mass – to reach a realistic thermal balance. The results from this phase are not included in the output statistics. Its sole purpose is to ensure that the main simulation (Simulation Phase) starts from physically meaningful and stable conditions.
+`Warm-up phase` is an initialization period at the beginning of the simulation. During this time, the building model adjusts its internal conditions – such as wall temperatures, indoor climate, and thermal mass – to reach a realistic thermal balance. The results from this phase are not included in the output statistics. Its sole purpose is to ensure that the main simulation (Simulation Phase) starts from physically meaningful and stable conditions.
 
 
 ### Simulation Phase
 
-`The simulation phase` is the main calculation period during which all desired results of the building model are collected. This phase covers the predefined analysis period (e.g., one year) and computes operating states, room temperatures, energy consumption, and other relevant indicators. Only values determined during the simulation phase are used for analysis, statistics, and reporting. Thus, this phase provides the essential basis for evaluating the building and its systems.
+`Simulation phase` is the main calculation period during which all desired results of the building model are collected. This phase covers the predefined analysis period (e.g., one year) and computes operating states, room temperatures, energy consumption, and other relevant indicators. Only values determined during the simulation phase are used for analysis, statistics, and reporting. Thus, this phase provides the essential basis for evaluating the building and its systems.
 
 ---
 

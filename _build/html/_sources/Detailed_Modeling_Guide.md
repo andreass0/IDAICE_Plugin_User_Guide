@@ -14,7 +14,7 @@ information and can be exported to IDA-ICE.
 
 ### Opaque Building Components
 
-Opaque elements include walls, slabs, and roofs. To define them:
+{numref}`fig-opaque-building-components` Opaque elements include walls, slabs, and roofs. To define them:
 
 ```{figure} img/Opaque-building-components.png
 ---
@@ -25,7 +25,7 @@ name: fig-Opaque-building-components
 Overview of all opaque building components
 ```
 
-1. Open the **Construction** tab in the plugin UI.
+1. Open the **Construction** tab in the plugin UI {numref}`overview-constructiontab`.
 2. Use `Select construction` to view connected surfaces.
 3. Use `Edit construction` to set:
 
@@ -42,11 +42,11 @@ Overview of all opaque building components
 ---
 name: overview-constructiontab
 ---
-Construction tab overview
+User interface for Construction definitions
 ```
 
 ```{warning}
-**Any change made here directly updates the simulation data model.** That's why it is very important to work carefully in the user interface, changes are applied directly, even without explicitly saving or simply closing the user interface.
+**Any change made here directly updates the SIMULTAN data model.** That's why it is very important to work carefully in the user interface, changes are applied directly, even without explicitly saving or simply closing the user interface.
 ```
 
 ---
@@ -55,14 +55,14 @@ Construction tab overview
 
 Transparent elements include windows and doors.
 
-The datastructure to export transparent constructions will be shown for a Fenster (window). The procedure is analogues for a
+{numref}`TransperentBuildingComponents-UI` The datastructure to export transparent constructions will be shown for a Fenster (window). The procedure is analogues for a
 door and other `glass constructions`.
 
 ```{figure} img/TransperentBuildingComponents-UI.png
 ---
 name: TransperentBuildingComponents-UI
 ---
-Example: window definition UI
+User interface for Glass Construction definitions 
 ```
 
 The parameters in the image relate to the material properties of transparent components (such as windows) in the IDA ICE building simulation software. These values strongly influence the thermal and solar behavior of the glazing. Here is an explanation of the terms and their meaning.  
@@ -83,7 +83,6 @@ The opposite of 6. so for the outside of the window
 ```{note}
 **These values are used in IDA ICE to:**
 
-- Calculate heat loss in winter and heat input in summer
 - simulate the daylight input, risk of overheating and the energy requirement for heating/cooling
 - find optimal window configurations in terms of energy efficiency
 ```
@@ -98,7 +97,7 @@ A central element in IDA-ICE is the consideration of shading, as it has a consid
 ---
 name: Shades-UI
 ---
-User interface for shading definition
+User interface for Shading Surface definitions
 ```
 
 **Parameters include:**
@@ -108,7 +107,7 @@ Indicates how strongly a surface can emit long-wave heat radiation (infrared).
 * **Shortwave Reflectance**   
 Proportion of short-wave sunlight reflected by the surface (in %).  
 * **Roughness**   
-Beschreibt, wie rau eine Oberfläche ist, was sich auf die Streuung von Licht auswirkt.  
+Describes how rough a surface is, which affects the scattering of light.  
 * **Specularity**   
 How strongly a surface reflects (directionally).  
 * **Transparency**   
@@ -120,16 +119,8 @@ How much visible light is transmitted through the surface.
 The parameters for the shadings change for each material. This is precisely why this user interface is so important. In IDA-ICE, a distinction is made not only between materials but also between shading types. Here is the most important thing you need to know about them:
 ```
 
-| Shading Type | Description             | Example                    |
-| ------------ | ----------------------- | -------------------------- |
-| Fixed        | Architectural overhangs | Balconies, concrete shades |
-| Horizontal   | Adjustable louvers      | Awnings                    |
-| Vertical     | Side fins               | Deep window recesses       |
-| Contextual   | Neighboring buildings   | Trees, adjacent structures |
-| Integrated   | Window-mounted          | Venetian blinds            |
-
 ```{note}
-Shading settings influence both energy performance and daylight modeling.
+**Shading settings influence both energy performance and daylight modeling.**
 ```
 
 ---
@@ -143,7 +134,7 @@ which are exported with the plugin.
 ---
 name: esbo_simultan
 ---
-SIMULTAN components for ESBO systems
+User interface for the ESBO-Plant
 ```
 
 **In the plugin UI:**
@@ -152,14 +143,7 @@ SIMULTAN components for ESBO systems
 * Components can be **disabled** if needed
 
 ```{tip}
-**Disabling a component unlinks all associated data.**
-```
-
-```{figure} img/ESBOplant-UI.png
----
-name: esbo_off
----
-Component toggled off
+**Disabling a component unlinks all associated data.** The effects on the components are shown in {numref}`system-on` and {numref}`system-off`.
 ```
 
 ---
@@ -168,14 +152,16 @@ Component toggled off
 ---
 name: system-on
 ---
-HVAC system enabled
+Effects on the components if Hot storage is enabled
 ```
+<!-- Scrennshot richtig gestellt!-->
+
 
 ```{figure} img/esbo_off.png
 ---
 name: system_off
 ---
-HVAC system disabled
+Effects on the components if Hot storage is disabled
 ```
 
 ```{warning}
@@ -186,21 +172,21 @@ HVAC system disabled
 
 ## Internal Gains
 
-The modelling of internal gains due to occupant behaviour is also possible. The SIMULTAN representation is stored under
+{numref}`internal_gains_comp` The modelling of internal gains due to occupant behaviour is also possible. The SIMULTAN representation is stored under
 the component `Nutzung`. This component stores sub-components for each simulation-zone and the assigned internal gains.
 
 ```{figure} img/inernal_gains_comp.png
 ---
-name: inernal_gains_comp
+name: internal_gains_comp
 ---
 Internal gains definition
 ```
 
 Subcomponents include:
 
-* **Equipment**
-* **Lighting**
-* **Occupants**
+* **Equipment** {numref}`equipment_para`
+* **Occupants** {numref}`light_para`
+* **Lighting** {numref}`occupant_para`
 
 each with the needed parameters to describe the needed information for the simulation.
 
@@ -210,6 +196,9 @@ name: equipment_para
 ---
 Parameters for equipment gains
 ```
+
+<!-- konnte nix zu Andreas kommentar in der Überarbeitung PDF finden-->
+
 
 ```{figure} img/light_para.png
 ---
@@ -229,13 +218,13 @@ Parameters for occupant gains
 
 ## Material Properties
 
-`Materials` have been given their own area in the **IDA-ICE-Plugin**. This once again allows users to keep their materials organized and to proceed in a structured manner.
+`Materials` have been given their own area in the **IDA-ICE-Plugin** {numref}`materials_UI`. This once again allows users to keep their materials organized and to proceed in a structured manner.
 
 ```{figure} img/materials_UI.png
 ---
 name: materials_UI
 ---
-Materials UI
+User interface for Material definitions
 ```
 
 **Key properties:**
@@ -259,7 +248,7 @@ New materials become available in the **Construction** tab once defined.
 
 ## Taxonomy Update
 
-To restore or update all taxonomies for the IDA-ICE Plugin, use the built-in taxonomy update button.
+To restore or update all taxonomies for the IDA-ICE Plugin, use the built-in taxonomy update button {numref}`taxonomyupdate_button`.
 
 ```{figure} img/taxonomyupdate_button.png
 ---
