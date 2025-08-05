@@ -45,6 +45,8 @@ Information and publications about SIMULTAN:
   {cite}`paskalevaSIMULTANBigOpenRealBIMData2019`
 - SIMULTAN - Simultane Planungsumgebung fuer Gebaeudecluster in resilienten, ressourcen- und hoechst energieeffizienten
   Stadtteilen {cite}`bednarSIMULTANSimultanePlanungsumgebung`
+- Development of Plugins for seamless Integration of the SIMULTAN Meta Data Model with IDA-ICE and RFEM 6
+  {cite}`steiner2023simultanplugins`
 
 ## Authors
 

@@ -36,7 +36,7 @@ The data structure consists of two main elements:
 Taxonomies are classification systems used to organize elements into hierarchical categories and subcategories. They help structure complex models and define relationships between entities.
 
 ```{note}
-**Components that are not assigned to a taxonomy are ignored by SIMULTAN.**
+**Components that are not assigned to a taxonomy are ignored by the plugin.**
 ```
 
 #### IDA-ICE Relevant Taxonomies
@@ -50,7 +50,7 @@ name: taxonomies_idaice
 Overview of IDA-ICE taxonomies
 ```
 
-We recommend starting with one of the provided `template files` <!--Link-->to ensure synchronization and reduce the risk of errors. To restore the complete taxonomy hierarchy required by the plugin, refer to the section on [taxonomy update](Detailed_Modeling_Guide.md#taxonomy-update).
+We recommend starting with one of the provided `template files` <!--Link-->to ensure synchronization and reduce the risk of errors. To restore the complete taxonomy hierarchy required by the plugin, refer to the section on [Taxonomy Update](Detailed_Modeling_Guide.md#taxonomy-update).
 
 ---
 
@@ -75,6 +75,70 @@ Geometrical elements are created using the Geometry Editor in SIMULTAN. For deta
 
 Since geometric modeling is central to SIMULTAN, several aspects are critical to ensure a consistent and stable data structure.
 <!-- Sitplanner inforamtion hier hinzufügen!! -->
+
+#### Geolocation in the Site Planner <!-- Name nur frei übersetzt, fachbegriff abfragen-->
+
+To access the **Site Planner** in SIMULTAN open the corresponding `.spdxf` file (see {numref}`siteplanner`).
+```{figure} img/siteplanner.png
+---
+name: siteplanner
+---
+Accessing the Site Planner in SIMULTAN
+```
+
+##### Orientation within the Site Planner
+
+**Once opened, the Site Planner displays a map-based environment for spatial orientation.**  
+
+- In the top-left drop-down menu ({numref}`dropdown_siteplanner`), you can locate geometries from your data model.   
+- Upon selection, the view automatically zooms to the selected geometry’s location. 
+
+```{note}
+**The relative positioning of the geometries plays an important role when exporting to IDA-ICE. This positioning is transferred to the exported IDA-ICE model.**
+``` 
+
+```{figure} img/dropdown_sitplanner.png
+---
+name: dropdown_siteplanner
+---
+Drop-down menu to locate geometries
+```
+
+```{tip}
+In the Site Planner, it is also possible to easily move selected geometries using the **G key**.
+``` 
+
+##### Control the positioning of geometries within the geometry file (.simgeo)
+
+To manually define the placement of a geometry, open the .simgeo file.
+In the ribbon interface, click on Geo-Reference Manager. This opens a configuration tab where you can set the geometry's position by defining three reference nodes (see {numref}`georeferencemanager`).
+
+```{figure} img/GeoReferenceManager.png
+---
+name: GeoReferenceManager
+---
+Geo-Reference Manager within a geometry file (.simgeo)
+``` 
+
+##### Adding Shading Elements for the IDA-ICE Simulation
+
+```{tip}
+To simulate shadows in IDA-ICE, create a new geometry and assign the **Shading** component to it (see {numref}`shadingsimulation`).
+```
+
+```{figure} img/shadingsimultations.png
+---
+name: shadingsimulation
+---
+Assigning a Shading component to a geometry
+```
+
+**Adding a new shading geometry to the Site Planner:**
+
+1. Open the Site Planner
+2. Drag and drop the new geometry into the map area
+3. Move it to the desired position on the building using the mouse (left-click to place)
+
 
 #### Assigning Components to Geometrical Surfaces
 
@@ -179,9 +243,11 @@ name: ideal_heating_cooling
 ---
 Parameters of ideal heating and ideal cooling subordinated to the building services component
 ```
-Ideal Cooler and Heater can be found in SIMULTAN under Building Services. 
+Ideal Cooler and Heater can be found in SIMULTAN under Building Services. <!-- Satz abgeändert / verbessert-->
 
 In {numref}`ideal_heating_cooling` you will see a yellow icon next to the names of the Ideal Cooler and Heater, which indicates that this component is connected to a geometry. Connecting the component to a volume is essential for exporting to IDA-ICE.
+
+<!-- ergänzung folgt... | Gelbes Icon bei Never Propagate und Instanzen im GeometryViewer-->
 
 ### Water Radiator
 

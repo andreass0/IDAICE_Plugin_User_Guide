@@ -113,14 +113,10 @@ How strongly a surface reflects (directionally).
 * **Transparency**   
 How much visible light is transmitted through the surface.  
 
----
-
-```{tip}
-The parameters for the shadings change for each material. This is precisely why this user interface is so important. In IDA-ICE, a distinction is made not only between materials but also between shading types. Here is the most important thing you need to know about them:
-```
+**Shading settings influence both energy performance and daylight modeling.**
 
 ```{note}
-**Shading settings influence both energy performance and daylight modeling.**
+For everything you need to know about incorporating shading elements into your IDA-ICE, read the chapter [Adding Shading Elements for the IDA-ICE Simulation](Setting_up_a_problem.md#adding-shading-elements-for-the-ida-ice-simulation).
 ```
 
 ---

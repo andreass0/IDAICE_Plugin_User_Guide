@@ -403,6 +403,12 @@ document.write(`
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#geometrical-modeling">Geometrical Modeling</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ida-ice-specific-geometry-considerations">IDA-ICE Specific Geometry Considerations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geolocation-in-the-site-planner">Geolocation in the Site Planner <!-- Name nur frei übersetzt, fachbegriff abfragen--></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#orientation-within-the-site-planner">Orientation within the Site Planner</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#control-the-positioning-of-geometries-within-the-geometry-file-simgeo">Control the positioning of geometries within the geometry file (.simgeo)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-shading-elements-for-the-ida-ice-simulation">Adding Shading Elements for the IDA-ICE Simulation</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assigning-components-to-geometrical-surfaces">Assigning Components to Geometrical Surfaces</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assigning-volume-to-rooms">Assigning Volume to Rooms</a></li>
 </ul>
@@ -468,7 +474,7 @@ document.write(`
 <p>Taxonomies are classification systems used to organize elements into hierarchical categories and subcategories. They help structure complex models and define relationships between entities.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p><strong>Components that are not assigned to a taxonomy are ignored by SIMULTAN.</strong></p>
+<p><strong>Components that are not assigned to a taxonomy are ignored by the plugin.</strong></p>
 </div>
 <section id="ida-ice-relevant-taxonomies">
 <h3>IDA-ICE Relevant Taxonomies<a class="headerlink" href="#ida-ice-relevant-taxonomies" title="Link to this heading">#</a></h3>
@@ -479,7 +485,7 @@ document.write(`
 <p><span class="caption-number">Fig. 4 </span><span class="caption-text">Overview of IDA-ICE taxonomies</span><a class="headerlink" href="#taxonomies-idaice" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>We recommend starting with one of the provided <code class="docutils literal notranslate"><span class="pre">template</span> <span class="pre">files</span></code> <!--Link-->to ensure synchronization and reduce the risk of errors. To restore the complete taxonomy hierarchy required by the plugin, refer to the section on <a class="reference internal" href="Detailed_Modeling_Guide.html#taxonomy-update"><span class="std std-ref">taxonomy update</span></a>.</p>
+<p>We recommend starting with one of the provided <code class="docutils literal notranslate"><span class="pre">template</span> <span class="pre">files</span></code> <!--Link-->to ensure synchronization and reduce the risk of errors. To restore the complete taxonomy hierarchy required by the plugin, refer to the section on <a class="reference internal" href="Detailed_Modeling_Guide.html#taxonomy-update"><span class="std std-ref">Taxonomy Update</span></a>.</p>
 </section>
 </section>
 <hr class="docutils" />
@@ -502,39 +508,101 @@ document.write(`
 <h2>IDA-ICE Specific Geometry Considerations<a class="headerlink" href="#ida-ice-specific-geometry-considerations" title="Link to this heading">#</a></h2>
 <p>Since geometric modeling is central to SIMULTAN, several aspects are critical to ensure a consistent and stable data structure.</p>
 <!-- Sitplanner inforamtion hier hinzufügen!! -->
+<section id="geolocation-in-the-site-planner">
+<h3>Geolocation in the Site Planner <!-- Name nur frei übersetzt, fachbegriff abfragen--><a class="headerlink" href="#geolocation-in-the-site-planner" title="Link to this heading">#</a></h3>
+<p>To access the <strong>Site Planner</strong> in SIMULTAN open the corresponding <code class="docutils literal notranslate"><span class="pre">.spdxf</span></code> file (see <a class="reference internal" href="#siteplanner"><span class="std std-numref">Fig. 6</span></a>).</p>
+<figure class="align-default" id="siteplanner">
+<img alt="_images/siteplanner.png" src="_images/siteplanner.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 6 </span><span class="caption-text">Accessing the Site Planner in SIMULTAN</span><a class="headerlink" href="#siteplanner" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<section id="orientation-within-the-site-planner">
+<h4>Orientation within the Site Planner<a class="headerlink" href="#orientation-within-the-site-planner" title="Link to this heading">#</a></h4>
+<p><strong>Once opened, the Site Planner displays a map-based environment for spatial orientation.</strong></p>
+<ul class="simple">
+<li><p>In the top-left drop-down menu (<a class="reference internal" href="#dropdown-siteplanner"><span class="std std-numref">Fig. 7</span></a>), you can locate geometries from your data model.</p></li>
+<li><p>Upon selection, the view automatically zooms to the selected geometry’s location.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>The relative positioning of the geometries plays an important role when exporting to IDA-ICE. This positioning is transferred to the exported IDA-ICE model.</strong></p>
+</div>
+<figure class="align-default" id="dropdown-siteplanner">
+<img alt="_images/dropdown_sitplanner.png" src="_images/dropdown_sitplanner.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 7 </span><span class="caption-text">Drop-down menu to locate geometries</span><a class="headerlink" href="#dropdown-siteplanner" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>In the Site Planner, it is also possible to easily move selected geometries using the <strong>G key</strong>.</p>
+</div>
+</section>
+<section id="control-the-positioning-of-geometries-within-the-geometry-file-simgeo">
+<h4>Control the positioning of geometries within the geometry file (.simgeo)<a class="headerlink" href="#control-the-positioning-of-geometries-within-the-geometry-file-simgeo" title="Link to this heading">#</a></h4>
+<p>To manually define the placement of a geometry, open the .simgeo file.
+In the ribbon interface, click on Geo-Reference Manager. This opens a configuration tab where you can set the geometry’s position by defining three reference nodes (see <a class="reference internal" href="#georeferencemanager"><span class="std std-numref">Fig. 8</span></a>).</p>
+<figure class="align-default" id="georeferencemanager">
+<img alt="_images/GeoReferenceManager.png" src="_images/GeoReferenceManager.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 8 </span><span class="caption-text">Geo-Reference Manager within a geometry file (.simgeo)</span><a class="headerlink" href="#georeferencemanager" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="adding-shading-elements-for-the-ida-ice-simulation">
+<h4>Adding Shading Elements for the IDA-ICE Simulation<a class="headerlink" href="#adding-shading-elements-for-the-ida-ice-simulation" title="Link to this heading">#</a></h4>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>To simulate shadows in IDA-ICE, create a new geometry and assign the <strong>Shading</strong> component to it (see <a class="reference internal" href="#shadingsimulation"><span class="std std-numref">Fig. 9</span></a>).</p>
+</div>
+<figure class="align-default" id="shadingsimulation">
+<img alt="_images/shadingsimultations.png" src="_images/shadingsimultations.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 9 </span><span class="caption-text">Assigning a Shading component to a geometry</span><a class="headerlink" href="#shadingsimulation" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p><strong>Adding a new shading geometry to the Site Planner:</strong></p>
+<ol class="arabic simple">
+<li><p>Open the Site Planner</p></li>
+<li><p>Drag and drop the new geometry into the map area</p></li>
+<li><p>Move it to the desired position on the building using the mouse (left-click to place)</p></li>
+</ol>
+</section>
+</section>
 <section id="assigning-components-to-geometrical-surfaces">
 <h3>Assigning Components to Geometrical Surfaces<a class="headerlink" href="#assigning-components-to-geometrical-surfaces" title="Link to this heading">#</a></h3>
 <p>Each surface—walls, ceilings, and floors—must be explicitly assigned within the model.</p>
 <figure class="align-default" id="flachen-zuweisen">
 <img alt="_images/fl%C3%A4chen_zuweisen.png" src="_images/fl%C3%A4chen_zuweisen.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 6 </span><span class="caption-text">Geometry editor view of components assigned to a surface</span><a class="headerlink" href="#flachen-zuweisen" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 10 </span><span class="caption-text">Geometry editor view of components assigned to a surface</span><a class="headerlink" href="#flachen-zuweisen" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>In <a class="reference internal" href="#flachen-zuweisen"><span class="std std-numref">Fig. 6</span></a>, under <code class="docutils literal notranslate"><span class="pre">Components</span></code>, the selected surface is connected to <strong>6-AW_ZW</strong>. Clicking the arrow on the right opens the corresponding component <a class="reference internal" href="#zuordnung-geometrie"><span class="std std-numref">Fig. 7</span></a>.</p>
+<p>In <a class="reference internal" href="#flachen-zuweisen"><span class="std std-numref">Fig. 10</span></a>, under <code class="docutils literal notranslate"><span class="pre">Components</span></code>, the selected surface is connected to <strong>6-AW_ZW</strong>. Clicking the arrow on the right opens the corresponding component <a class="reference internal" href="#zuordnung-geometrie"><span class="std std-numref">Fig. 11</span></a>.</p>
 <figure class="align-default" id="zuordnung-geometrie">
 <img alt="_images/zuordnugn_geometrie.png" src="_images/zuordnugn_geometrie.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 7 </span><span class="caption-text">Component with all its parameters within the component view</span><a class="headerlink" href="#zuordnung-geometrie" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 11 </span><span class="caption-text">Component with all its parameters within the component view</span><a class="headerlink" href="#zuordnung-geometrie" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>At the bottom of <a class="reference internal" href="#zuordnung-geometrie"><span class="std std-numref">Fig. 7</span></a>, the connection to the <strong>IDA-ICE Plugin</strong> is indicated | Can be recognized by the assigned taxonomy <em>Constructional Element</em>. More information is available in <a class="reference internal" href="#opaque-building-components-key-parameter-and-layer-parameters"><span class="xref myst">Opaque Building Components</span></a>.</p>
+<p>At the bottom of <a class="reference internal" href="#zuordnung-geometrie"><span class="std std-numref">Fig. 11</span></a>, the connection to the <strong>IDA-ICE Plugin</strong> is indicated | Can be recognized by the assigned taxonomy <em>Constructional Element</em>. More information is available in <a class="reference internal" href="#opaque-building-components-key-parameter-and-layer-parameters"><span class="xref myst">Opaque Building Components</span></a>.</p>
 </div>
 </section>
 <section id="assigning-volume-to-rooms">
 <h3>Assigning Volume to Rooms<a class="headerlink" href="#assigning-volume-to-rooms" title="Link to this heading">#</a></h3>
-<p>The process is analogous to surface assignment, but applies to volumes <a class="reference internal" href="#volumen-zuweisen"><span class="std std-numref">Fig. 8</span></a>.</p>
+<p>The process is analogous to surface assignment, but applies to volumes <a class="reference internal" href="#volumen-zuweisen"><span class="std std-numref">Fig. 12</span></a>.</p>
 <figure class="align-default" id="volumen-zuweisen">
 <img alt="_images/volumen_zuweisen.png" src="_images/volumen_zuweisen.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 8 </span><span class="caption-text">Selected volume in the geometry editor view</span><a class="headerlink" href="#volumen-zuweisen" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 12 </span><span class="caption-text">Selected volume in the geometry editor view</span><a class="headerlink" href="#volumen-zuweisen" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">4th</span> <span class="pre">-</span> <span class="pre">7th</span> <span class="pre">buttons</span></code> from the left in <a class="reference internal" href="#volumen-zuweisen"><span class="std std-numref">Fig. 8</span></a> (yellow-grey cube icons) allow you to select:</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">4th</span> <span class="pre">-</span> <span class="pre">7th</span> <span class="pre">buttons</span></code> from the left in <a class="reference internal" href="#volumen-zuweisen"><span class="std std-numref">Fig. 12</span></a> (yellow-grey cube icons) allow you to select:</p>
 <ul class="simple">
 <li><p><strong>Vertices</strong></p></li>
 <li><p><strong>Edges</strong></p></li>
@@ -557,10 +625,10 @@ document.write(`
 <a class="reference internal image-reference" href="_images/geo_simultan.png"><img alt="_images/geo_simultan.png" src="_images/geo_simultan.png" style="height: 350px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 9 </span><span class="caption-text">Geometry of a <em>Tiny House</em> modeled in the SIMULTAN Geometry Editor.</span><a class="headerlink" href="#geo-simultan" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 13 </span><span class="caption-text">Geometry of a <em>Tiny House</em> modeled in the SIMULTAN Geometry Editor.</span><a class="headerlink" href="#geo-simultan" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>In <a class="reference internal" href="#geo-simultan"><span class="std std-numref">Fig. 9</span></a>, a reference geometry (white) is used for the dynamic simulation. This may be an architectural model or a dedicated model for simulation purposes. This reference geometry is exported to IDA-ICE. Therefore, all geometry-dependent information must be linked to this model.</p>
+<p>In <a class="reference internal" href="#geo-simultan"><span class="std std-numref">Fig. 13</span></a>, a reference geometry (white) is used for the dynamic simulation. This may be an architectural model or a dedicated model for simulation purposes. This reference geometry is exported to IDA-ICE. Therefore, all geometry-dependent information must be linked to this model.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The geometry file for IDA-ICE must be named <strong>idaice_analysis.simgeo</strong>.</p>
@@ -599,11 +667,12 @@ Comfort indicators like overheating hours, temperature profiles, or air quality 
 <figure class="align-default" id="ideal-heating-cooling">
 <img alt="_images/Ideal_heating_cooling.png" src="_images/Ideal_heating_cooling.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 10 </span><span class="caption-text">Parameters of ideal heating and ideal cooling subordinated to the building services component</span><a class="headerlink" href="#ideal-heating-cooling" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 14 </span><span class="caption-text">Parameters of ideal heating and ideal cooling subordinated to the building services component</span><a class="headerlink" href="#ideal-heating-cooling" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>Ideal Cooler and Heater can be found in SIMULTAN under Building Services.</p>
-<p>In <a class="reference internal" href="#ideal-heating-cooling"><span class="std std-numref">Fig. 10</span></a> you will see a yellow icon next to the names of the Ideal Cooler and Heater, which indicates that this component is connected to a geometry. Connecting the component to a volume is essential for exporting to IDA-ICE.</p>
+<p>Ideal Cooler and Heater can be found in SIMULTAN under Building Services. <!-- Satz abgeändert / verbessert--></p>
+<p>In <a class="reference internal" href="#ideal-heating-cooling"><span class="std std-numref">Fig. 14</span></a> you will see a yellow icon next to the names of the Ideal Cooler and Heater, which indicates that this component is connected to a geometry. Connecting the component to a volume is essential for exporting to IDA-ICE.</p>
+<!-- ergänzung folgt... | Gelbes Icon bei Never Propagate und Instanzen im GeometryViewer-->
 </section>
 <section id="water-radiator">
 <h2>Water Radiator<a class="headerlink" href="#water-radiator" title="Link to this heading">#</a></h2>
@@ -611,15 +680,15 @@ Comfort indicators like overheating hours, temperature profiles, or air quality 
 <figure class="align-default" id="id1">
 <img alt="_images/water_radiator.png" src="_images/water_radiator.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 11 </span><span class="caption-text">List of parameters for the detailed and simple water radiator</span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 15 </span><span class="caption-text">List of parameters for the detailed and simple water radiator</span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>The water radiator behaves in the same way as an ideal heater/cooler. Therefore, it must be assigned to a volume/zone! You find it under Building Services <a class="reference internal" href="#id1"><span class="std std-numref">Fig. 11</span></a>.</p>
+<p>The water radiator behaves in the same way as an ideal heater/cooler. Therefore, it must be assigned to a volume/zone! You find it under Building Services <a class="reference internal" href="#id1"><span class="std std-numref">Fig. 15</span></a>.</p>
 </section>
 <hr class="docutils" />
 <section id="setpoints">
 <h2>Setpoints<a class="headerlink" href="#setpoints" title="Link to this heading">#</a></h2>
-<p>Setpoints are defined temperature thresholds used for heating and cooling control. Like rooms, setpoints are assigned to volumes <a class="reference internal" href="#id2"><span class="std std-numref">Fig. 12</span></a> and consist of two parameters: heating and cooling <a class="reference internal" href="#cooling-heating"><span class="std std-numref">Fig. 13</span></a>. These define the acceptable temperature range for each room. If the temperature deviates from this range, heating or cooling is triggered.</p>
+<p>Setpoints are defined temperature thresholds used for heating and cooling control. Like rooms, setpoints are assigned to volumes <a class="reference internal" href="#id2"><span class="std std-numref">Fig. 16</span></a> and consist of two parameters: heating and cooling <a class="reference internal" href="#cooling-heating"><span class="std std-numref">Fig. 17</span></a>. These define the acceptable temperature range for each room. If the temperature deviates from this range, heating or cooling is triggered.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p><strong>Setpoints must always be assigned to a volume!</strong></p>
@@ -627,19 +696,19 @@ Comfort indicators like overheating hours, temperature profiles, or air quality 
 <figure class="align-default" id="id2">
 <img alt="_images/setpoints.png" src="_images/setpoints.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 12 </span><span class="caption-text">Example in which setpoints, water radiator, and a room are assigned to the same volume</span><a class="headerlink" href="#id2" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 16 </span><span class="caption-text">Example in which setpoints, water radiator, and a room are assigned to the same volume</span><a class="headerlink" href="#id2" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <figure class="align-default" id="cooling-heating">
 <img alt="_images/cooling_heating.png" src="_images/cooling_heating.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 13 </span><span class="caption-text">Setpoint component with his parameters heating and cooling</span><a class="headerlink" href="#cooling-heating" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 17 </span><span class="caption-text">Setpoint component with his parameters heating and cooling</span><a class="headerlink" href="#cooling-heating" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <figure class="align-default" id="setpoints-geometrie-view">
 <img alt="_images/Setpoints_geometrie_view.png" src="_images/Setpoints_geometrie_view.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 14 </span><span class="caption-text">Setpoint adjustments to instances in the geometry editor</span><a class="headerlink" href="#setpoints-geometrie-view" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 18 </span><span class="caption-text">Setpoint adjustments to instances in the geometry editor</span><a class="headerlink" href="#setpoints-geometrie-view" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <!-- neues bild zu Setpoints im geometrie editor-->
@@ -648,23 +717,23 @@ Comfort indicators like overheating hours, temperature profiles, or air quality 
 <section id="propagation-settings">
 <h2>Propagation Settings<a class="headerlink" href="#propagation-settings" title="Link to this heading">#</a></h2>
 <p>Propagation controls how values—such as heating and cooling setpoints—are transferred between components and geometry.</p>
-<p><strong>You can find the propagation settings under <em>Parameters &gt; Propagation</em>.</strong> <a class="reference internal" href="#propagation"><span class="std std-numref">Fig. 15</span></a></p>
+<p><strong>You can find the propagation settings under <em>Parameters &gt; Propagation</em>.</strong> <a class="reference internal" href="#propagation"><span class="std std-numref">Fig. 19</span></a></p>
 <figure class="align-default" id="propagation">
 <img alt="_images/propagation.png" src="_images/propagation.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 15 </span><span class="caption-text">Propagation buttons within the Property Editor</span><a class="headerlink" href="#propagation" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 19 </span><span class="caption-text">Propagation buttons within the Property Editor</span><a class="headerlink" href="#propagation" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>The three options are:</p>
 <ul class="simple">
 <li><p><strong>Always propagate</strong>: Prevents changes to setpoints in the geometry view. These values remain fixed.</p></li>
-<li><p><strong>Never propagate</strong>: Allows manual overwriting of heating and cooling setpoints in the geometry view. <a class="reference internal" href="#never-propagate"><span class="std std-numref">Fig. 16</span></a></p></li>
+<li><p><strong>Never propagate</strong>: Allows manual overwriting of heating and cooling setpoints in the geometry view. <a class="reference internal" href="#never-propagate"><span class="std std-numref">Fig. 20</span></a></p></li>
 <li><p><strong>Propagate if instance</strong>: <!-- konnte keinen unterschied zu Always propagate finden, auch nicht den sinn des overwrite buttons!--></p></li>
 </ul>
 <figure class="align-default" id="never-propagate">
 <img alt="_images/never_propagate.png" src="_images/never_propagate.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 16 </span><span class="caption-text">Showcase of how never propagate influences the settings of the geometry editor</span><a class="headerlink" href="#never-propagate" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 20 </span><span class="caption-text">Showcase of how never propagate influences the settings of the geometry editor</span><a class="headerlink" href="#never-propagate" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <hr class="docutils" />
@@ -672,7 +741,7 @@ Comfort indicators like overheating hours, temperature profiles, or air quality 
 </section>
 <section id="simulation-data">
 <h1>Simulation Data<a class="headerlink" href="#simulation-data" title="Link to this heading">#</a></h1>
-<p><a class="reference internal" href="#id3"><span class="std std-numref">Fig. 17</span></a> The simulation data is divided into two main phases:</p>
+<p><a class="reference internal" href="#id3"><span class="std std-numref">Fig. 21</span></a> The simulation data is divided into two main phases:</p>
 <ol class="arabic simple">
 <li><p><strong>Warm-up Phase</strong></p></li>
 <li><p><strong>Simulation Phase</strong></p></li>
@@ -680,7 +749,7 @@ Comfort indicators like overheating hours, temperature profiles, or air quality 
 <figure class="align-default" id="id3">
 <img alt="_images/Simulation_Data.png" src="_images/Simulation_Data.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 17 </span><span class="caption-text">Simulation Data with its subcomponents Simulation Phase and Warmup Phase and their parameters</span><a class="headerlink" href="#id3" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 21 </span><span class="caption-text">Simulation Data with its subcomponents Simulation Phase and Warmup Phase and their parameters</span><a class="headerlink" href="#id3" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <section id="warm-up-phase">
@@ -786,6 +855,12 @@ Comfort indicators like overheating hours, temperature profiles, or air quality 
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#geometrical-modeling">Geometrical Modeling</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ida-ice-specific-geometry-considerations">IDA-ICE Specific Geometry Considerations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geolocation-in-the-site-planner">Geolocation in the Site Planner <!-- Name nur frei übersetzt, fachbegriff abfragen--></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#orientation-within-the-site-planner">Orientation within the Site Planner</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#control-the-positioning-of-geometries-within-the-geometry-file-simgeo">Control the positioning of geometries within the geometry file (.simgeo)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-shading-elements-for-the-ida-ice-simulation">Adding Shading Elements for the IDA-ICE Simulation</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assigning-components-to-geometrical-surfaces">Assigning Components to Geometrical Surfaces</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assigning-volume-to-rooms">Assigning Volume to Rooms</a></li>
 </ul>
