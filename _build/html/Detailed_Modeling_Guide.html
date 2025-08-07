@@ -419,7 +419,7 @@ document.write(`
 <hr class="docutils" />
 <section id="building-envelope">
 <h2>Building Envelope<a class="headerlink" href="#building-envelope" title="Link to this heading">#</a></h2>
-<p>The building envelope defines the physical boundary of the conditioned space and includes opaque, transparent, and shading components.</p>
+<p>Building envelop defines the physical boundary of the conditioned space and includes opaque, transparent, and shading components.</p>
 <p>Since most of the data of the building envelope will already be provided with an architectual model the structure of the
 plugin focuses on expanding the already existing information, so it is containing all the calculation relevant
 information and can be exported to IDA-ICE.</p>
@@ -457,8 +457,9 @@ information and can be exported to IDA-ICE.</p>
 </figure>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p><strong>Any change made here directly updates the SIMULTAN data model.</strong> That’s why it is very important to work carefully in the user interface, changes are applied directly, even without explicitly saving or simply closing the user interface.</p>
+<p><strong>Any change made here directly updates the SIMULTAN data model.</strong> That’s why it is very important to work carefully in the UI, changes are applied directly, even without explicitly saving or simply closing the user interface.</p>
 </div>
+<!--aktueller stand der Dinge-->
 </section>
 <hr class="docutils" />
 <section id="transparent-building-components">
@@ -469,7 +470,7 @@ door and other <code class="docutils literal notranslate"><span class="pre">glas
 <figure class="align-default" id="transperentbuildingcomponents-ui">
 <img alt="_images/TransperentBuildingComponents-UI.png" src="_images/TransperentBuildingComponents-UI.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 24 </span><span class="caption-text">User interface for Glass Construction definitions</span><a class="headerlink" href="#transperentbuildingcomponents-ui" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 24 </span><span class="caption-text">UI for Glass Construction definitions</span><a class="headerlink" href="#transperentbuildingcomponents-ui" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>The parameters in the image relate to the material properties of transparent components (such as windows) in the IDA ICE building simulation software. These values strongly influence the thermal and solar behavior of the glazing. Here is an explanation of the terms and their meaning.</p>
@@ -502,7 +503,7 @@ The opposite of 6. so for the outside of the window</p></li>
 <figure class="align-default" id="shades-ui">
 <img alt="_images/Shades-UI.png" src="_images/Shades-UI.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 25 </span><span class="caption-text">User interface for Shading Surface definitions</span><a class="headerlink" href="#shades-ui" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 25 </span><span class="caption-text">UI for Shading Surface definitions</span><a class="headerlink" href="#shades-ui" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p><strong>Parameters include:</strong></p>
@@ -528,7 +529,7 @@ How much visible light is transmitted through the surface.</p></li>
 <hr class="docutils" />
 <section id="hvac-configuration-via-esbo">
 <h2>HVAC Configuration via ESBO<a class="headerlink" href="#hvac-configuration-via-esbo" title="Link to this heading">#</a></h2>
-<p>The HVAC-System is implemented via the ESBO-Plant of IDA-ICE. <a class="reference internal" href="#esbo-simultan"><span class="std std-numref">Fig. 26</span></a> shows all the possible inputs
+<p>The HVAC-System is implemented via the <em>ESBO-Plant</em> of IDA-ICE. <a class="reference internal" href="#esbo-simultan"><span class="std std-numref">Fig. 26</span></a> shows all the possible inputs
 which are exported with the plugin.</p>
 <figure class="align-default" id="esbo-simultan">
 <img alt="_images/Esbo-UI.png" src="_images/Esbo-UI.png" />
@@ -627,16 +628,16 @@ Indicates how much energy (in joules) is required to heat 1 kg of material by 1 
 <p class="admonition-title">Note</p>
 <p><strong>These parameters determine how materials conduct and store heat within simulations.</strong></p>
 </div>
-<p>New materials become available in the <strong>Construction</strong> tab once defined.</p>
+<p>New materials become available in the Construction tab once defined.</p>
 </section>
 <hr class="docutils" />
 <section id="taxonomy-update">
 <h2>Taxonomy Update<a class="headerlink" href="#taxonomy-update" title="Link to this heading">#</a></h2>
-<p>To restore or update all taxonomies for the IDA-ICE Plugin, use the built-in taxonomy update button <a class="reference internal" href="#taxonomyupdate-button"><span class="std std-numref">Fig. 34</span></a>.</p>
+<p>To restore or update all taxonomies for the IDA-ICE Plugin, use the built-in <em>TaxonomyUpdate</em> button <a class="reference internal" href="#taxonomyupdate-button"><span class="std std-numref">Fig. 34</span></a>.</p>
 <figure class="align-default" id="taxonomyupdate-button">
 <img alt="_images/taxonomyupdate_button.png" src="_images/taxonomyupdate_button.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 34 </span><span class="caption-text">Taxonomy update button</span><a class="headerlink" href="#taxonomyupdate-button" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 34 </span><span class="caption-text">TaxonomyUpdate button</span><a class="headerlink" href="#taxonomyupdate-button" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <div class="admonition warning">

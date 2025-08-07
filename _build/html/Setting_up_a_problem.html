@@ -403,9 +403,9 @@ document.write(`
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#geometrical-modeling">Geometrical Modeling</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ida-ice-specific-geometry-considerations">IDA-ICE Specific Geometry Considerations</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geolocation-in-the-site-planner">Geolocation in the Site Planner <!-- Name nur frei übersetzt, fachbegriff abfragen--></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#orientation-within-the-site-planner">Orientation within the Site Planner</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#control-the-positioning-of-geometries-within-the-geometry-file-simgeo">Control the positioning of geometries within the geometry file (.simgeo)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geolocation-in-the-siteplanner">Geolocation in the <em>SitePlanner</em> <!-- Name nur frei übersetzt, fachbegriff abfragen--></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#orientation-within-the-siteplanner">Orientation within the <em>SitePlanner</em></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#control-the-positioning-of-geometries-within-the-geometryviewer">Control the positioning of geometries within the <em>GeometryViewer</em></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-shading-elements-for-the-ida-ice-simulation">Adding Shading Elements for the IDA-ICE Simulation</a></li>
 </ul>
 </li>
@@ -503,30 +503,30 @@ document.write(`
 </section>
 <section id="geometrical-modeling">
 <h1>Geometrical Modeling<a class="headerlink" href="#geometrical-modeling" title="Link to this heading">#</a></h1>
-<p>Geometrical elements are created using the Geometry Editor in SIMULTAN. For detailed guidance, consult the <a class="reference external" href="https://github.com/bph-tuwien/SIMULTAN.Documentation/wiki">SIMULTAN Editor User Guide</a> or watch our <a class="reference external" href="https://www.youtube.com/watch?v=YDDNtA6lkFU&amp;amp;t=1s">YouTube tutorial</a>.</p>
+<p>Geometrical elements are created using the <em>GeometryViewer</em> in SIMULTAN. For detailed guidance, consult the <a class="reference external" href="https://github.com/bph-tuwien/SIMULTAN.Documentation/wiki">SIMULTAN Editor User Guide</a> or watch our <a class="reference external" href="https://www.youtube.com/watch?v=YDDNtA6lkFU&amp;amp;t=1s">YouTube tutorial</a>.</p>
 <section id="ida-ice-specific-geometry-considerations">
 <h2>IDA-ICE Specific Geometry Considerations<a class="headerlink" href="#ida-ice-specific-geometry-considerations" title="Link to this heading">#</a></h2>
 <p>Since geometric modeling is central to SIMULTAN, several aspects are critical to ensure a consistent and stable data structure.</p>
 <!-- Sitplanner inforamtion hier hinzufügen!! -->
-<section id="geolocation-in-the-site-planner">
-<h3>Geolocation in the Site Planner <!-- Name nur frei übersetzt, fachbegriff abfragen--><a class="headerlink" href="#geolocation-in-the-site-planner" title="Link to this heading">#</a></h3>
-<p>To access the <strong>Site Planner</strong> in SIMULTAN open the corresponding <code class="docutils literal notranslate"><span class="pre">.spdxf</span></code> file (see <a class="reference internal" href="#siteplanner"><span class="std std-numref">Fig. 6</span></a>).</p>
+<section id="geolocation-in-the-siteplanner">
+<h3>Geolocation in the <em>SitePlanner</em> <!-- Name nur frei übersetzt, fachbegriff abfragen--><a class="headerlink" href="#geolocation-in-the-siteplanner" title="Link to this heading">#</a></h3>
+<p>To access the <em><strong>SitePlanner</strong></em> in SIMULTAN open the corresponding <code class="docutils literal notranslate"><span class="pre">.spdxf</span></code> file (see <a class="reference internal" href="#siteplanner"><span class="std std-numref">Fig. 6</span></a>).</p>
 <figure class="align-default" id="siteplanner">
 <img alt="_images/siteplanner.png" src="_images/siteplanner.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 6 </span><span class="caption-text">Accessing the Site Planner in SIMULTAN</span><a class="headerlink" href="#siteplanner" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 6 </span><span class="caption-text">Accessing the <em>SitePlanner</em> in SIMULTAN</span><a class="headerlink" href="#siteplanner" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<section id="orientation-within-the-site-planner">
-<h4>Orientation within the Site Planner<a class="headerlink" href="#orientation-within-the-site-planner" title="Link to this heading">#</a></h4>
-<p><strong>Once opened, the Site Planner displays a map-based environment for spatial orientation.</strong></p>
+<section id="orientation-within-the-siteplanner">
+<h4>Orientation within the <em>SitePlanner</em><a class="headerlink" href="#orientation-within-the-siteplanner" title="Link to this heading">#</a></h4>
+<p><strong>Once opened, the <em>SitePlanner</em> displays a map-based environment for spatial orientation.</strong></p>
 <ul class="simple">
 <li><p>In the top-left drop-down menu (<a class="reference internal" href="#dropdown-siteplanner"><span class="std std-numref">Fig. 7</span></a>), you can locate geometries from your data model.</p></li>
 <li><p>Upon selection, the view automatically zooms to the selected geometry’s location.</p></li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p><strong>The relative positioning of the geometries plays an important role when exporting to IDA-ICE. This positioning is transferred to the exported IDA-ICE model.</strong></p>
+<p>The relative positioning of the geometries plays an important role when exporting to IDA-ICE. This positioning is transferred to the exported IDA-ICE model.</p>
 </div>
 <figure class="align-default" id="dropdown-siteplanner">
 <img alt="_images/dropdown_sitplanner.png" src="_images/dropdown_sitplanner.png" />
@@ -536,17 +536,17 @@ document.write(`
 </figure>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>In the Site Planner, it is also possible to easily move selected geometries using the <strong>G key</strong>.</p>
+<p>In the <em>SitePlanner</em>, it is also possible to easily move selected geometries using the <strong>G key</strong>.</p>
 </div>
 </section>
-<section id="control-the-positioning-of-geometries-within-the-geometry-file-simgeo">
-<h4>Control the positioning of geometries within the geometry file (.simgeo)<a class="headerlink" href="#control-the-positioning-of-geometries-within-the-geometry-file-simgeo" title="Link to this heading">#</a></h4>
-<p>To manually define the placement of a geometry, open the .simgeo file.
-In the ribbon interface, click on Geo-Reference Manager. This opens a configuration tab where you can set the geometry’s position by defining three reference nodes (see <a class="reference internal" href="#georeferencemanager"><span class="std std-numref">Fig. 8</span></a>).</p>
+<section id="control-the-positioning-of-geometries-within-the-geometryviewer">
+<h4>Control the positioning of geometries within the <em>GeometryViewer</em><a class="headerlink" href="#control-the-positioning-of-geometries-within-the-geometryviewer" title="Link to this heading">#</a></h4>
+<p>To manually define the placement of a geometry, open the <em>GeometryViewer</em>.
+In the ribbon interface, click on <em>Geo-Reference Manager</em>. This opens a configuration tab where you can set the geometry’s position by defining three reference nodes (see <a class="reference internal" href="#georeferencemanager"><span class="std std-numref">Fig. 8</span></a>).</p>
 <figure class="align-default" id="georeferencemanager">
 <img alt="_images/GeoReferenceManager.png" src="_images/GeoReferenceManager.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 8 </span><span class="caption-text">Geo-Reference Manager within a geometry file (.simgeo)</span><a class="headerlink" href="#georeferencemanager" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 8 </span><span class="caption-text"><em>Geo-Reference Manager</em> within the <em>GeometryViewer</em></span><a class="headerlink" href="#georeferencemanager" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
@@ -562,9 +562,9 @@ In the ribbon interface, click on Geo-Reference Manager. This opens a configurat
 <p><span class="caption-number">Fig. 9 </span><span class="caption-text">Assigning a Shading component to a geometry</span><a class="headerlink" href="#shadingsimulation" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p><strong>Adding a new shading geometry to the Site Planner:</strong></p>
+<p><strong>Adding a new shading geometry to the <em>SitePlanner</em>:</strong></p>
 <ol class="arabic simple">
-<li><p>Open the Site Planner</p></li>
+<li><p>Open the <em>SitePlanner</em></p></li>
 <li><p>Drag and drop the new geometry into the map area</p></li>
 <li><p>Move it to the desired position on the building using the mouse (left-click to place)</p></li>
 </ol>
@@ -576,7 +576,7 @@ In the ribbon interface, click on Geo-Reference Manager. This opens a configurat
 <figure class="align-default" id="flachen-zuweisen">
 <img alt="_images/fl%C3%A4chen_zuweisen.png" src="_images/fl%C3%A4chen_zuweisen.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 10 </span><span class="caption-text">Geometry editor view of components assigned to a surface</span><a class="headerlink" href="#flachen-zuweisen" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 10 </span><span class="caption-text"><em>GeometryViewer</em> view of components assigned to a surface</span><a class="headerlink" href="#flachen-zuweisen" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>In <a class="reference internal" href="#flachen-zuweisen"><span class="std std-numref">Fig. 10</span></a>, under <code class="docutils literal notranslate"><span class="pre">Components</span></code>, the selected surface is connected to <strong>6-AW_ZW</strong>. Clicking the arrow on the right opens the corresponding component <a class="reference internal" href="#zuordnung-geometrie"><span class="std std-numref">Fig. 11</span></a>.</p>
@@ -597,7 +597,7 @@ In the ribbon interface, click on Geo-Reference Manager. This opens a configurat
 <figure class="align-default" id="volumen-zuweisen">
 <img alt="_images/volumen_zuweisen.png" src="_images/volumen_zuweisen.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 12 </span><span class="caption-text">Selected volume in the geometry editor view</span><a class="headerlink" href="#volumen-zuweisen" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 12 </span><span class="caption-text">Selected volume in the <em>GeometryViewer</em></span><a class="headerlink" href="#volumen-zuweisen" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <div class="admonition important">
@@ -625,7 +625,7 @@ In the ribbon interface, click on Geo-Reference Manager. This opens a configurat
 <a class="reference internal image-reference" href="_images/geo_simultan.png"><img alt="_images/geo_simultan.png" src="_images/geo_simultan.png" style="height: 350px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 13 </span><span class="caption-text">Geometry of a <em>Tiny House</em> modeled in the SIMULTAN Geometry Editor.</span><a class="headerlink" href="#geo-simultan" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 13 </span><span class="caption-text">Geometry of a <em>Tiny House</em> modeled in the SIMULTAN <em>GeometryViewer</em>.</span><a class="headerlink" href="#geo-simultan" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>In <a class="reference internal" href="#geo-simultan"><span class="std std-numref">Fig. 13</span></a>, a reference geometry (white) is used for the dynamic simulation. This may be an architectural model or a dedicated model for simulation purposes. This reference geometry is exported to IDA-ICE. Therefore, all geometry-dependent information must be linked to this model.</p>
@@ -667,10 +667,10 @@ Comfort indicators like overheating hours, temperature profiles, or air quality 
 <figure class="align-default" id="ideal-heating-cooling">
 <img alt="_images/Ideal_heating_cooling.png" src="_images/Ideal_heating_cooling.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 14 </span><span class="caption-text">Parameters of ideal heating and ideal cooling subordinated to the building services component</span><a class="headerlink" href="#ideal-heating-cooling" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 14 </span><span class="caption-text">Parameters of ideal heating and ideal cooling subordinated to the <em>Building Services</em> component</span><a class="headerlink" href="#ideal-heating-cooling" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>Ideal Cooler and Heater can be found in SIMULTAN under Building Services. <!-- Satz abgeändert / verbessert--></p>
+<p>Ideal Cooler and Heater can be found in SIMULTAN under <em>Building Services</em>. <!-- Satz abgeändert / verbessert--></p>
 <p>In <a class="reference internal" href="#ideal-heating-cooling"><span class="std std-numref">Fig. 14</span></a> you will see a yellow icon next to the names of the Ideal Cooler and Heater, which indicates that this component is connected to a geometry. Connecting the component to a volume is essential for exporting to IDA-ICE.</p>
 <!-- ergänzung folgt... | Gelbes Icon bei Never Propagate und Instanzen im GeometryViewer-->
 </section>
@@ -683,7 +683,7 @@ Comfort indicators like overheating hours, temperature profiles, or air quality 
 <p><span class="caption-number">Fig. 15 </span><span class="caption-text">List of parameters for the detailed and simple water radiator</span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>The water radiator behaves in the same way as an ideal heater/cooler. Therefore, it must be assigned to a volume/zone! You find it under Building Services <a class="reference internal" href="#id1"><span class="std std-numref">Fig. 15</span></a>.</p>
+<p>The water radiator behaves in the same way as an ideal heater/cooler. Therefore, it must be assigned to a volume/zone! You find it under <em>Building Services</em> <a class="reference internal" href="#id1"><span class="std std-numref">Fig. 15</span></a>.</p>
 </section>
 <hr class="docutils" />
 <section id="setpoints">
@@ -711,7 +711,7 @@ Comfort indicators like overheating hours, temperature profiles, or air quality 
 <p><span class="caption-number">Fig. 18 </span><span class="caption-text">Setpoint adjustments to instances in the geometry editor</span><a class="headerlink" href="#setpoints-geometrie-view" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<!-- neues bild zu Setpoints im geometrie editor-->
+<!-- neues bild zu Setpoints im GeometrieViewer-->
 </section>
 <hr class="docutils" />
 <section id="propagation-settings">
@@ -721,19 +721,19 @@ Comfort indicators like overheating hours, temperature profiles, or air quality 
 <figure class="align-default" id="propagation">
 <img alt="_images/propagation.png" src="_images/propagation.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 19 </span><span class="caption-text">Propagation buttons within the Property Editor</span><a class="headerlink" href="#propagation" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 19 </span><span class="caption-text">Propagation buttons within the <em>Property Editor</em></span><a class="headerlink" href="#propagation" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>The three options are:</p>
 <ul class="simple">
 <li><p><strong>Always propagate</strong>: Prevents changes to setpoints in the geometry view. These values remain fixed.</p></li>
-<li><p><strong>Never propagate</strong>: Allows manual overwriting of heating and cooling setpoints in the geometry view. <a class="reference internal" href="#never-propagate"><span class="std std-numref">Fig. 20</span></a></p></li>
+<li><p><strong>Never propagate</strong>: Allows manual overwriting of heating and cooling setpoints in the GeometryViewer. <a class="reference internal" href="#never-propagate"><span class="std std-numref">Fig. 20</span></a></p></li>
 <li><p><strong>Propagate if instance</strong>: <!-- konnte keinen unterschied zu Always propagate finden, auch nicht den sinn des overwrite buttons!--></p></li>
 </ul>
 <figure class="align-default" id="never-propagate">
 <img alt="_images/never_propagate.png" src="_images/never_propagate.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 20 </span><span class="caption-text">Showcase of how never propagate influences the settings of the geometry editor</span><a class="headerlink" href="#never-propagate" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 20 </span><span class="caption-text">Showcase of how never propagate influences the settings of the <em>GeometryViewer</em></span><a class="headerlink" href="#never-propagate" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <hr class="docutils" />
@@ -855,9 +855,9 @@ Comfort indicators like overheating hours, temperature profiles, or air quality 
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#geometrical-modeling">Geometrical Modeling</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ida-ice-specific-geometry-considerations">IDA-ICE Specific Geometry Considerations</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geolocation-in-the-site-planner">Geolocation in the Site Planner <!-- Name nur frei übersetzt, fachbegriff abfragen--></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#orientation-within-the-site-planner">Orientation within the Site Planner</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#control-the-positioning-of-geometries-within-the-geometry-file-simgeo">Control the positioning of geometries within the geometry file (.simgeo)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geolocation-in-the-siteplanner">Geolocation in the <em>SitePlanner</em> <!-- Name nur frei übersetzt, fachbegriff abfragen--></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#orientation-within-the-siteplanner">Orientation within the <em>SitePlanner</em></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#control-the-positioning-of-geometries-within-the-geometryviewer">Control the positioning of geometries within the <em>GeometryViewer</em></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-shading-elements-for-the-ida-ice-simulation">Adding Shading Elements for the IDA-ICE Simulation</a></li>
 </ul>
 </li>

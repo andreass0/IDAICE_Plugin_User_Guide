@@ -5,7 +5,7 @@
 ## Import of results
 
 The results can be imported back into SIMULTAN with the `Import results button` {numref}`import_results`. You are prompted with a selection
-dialogue,please choose your main .idm-file to import the results of the energy load simulation.
+dialogue, please choose your main .idm-file to import the results of the energy load simulation.
 
 ```{figure} img/import_results.png
 ---

@@ -6,7 +6,7 @@ This section provides in-depth documentation for configuring key model component
 
 ## Building Envelope
 
-The building envelope defines the physical boundary of the conditioned space and includes opaque, transparent, and shading components.
+Building envelop defines the physical boundary of the conditioned space and includes opaque, transparent, and shading components.
 
 Since most of the data of the building envelope will already be provided with an architectual model the structure of the
 plugin focuses on expanding the already existing information, so it is containing all the calculation relevant
@@ -46,8 +46,9 @@ User interface for Construction definitions
 ```
 
 ```{warning}
-**Any change made here directly updates the SIMULTAN data model.** That's why it is very important to work carefully in the user interface, changes are applied directly, even without explicitly saving or simply closing the user interface.
+**Any change made here directly updates the SIMULTAN data model.** That's why it is very important to work carefully in the UI, changes are applied directly, even without explicitly saving or simply closing the user interface.
 ```
+<!--aktueller stand der Dinge-->
 
 ---
 
@@ -62,7 +63,7 @@ door and other `glass constructions`.
 ---
 name: TransperentBuildingComponents-UI
 ---
-User interface for Glass Construction definitions 
+UI for Glass Construction definitions 
 ```
 
 The parameters in the image relate to the material properties of transparent components (such as windows) in the IDA ICE building simulation software. These values strongly influence the thermal and solar behavior of the glazing. Here is an explanation of the terms and their meaning.  
@@ -97,7 +98,7 @@ A central element in IDA-ICE is the consideration of shading, as it has a consid
 ---
 name: Shades-UI
 ---
-User interface for Shading Surface definitions
+UI for Shading Surface definitions
 ```
 
 **Parameters include:**
@@ -123,7 +124,7 @@ For everything you need to know about incorporating shading elements into your I
 
 ## HVAC Configuration via ESBO
 
-The HVAC-System is implemented via the ESBO-Plant of IDA-ICE. {numref}`esbo_simultan` shows all the possible inputs
+The HVAC-System is implemented via the *ESBO-Plant* of IDA-ICE. {numref}`esbo_simultan` shows all the possible inputs
 which are exported with the plugin.
 
 ```{figure} img/Esbo-UI.png
@@ -238,19 +239,19 @@ Indicates how much energy (in joules) is required to heat 1 kg of material by 1 
 **These parameters determine how materials conduct and store heat within simulations.**
 ```
 
-New materials become available in the **Construction** tab once defined.
+New materials become available in the Construction tab once defined.
 
 ---
 
 ## Taxonomy Update
 
-To restore or update all taxonomies for the IDA-ICE Plugin, use the built-in taxonomy update button {numref}`taxonomyupdate_button`.
+To restore or update all taxonomies for the IDA-ICE Plugin, use the built-in *TaxonomyUpdate* button {numref}`taxonomyupdate_button`.
 
 ```{figure} img/taxonomyupdate_button.png
 ---
 name: taxonomyupdate_button
 ---
-Taxonomy update button
+TaxonomyUpdate button
 ```
 
 ```{warning}

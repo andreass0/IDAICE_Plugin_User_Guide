@@ -5,7 +5,7 @@
 ## Import of results
 
 The results can be imported back into SIMULTAN with the `Import results button` {numref}`import_results`. You are prompted with a selection
-dialogue,please choose your main .idm-file to import the results of the energy load simulation.
+dialogue, please choose your main .idm-file to import the results of the energy load simulation.
 
 ```{figure} img/import_results.png
 ---
@@ -15,7 +15,7 @@ Button to import the results of the simulation back into SIMULTAN.
 ```
 
 The results will be stored under the component `IDA ICE Analysis` -> `Results` -> `Taxonomie: Results Zone [extension]`. Under this component the
-plugin creates a sub-component for each simulation Zone in the data model {numref}`results_comp`.
+plugin creates a sub-component for each simulation Zone in the data model {numref}`results_comp`. <!-- stimmt nicht, herrausfinden wie es wirklich ist-->
 
 ```{figure} img/results_comp.png
 ---

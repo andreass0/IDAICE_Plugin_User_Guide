@@ -69,32 +69,32 @@ Some components of a data model
 
 ## Geometrical Modeling
 
-Geometrical elements are created using the Geometry Editor in SIMULTAN. For detailed guidance, consult the [SIMULTAN Editor User Guide](https://github.com/bph-tuwien/SIMULTAN.Documentation/wiki) or watch our [YouTube tutorial](https://www.youtube.com/watch?v=YDDNtA6lkFU&t=1s).
+Geometrical elements are created using the *GeometryViewer* in SIMULTAN. For detailed guidance, consult the [SIMULTAN Editor User Guide](https://github.com/bph-tuwien/SIMULTAN.Documentation/wiki) or watch our [YouTube tutorial](https://www.youtube.com/watch?v=YDDNtA6lkFU&t=1s).
 
 ### IDA-ICE Specific Geometry Considerations
 
 Since geometric modeling is central to SIMULTAN, several aspects are critical to ensure a consistent and stable data structure.
 <!-- Sitplanner inforamtion hier hinzufügen!! -->
 
-#### Geolocation in the Site Planner <!-- Name nur frei übersetzt, fachbegriff abfragen-->
+#### Geolocation in the *SitePlanner* <!-- Name nur frei übersetzt, fachbegriff abfragen-->
 
-To access the **Site Planner** in SIMULTAN open the corresponding `.spdxf` file (see {numref}`siteplanner`).
+To access the ***SitePlanner*** in SIMULTAN open the corresponding `.spdxf` file (see {numref}`siteplanner`).
 ```{figure} img/siteplanner.png
 ---
 name: siteplanner
 ---
-Accessing the Site Planner in SIMULTAN
+Accessing the *SitePlanner* in SIMULTAN
 ```
 
-##### Orientation within the Site Planner
+##### Orientation within the *SitePlanner*
 
-**Once opened, the Site Planner displays a map-based environment for spatial orientation.**  
+**Once opened, the *SitePlanner* displays a map-based environment for spatial orientation.**  
 
 - In the top-left drop-down menu ({numref}`dropdown_siteplanner`), you can locate geometries from your data model.   
 - Upon selection, the view automatically zooms to the selected geometry’s location. 
 
 ```{note}
-**The relative positioning of the geometries plays an important role when exporting to IDA-ICE. This positioning is transferred to the exported IDA-ICE model.**
+The relative positioning of the geometries plays an important role when exporting to IDA-ICE. This positioning is transferred to the exported IDA-ICE model.
 ``` 
 
 ```{figure} img/dropdown_sitplanner.png
@@ -105,19 +105,19 @@ Drop-down menu to locate geometries
 ```
 
 ```{tip}
-In the Site Planner, it is also possible to easily move selected geometries using the **G key**.
+In the *SitePlanner*, it is also possible to easily move selected geometries using the **G key**.
 ``` 
 
-##### Control the positioning of geometries within the geometry file (.simgeo)
+##### Control the positioning of geometries within the *GeometryViewer*
 
-To manually define the placement of a geometry, open the .simgeo file.
-In the ribbon interface, click on Geo-Reference Manager. This opens a configuration tab where you can set the geometry's position by defining three reference nodes (see {numref}`georeferencemanager`).
+To manually define the placement of a geometry, open the *GeometryViewer*.
+In the ribbon interface, click on *Geo-Reference Manager*. This opens a configuration tab where you can set the geometry's position by defining three reference nodes (see {numref}`georeferencemanager`).
 
 ```{figure} img/GeoReferenceManager.png
 ---
 name: GeoReferenceManager
 ---
-Geo-Reference Manager within a geometry file (.simgeo)
+*Geo-Reference Manager* within the *GeometryViewer*
 ``` 
 
 ##### Adding Shading Elements for the IDA-ICE Simulation
@@ -133,9 +133,9 @@ name: shadingsimulation
 Assigning a Shading component to a geometry
 ```
 
-**Adding a new shading geometry to the Site Planner:**
+**Adding a new shading geometry to the *SitePlanner*:**
 
-1. Open the Site Planner
+1. Open the *SitePlanner*
 2. Drag and drop the new geometry into the map area
 3. Move it to the desired position on the building using the mouse (left-click to place)
 
@@ -148,7 +148,7 @@ Each surface—walls, ceilings, and floors—must be explicitly assigned within 
 ---
 name: flächen_zuweisen
 ---
-Geometry editor view of components assigned to a surface
+*GeometryViewer* view of components assigned to a surface
 ```
 
 In {numref}`flächen_zuweisen`, under `Components`, the selected surface is connected to **6-AW\_ZW**. Clicking the arrow on the right opens the corresponding component {numref}`zuordnung_geometrie`.
@@ -172,7 +172,7 @@ The process is analogous to surface assignment, but applies to volumes {numref}`
 ---
 name: volumen_zuweisen
 ---
-Selected volume in the geometry editor view
+Selected volume in the *GeometryViewer*
 ```
 
 ```{important}
@@ -197,7 +197,7 @@ Start with or import the provided template file `template_esbo_and_shades.simult
 height: 350px
 name: geo_simultan
 ---
-Geometry of a *Tiny House* modeled in the SIMULTAN Geometry Editor.
+Geometry of a *Tiny House* modeled in the SIMULTAN *GeometryViewer*.
 ```
 
 In {numref}`geo_simultan`, a reference geometry (white) is used for the dynamic simulation. This may be an architectural model or a dedicated model for simulation purposes. This reference geometry is exported to IDA-ICE. Therefore, all geometry-dependent information must be linked to this model.
@@ -241,9 +241,9 @@ The Ideal Heater and Ideal Cooler are standard room units for simplified simulat
 ---
 name: ideal_heating_cooling
 ---
-Parameters of ideal heating and ideal cooling subordinated to the building services component
+Parameters of ideal heating and ideal cooling subordinated to the *Building Services* component
 ```
-Ideal Cooler and Heater can be found in SIMULTAN under Building Services. <!-- Satz abgeändert / verbessert-->
+Ideal Cooler and Heater can be found in SIMULTAN under *Building Services*. <!-- Satz abgeändert / verbessert-->
 
 In {numref}`ideal_heating_cooling` you will see a yellow icon next to the names of the Ideal Cooler and Heater, which indicates that this component is connected to a geometry. Connecting the component to a volume is essential for exporting to IDA-ICE.
 
@@ -260,7 +260,7 @@ name: water_radiator
 List of parameters for the detailed and simple water radiator
 ```
 
-The water radiator behaves in the same way as an ideal heater/cooler. Therefore, it must be assigned to a volume/zone! You find it under Building Services {numref}`water_radiator`.
+The water radiator behaves in the same way as an ideal heater/cooler. Therefore, it must be assigned to a volume/zone! You find it under *Building Services* {numref}`water_radiator`.
 
 ---
 
@@ -292,7 +292,7 @@ name: Setpoints_geometrie_view
 ---
 Setpoint adjustments to instances in the geometry editor
 ```
-<!-- neues bild zu Setpoints im geometrie editor-->
+<!-- neues bild zu Setpoints im GeometrieViewer-->
 
 ---
 
@@ -306,20 +306,20 @@ Propagation controls how values—such as heating and cooling setpoints—are tr
 ---
 name: Propagation
 ---
-Propagation buttons within the Property Editor
+Propagation buttons within the *Property Editor*
 ```
 
 The three options are:
 
 * **Always propagate**: Prevents changes to setpoints in the geometry view. These values remain fixed.
-* **Never propagate**: Allows manual overwriting of heating and cooling setpoints in the geometry view. {numref}`never_propagate`
+* **Never propagate**: Allows manual overwriting of heating and cooling setpoints in the GeometryViewer. {numref}`never_propagate`
 * **Propagate if instance**: <!-- konnte keinen unterschied zu Always propagate finden, auch nicht den sinn des overwrite buttons!-->
 
 ```{figure} img/never_propagate.png
 ---
 name: never_propagate
 ---
-Showcase of how never propagate influences the settings of the geometry editor
+Showcase of how never propagate influences the settings of the *GeometryViewer*
 ```
 
 ---
