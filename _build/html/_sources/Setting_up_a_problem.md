@@ -19,7 +19,7 @@ Simplified representation of the required data structure to run the plugin.
 A more in-depth description of the SIMULTAN data representation for building physics simulations can be found in the chapter [SIMULTAN Datastructure to incorporate the IDA-ICE Data model](SIMULTAN_Datastructure_to_incorporate_the_IDAICE_Data_model.md).
 
 ```{warning}
-Although it is technically possible to define this structure manually, we strongly recommend using the provided templates to avoid errors. Manual modeling is error-prone and can lead to time-consuming troubleshooting.
+Although it is technically possible to define this structure manually, we strongly recommend using the provided templates and the user interfaces to avoid errors. Manual modeling is error-prone and can lead to time-consuming troubleshooting.
 ```
 <!-- templates müsse noch verlinkt werden-->
 
@@ -41,7 +41,7 @@ Taxonomies are classification systems used to organize elements into hierarchica
 
 #### IDA-ICE Relevant Taxonomies
 
-The IDA-ICE plugin introduces new taxonomies essential for establishing the connection between IDA-ICE and SIMULTAN {numref}`taxonomies_idaice`. Tools of the plugin's [user interface](#modeling-for-ida-ice) <!-- verknüpfung zur nächsten seite!-->automatically assign the appropriate taxonomy to each component for compatibility.
+The IDA-ICE plugin introduces new taxonomies essential for establishing the connection between IDA-ICE and SIMULTAN {numref}`taxonomies_idaice`. Tools of the plugin's [user interface](Detailed_Modeling_Guide.md#modeling-for-ida-ice) <!-- verknüpfung zur nächsten seite!-->automatically assign the appropriate taxonomy to each component for compatibility.
 
 ```{figure} img/taxonomies_idaice.png
 ---
@@ -56,7 +56,7 @@ We recommend starting with one of the provided `template files` <!--Link-->to en
 
 ### Components
 
-Components represent the functional building blocks of a simulation model as shown in {numref}`components_beispiel`. Examples include heat pumps, fans. Each component has specific properties and parameters relevant to simulation, such as power consumption.
+The *ComponentBuilder* represent the functional building blocks of a simulation model as shown in {numref}`components_beispiel`. Examples include heat pumps, fans. Each component has specific properties and parameters relevant to simulation, such as power consumption.
 
 ```{figure} img/components_beispiel.png
 ---
@@ -151,13 +151,13 @@ name: flächen_zuweisen
 *GeometryViewer* view of components assigned to a surface
 ```
 
-In {numref}`flächen_zuweisen`, under `Components`, the selected surface is connected to **6-AW\_ZW**. Clicking the arrow on the right opens the corresponding component {numref}`zuordnung_geometrie`.
+In {numref}`flächen_zuweisen`, under `Components`, the selected surface is connected to **6-AW\_ZW**. Clicking the arrow on the right opens the corresponding component within the *ComponentBuilder* {numref}`zuordnung_geometrie`.
 
 ```{figure} img/zuordnugn_geometrie.png
 ---
 name: zuordnung_geometrie
 ---
-Component with all its parameters within the component view
+Corresponding component with all its parameters within the *ComponentBuilder*
 ```
 
 ```{note}
@@ -266,7 +266,7 @@ The water radiator behaves in the same way as an ideal heater/cooler. Therefore,
 
 ### Setpoints
 
-Setpoints are defined temperature thresholds used for heating and cooling control. Like rooms, setpoints are assigned to volumes {numref}`setpoints` and consist of two parameters: heating and cooling {numref}`cooling_heating`. These define the acceptable temperature range for each room. If the temperature deviates from this range, heating or cooling is triggered.
+Setpoints are defined temperature thresholds used for heating and cooling control. Like rooms, setpoints are assigned to volumes ({numref}`setpoints`) and consist of two parameters: heating and cooling ({numref}`cooling_heating`). These define the acceptable temperature range for each room. If the temperature deviates from this range, heating or cooling is triggered. In {numref}`Setpoints_geometrie_view` the setpoint is assigned to a volume.
 
 ```{warning}
 **Setpoints must always be assigned to a volume!**
@@ -290,7 +290,7 @@ Setpoint component with his parameters heating and cooling
 ---
 name: Setpoints_geometrie_view
 ---
-Setpoint adjustments to instances in the geometry editor
+Setpoint adjustments to instances in the GeometryViewer
 ```
 <!-- neues bild zu Setpoints im GeometrieViewer-->
 
@@ -311,7 +311,7 @@ Propagation buttons within the *Property Editor*
 
 The three options are:
 
-* **Always propagate**: Prevents changes to setpoints in the geometry view. These values remain fixed.
+* **Always propagate**: Prevents changes to setpoints in the *GeometryViewer*. These values remain fixed.
 * **Never propagate**: Allows manual overwriting of heating and cooling setpoints in the GeometryViewer. {numref}`never_propagate`
 * **Propagate if instance**: <!-- konnte keinen unterschied zu Always propagate finden, auch nicht den sinn des overwrite buttons!-->
 

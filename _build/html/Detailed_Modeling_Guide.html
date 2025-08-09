@@ -485,7 +485,8 @@ Proportion of visible light that passes through the glazing.</p></li>
 <li><p><strong>Thermal Conductivity (U)</strong><br />
 Radiant heat emission from the inner surface (e.g. glass) to the inside.</p></li>
 <li><p><strong>Emissivity (internal/external)</strong><br />
-The opposite of 6. so for the outside of the window</p></li>
+Internal Emissivity = efficiency of longwave heat emission/absorption on the room side.<br />
+External Emissivity = efficiency of longwave heat emission/absorption on the outdoor side.</p></li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -499,7 +500,9 @@ The opposite of 6. so for the outside of the window</p></li>
 <hr class="docutils" />
 <section id="shading-elements">
 <h3>Shading Elements<a class="headerlink" href="#shading-elements" title="Link to this heading">#</a></h3>
-<p>A central element in IDA-ICE is the consideration of shading, as it has a considerable influence on daylight, cooling and heating loads and the indoor climate. This is why the plugin has a separate area for this, as you can see in <a class="reference internal" href="#shades-ui"><span class="std std-numref">Fig. 25</span></a>.</p>
+<p>In IDA-ICE, <strong>architectural shading</strong> plays a crucial role in accurately simulating the effects of surrounding structures on daylight availability, cooling and heating loads, and the overall indoor climate.<br />
+This refers specifically to <strong>shading at the building level</strong>—such as protruding roof sections, balconies, overhangs, neighboring buildings, or permanent structural elements.
+The SIMULTAN–IDA-ICE plugin provides a special interface for defining these shading areas (see <a class="reference internal" href="#shades-ui"><span class="std std-numref">Fig. 25</span></a>).</p>
 <figure class="align-default" id="shades-ui">
 <img alt="_images/Shades-UI.png" src="_images/Shades-UI.png" />
 <figcaption>

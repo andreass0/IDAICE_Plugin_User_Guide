@@ -79,7 +79,8 @@ Proportion of visible light that passes through the glazing.
 * **Thermal Conductivity (U)**  
 Radiant heat emission from the inner surface (e.g. glass) to the inside.  
 * **Emissivity (internal/external)**  
-The opposite of 6. so for the outside of the window   
+Internal Emissivity = efficiency of longwave heat emission/absorption on the room side.   
+External Emissivity = efficiency of longwave heat emission/absorption on the outdoor side.  
 
 ```{note}
 **These values are used in IDA ICE to:**
@@ -92,7 +93,9 @@ The opposite of 6. so for the outside of the window
 
 ### Shading Elements
 
-A central element in IDA-ICE is the consideration of shading, as it has a considerable influence on daylight, cooling and heating loads and the indoor climate. This is why the plugin has a separate area for this, as you can see in {numref}`Shades-UI`.
+In IDA-ICE, **architectural shading** plays a crucial role in accurately simulating the effects of surrounding structures on daylight availability, cooling and heating loads, and the overall indoor climate.  
+This refers specifically to **shading at the building level**—such as protruding roof sections, balconies, overhangs, neighboring buildings, or permanent structural elements.
+The SIMULTAN–IDA-ICE plugin provides a special interface for defining these shading areas (see {numref}`shades-ui`).
 
 ```{figure} img/Shades-UI.png
 ---

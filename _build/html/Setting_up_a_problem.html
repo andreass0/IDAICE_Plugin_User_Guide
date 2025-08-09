@@ -460,7 +460,7 @@ document.write(`
 <p>A more in-depth description of the SIMULTAN data representation for building physics simulations can be found in the chapter <a class="reference internal" href="SIMULTAN_Datastructure_to_incorporate_the_IDAICE_Data_model.html"><span class="std std-doc">SIMULTAN Datastructure to incorporate the IDA-ICE Data model</span></a>.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Although it is technically possible to define this structure manually, we strongly recommend using the provided templates to avoid errors. Manual modeling is error-prone and can lead to time-consuming troubleshooting.</p>
+<p>Although it is technically possible to define this structure manually, we strongly recommend using the provided templates and the user interfaces to avoid errors. Manual modeling is error-prone and can lead to time-consuming troubleshooting.</p>
 </div>
 <!-- templates müsse noch verlinkt werden-->
 <p>The data structure consists of two main elements:</p>
@@ -478,7 +478,7 @@ document.write(`
 </div>
 <section id="ida-ice-relevant-taxonomies">
 <h3>IDA-ICE Relevant Taxonomies<a class="headerlink" href="#ida-ice-relevant-taxonomies" title="Link to this heading">#</a></h3>
-<p>The IDA-ICE plugin introduces new taxonomies essential for establishing the connection between IDA-ICE and SIMULTAN <a class="reference internal" href="#taxonomies-idaice"><span class="std std-numref">Fig. 4</span></a>. Tools of the plugin’s <a class="reference internal" href="#modeling-for-ida-ice"><span class="xref myst">user interface</span></a> <!-- verknüpfung zur nächsten seite!-->automatically assign the appropriate taxonomy to each component for compatibility.</p>
+<p>The IDA-ICE plugin introduces new taxonomies essential for establishing the connection between IDA-ICE and SIMULTAN <a class="reference internal" href="#taxonomies-idaice"><span class="std std-numref">Fig. 4</span></a>. Tools of the plugin’s <a class="reference internal" href="Detailed_Modeling_Guide.html#modeling-for-ida-ice"><span class="std std-ref">user interface</span></a> <!-- verknüpfung zur nächsten seite!-->automatically assign the appropriate taxonomy to each component for compatibility.</p>
 <figure class="align-default" id="taxonomies-idaice">
 <img alt="_images/taxonomies_idaice.png" src="_images/taxonomies_idaice.png" />
 <figcaption>
@@ -491,7 +491,7 @@ document.write(`
 <hr class="docutils" />
 <section id="components">
 <h2>Components<a class="headerlink" href="#components" title="Link to this heading">#</a></h2>
-<p>Components represent the functional building blocks of a simulation model as shown in <a class="reference internal" href="#components-beispiel"><span class="std std-numref">Fig. 5</span></a>. Examples include heat pumps, fans. Each component has specific properties and parameters relevant to simulation, such as power consumption.</p>
+<p>The <em>ComponentBuilder</em> represent the functional building blocks of a simulation model as shown in <a class="reference internal" href="#components-beispiel"><span class="std std-numref">Fig. 5</span></a>. Examples include heat pumps, fans. Each component has specific properties and parameters relevant to simulation, such as power consumption.</p>
 <figure class="align-default" id="components-beispiel">
 <img alt="_images/components_beispiel.png" src="_images/components_beispiel.png" />
 <figcaption>
@@ -579,11 +579,11 @@ In the ribbon interface, click on <em>Geo-Reference Manager</em>. This opens a c
 <p><span class="caption-number">Fig. 10 </span><span class="caption-text"><em>GeometryViewer</em> view of components assigned to a surface</span><a class="headerlink" href="#flachen-zuweisen" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>In <a class="reference internal" href="#flachen-zuweisen"><span class="std std-numref">Fig. 10</span></a>, under <code class="docutils literal notranslate"><span class="pre">Components</span></code>, the selected surface is connected to <strong>6-AW_ZW</strong>. Clicking the arrow on the right opens the corresponding component <a class="reference internal" href="#zuordnung-geometrie"><span class="std std-numref">Fig. 11</span></a>.</p>
+<p>In <a class="reference internal" href="#flachen-zuweisen"><span class="std std-numref">Fig. 10</span></a>, under <code class="docutils literal notranslate"><span class="pre">Components</span></code>, the selected surface is connected to <strong>6-AW_ZW</strong>. Clicking the arrow on the right opens the corresponding component within the <em>ComponentBuilder</em> <a class="reference internal" href="#zuordnung-geometrie"><span class="std std-numref">Fig. 11</span></a>.</p>
 <figure class="align-default" id="zuordnung-geometrie">
 <img alt="_images/zuordnugn_geometrie.png" src="_images/zuordnugn_geometrie.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 11 </span><span class="caption-text">Component with all its parameters within the component view</span><a class="headerlink" href="#zuordnung-geometrie" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 11 </span><span class="caption-text">Corresponding component with all its parameters within the <em>ComponentBuilder</em></span><a class="headerlink" href="#zuordnung-geometrie" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <div class="admonition note">
@@ -688,7 +688,7 @@ Comfort indicators like overheating hours, temperature profiles, or air quality 
 <hr class="docutils" />
 <section id="setpoints">
 <h2>Setpoints<a class="headerlink" href="#setpoints" title="Link to this heading">#</a></h2>
-<p>Setpoints are defined temperature thresholds used for heating and cooling control. Like rooms, setpoints are assigned to volumes <a class="reference internal" href="#id2"><span class="std std-numref">Fig. 16</span></a> and consist of two parameters: heating and cooling <a class="reference internal" href="#cooling-heating"><span class="std std-numref">Fig. 17</span></a>. These define the acceptable temperature range for each room. If the temperature deviates from this range, heating or cooling is triggered.</p>
+<p>Setpoints are defined temperature thresholds used for heating and cooling control. Like rooms, setpoints are assigned to volumes (<a class="reference internal" href="#id2"><span class="std std-numref">Fig. 16</span></a>) and consist of two parameters: heating and cooling (<a class="reference internal" href="#cooling-heating"><span class="std std-numref">Fig. 17</span></a>). These define the acceptable temperature range for each room. If the temperature deviates from this range, heating or cooling is triggered. In <a class="reference internal" href="#setpoints-geometrie-view"><span class="std std-numref">Fig. 18</span></a> the setpoint is assigned to a volume.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p><strong>Setpoints must always be assigned to a volume!</strong></p>
@@ -708,7 +708,7 @@ Comfort indicators like overheating hours, temperature profiles, or air quality 
 <figure class="align-default" id="setpoints-geometrie-view">
 <img alt="_images/Setpoints_geometrie_view.png" src="_images/Setpoints_geometrie_view.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 18 </span><span class="caption-text">Setpoint adjustments to instances in the geometry editor</span><a class="headerlink" href="#setpoints-geometrie-view" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 18 </span><span class="caption-text">Setpoint adjustments to instances in the GeometryViewer</span><a class="headerlink" href="#setpoints-geometrie-view" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <!-- neues bild zu Setpoints im GeometrieViewer-->
@@ -726,7 +726,7 @@ Comfort indicators like overheating hours, temperature profiles, or air quality 
 </figure>
 <p>The three options are:</p>
 <ul class="simple">
-<li><p><strong>Always propagate</strong>: Prevents changes to setpoints in the geometry view. These values remain fixed.</p></li>
+<li><p><strong>Always propagate</strong>: Prevents changes to setpoints in the <em>GeometryViewer</em>. These values remain fixed.</p></li>
 <li><p><strong>Never propagate</strong>: Allows manual overwriting of heating and cooling setpoints in the GeometryViewer. <a class="reference internal" href="#never-propagate"><span class="std std-numref">Fig. 20</span></a></p></li>
 <li><p><strong>Propagate if instance</strong>: <!-- konnte keinen unterschied zu Always propagate finden, auch nicht den sinn des overwrite buttons!--></p></li>
 </ul>

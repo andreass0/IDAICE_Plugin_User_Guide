@@ -28,4 +28,4 @@ Difference between source types in Simultan.
 ```
 In {numref}`source_unterschied` you can see that the differently selected source types can also be distinguished visually with different icons.
 
-<!-- alles selber testen um sicher zu gehen dass alles auch so funktioniert!-->
+

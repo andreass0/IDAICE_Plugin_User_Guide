@@ -12,7 +12,7 @@ SIMULTAN Editor can be found under this [link](https://github.com/bph-tuwien/SIM
 ## Installing the IDA-ICE Plugin
 
 After installing the SIMULTAN Editor you can install the IDA-ICE Plugin via the Plugin Manager {numref}`plugin_manager`.
-Either download <!-- Aktualisiert -->the plugin from the SIMULTAN Server, `Plugin-Name: IDAICEPlugin`<!-- Hinzugefügt --> , or install from your local disk with the
+Either download <!-- Aktualisiert -->the plugin from the SIMULTAN Server, `Plugin-Name: IDAICEPlugin`<!-- Hinzugefügt -->, or install from your local disk with the
 installation file.
 
 ```{figure} img/plugin_manager.png
@@ -35,7 +35,7 @@ New tab added to the taskbar of the SIMULTAN Editor after installing the IDA-ICE
 ## Run the example
 
 To check if everything was installed properly please open `install_test_model.simultan` from the examples provided where
-you [downloaded](https://github.com/bph-tuwien/GBS.Plugins/releases) <!-- Dieser Link führt zu einem Error -->
+you [downloaded](files/250512_cb_house_water_rad_modified_as.simultan) <!-- Dieser Link führt zu einem Error -->
 the installation file of the plugin. Open the
 example in your SIMULTAN Editor (username and password is "admin"), and follow the instructions in the
 chapter [Running a simulation](Running_a_simulation.md). If this works fine and you are getting plausible results the
