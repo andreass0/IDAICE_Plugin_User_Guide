@@ -23,7 +23,7 @@ Plugin Manager in the SIMULTAN Editor.
 ```
 
 When the installation was successful a new tab will be added to your taskbar named `IDA ICE Plugin`
-{numref}`idaice_plugin`. If Simultan is set to German, you can find it under the name `Neuer Ribbon Tab` at the moment.  <!-- Neu -->
+{numref}`idaice_plugin`. If Simultan is set to German, you can find it under the name `Neuer Ribbon Tab` at the moment.
 
 ```{figure} img/idaice_plugin.png
 ---
@@ -35,8 +35,7 @@ New tab added to the taskbar of the SIMULTAN Editor after installing the IDA-ICE
 ## Run the example
 
 To check if everything was installed properly please open `install_test_model.simultan` from the examples provided where
-you [downloaded](files/250512_cb_house_water_rad_modified_as.simultan) <!-- Dieser Link führt zu einem Error -->
-the installation file of the plugin. Open the
+you [downloaded](files/install_test_model.simultan) the installation file of the plugin. Open the
 example in your SIMULTAN Editor (username and password is "admin"), and follow the instructions in the
 chapter [Running a simulation](Running_a_simulation.md). If this works fine and you are getting plausible results the
 installation was successful. 

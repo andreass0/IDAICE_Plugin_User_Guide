@@ -21,7 +21,6 @@ A more in-depth description of the SIMULTAN data representation for building phy
 ```{warning}
 Although it is technically possible to define this structure manually, we strongly recommend using the provided templates and the user interfaces to avoid errors. Manual modeling is error-prone and can lead to time-consuming troubleshooting.
 ```
-<!-- templates müsse noch verlinkt werden-->
 
 
 The data structure consists of two main elements:
@@ -41,7 +40,7 @@ Taxonomies are classification systems used to organize elements into hierarchica
 
 #### IDA-ICE Relevant Taxonomies
 
-The IDA-ICE plugin introduces new taxonomies essential for establishing the connection between IDA-ICE and SIMULTAN {numref}`taxonomies_idaice`. Tools of the plugin's [user interface](Detailed_Modeling_Guide.md#modeling-for-ida-ice) <!-- verknüpfung zur nächsten seite!-->automatically assign the appropriate taxonomy to each component for compatibility.
+The IDA-ICE plugin introduces new taxonomies essential for establishing the connection between IDA-ICE and SIMULTAN {numref}`taxonomies_idaice`. Tools of the plugin's [user interface](Detailed_Modeling_Guide.md#modeling-for-ida-ice) automatically assign the appropriate taxonomy to each component for compatibility.
 
 ```{figure} img/taxonomies_idaice.png
 ---
@@ -50,7 +49,7 @@ name: taxonomies_idaice
 Overview of IDA-ICE taxonomies
 ```
 
-We recommend starting with one of the provided `template files` <!--Link-->to ensure synchronization and reduce the risk of errors. To restore the complete taxonomy hierarchy required by the plugin, refer to the section on [Taxonomy Update](Detailed_Modeling_Guide.md#taxonomy-update).
+We recommend starting with one of the provided [template files](files/250512_cb_house_water_rad_modified_as.simultan) to ensure synchronization and reduce the risk of errors. To restore the complete taxonomy hierarchy required by the plugin, refer to the section on [Taxonomy Update](Detailed_Modeling_Guide.md#taxonomy-update).
 
 ---
 
@@ -74,9 +73,8 @@ Geometrical elements are created using the *GeometryViewer* in SIMULTAN. For det
 ### IDA-ICE Specific Geometry Considerations
 
 Since geometric modeling is central to SIMULTAN, several aspects are critical to ensure a consistent and stable data structure.
-<!-- Sitplanner inforamtion hier hinzufügen!! -->
 
-#### Geolocation in the *SitePlanner* <!-- Name nur frei übersetzt, fachbegriff abfragen-->
+#### Geolocation in the *SitePlanner* 
 
 To access the ***SitePlanner*** in SIMULTAN open the corresponding `.spdxf` file (see {numref}`siteplanner`).
 ```{figure} img/siteplanner.png
@@ -188,9 +186,8 @@ The `4th - 7th buttons` from the left in {numref}`volumen_zuweisen` (yellow-grey
 ## Modeling Guidelines
 
 ```{important}
-Start with or import the provided template file `template_esbo_and_shades.simultan`, which contains all necessary structures for operating the IDA-ICE Plugin.
+Start with or import the provided template file [template_esbo_and_shades.simultan](files/template_esbo_and_shades.simultan), which contains all necessary structures for operating the IDA-ICE Plugin.
 ```
-<!-- link zu template fehlt -->
 
 ```{figure} img/geo_simultan.png
 ---

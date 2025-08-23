@@ -403,7 +403,7 @@ document.write(`
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#geometrical-modeling">Geometrical Modeling</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ida-ice-specific-geometry-considerations">IDA-ICE Specific Geometry Considerations</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geolocation-in-the-siteplanner">Geolocation in the <em>SitePlanner</em> <!-- Name nur frei übersetzt, fachbegriff abfragen--></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geolocation-in-the-siteplanner">Geolocation in the <em>SitePlanner</em></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#orientation-within-the-siteplanner">Orientation within the <em>SitePlanner</em></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#control-the-positioning-of-geometries-within-the-geometryviewer">Control the positioning of geometries within the <em>GeometryViewer</em></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-shading-elements-for-the-ida-ice-simulation">Adding Shading Elements for the IDA-ICE Simulation</a></li>
@@ -462,7 +462,6 @@ document.write(`
 <p class="admonition-title">Warning</p>
 <p>Although it is technically possible to define this structure manually, we strongly recommend using the provided templates and the user interfaces to avoid errors. Manual modeling is error-prone and can lead to time-consuming troubleshooting.</p>
 </div>
-<!-- templates müsse noch verlinkt werden-->
 <p>The data structure consists of two main elements:</p>
 <ol class="arabic simple">
 <li><p><a class="reference internal" href="#taxonomies"><span class="xref myst">Taxonomies</span></a></p></li>
@@ -478,14 +477,14 @@ document.write(`
 </div>
 <section id="ida-ice-relevant-taxonomies">
 <h3>IDA-ICE Relevant Taxonomies<a class="headerlink" href="#ida-ice-relevant-taxonomies" title="Link to this heading">#</a></h3>
-<p>The IDA-ICE plugin introduces new taxonomies essential for establishing the connection between IDA-ICE and SIMULTAN <a class="reference internal" href="#taxonomies-idaice"><span class="std std-numref">Fig. 4</span></a>. Tools of the plugin’s <a class="reference internal" href="Detailed_Modeling_Guide.html#modeling-for-ida-ice"><span class="std std-ref">user interface</span></a> <!-- verknüpfung zur nächsten seite!-->automatically assign the appropriate taxonomy to each component for compatibility.</p>
+<p>The IDA-ICE plugin introduces new taxonomies essential for establishing the connection between IDA-ICE and SIMULTAN <a class="reference internal" href="#taxonomies-idaice"><span class="std std-numref">Fig. 4</span></a>. Tools of the plugin’s <a class="reference internal" href="Detailed_Modeling_Guide.html#modeling-for-ida-ice"><span class="std std-ref">user interface</span></a> automatically assign the appropriate taxonomy to each component for compatibility.</p>
 <figure class="align-default" id="taxonomies-idaice">
 <img alt="_images/taxonomies_idaice.png" src="_images/taxonomies_idaice.png" />
 <figcaption>
 <p><span class="caption-number">Fig. 4 </span><span class="caption-text">Overview of IDA-ICE taxonomies</span><a class="headerlink" href="#taxonomies-idaice" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>We recommend starting with one of the provided <code class="docutils literal notranslate"><span class="pre">template</span> <span class="pre">files</span></code> <!--Link-->to ensure synchronization and reduce the risk of errors. To restore the complete taxonomy hierarchy required by the plugin, refer to the section on <a class="reference internal" href="Detailed_Modeling_Guide.html#taxonomy-update"><span class="std std-ref">Taxonomy Update</span></a>.</p>
+<p>We recommend starting with one of the provided <a class="reference download internal" download="" href="_downloads/9f307d55dabac9460f02167aecf0b69d/250512_cb_house_water_rad_modified_as.simultan"><span class="xref download myst">template files</span></a> to ensure synchronization and reduce the risk of errors. To restore the complete taxonomy hierarchy required by the plugin, refer to the section on <a class="reference internal" href="Detailed_Modeling_Guide.html#taxonomy-update"><span class="std std-ref">Taxonomy Update</span></a>.</p>
 </section>
 </section>
 <hr class="docutils" />
@@ -507,9 +506,8 @@ document.write(`
 <section id="ida-ice-specific-geometry-considerations">
 <h2>IDA-ICE Specific Geometry Considerations<a class="headerlink" href="#ida-ice-specific-geometry-considerations" title="Link to this heading">#</a></h2>
 <p>Since geometric modeling is central to SIMULTAN, several aspects are critical to ensure a consistent and stable data structure.</p>
-<!-- Sitplanner inforamtion hier hinzufügen!! -->
 <section id="geolocation-in-the-siteplanner">
-<h3>Geolocation in the <em>SitePlanner</em> <!-- Name nur frei übersetzt, fachbegriff abfragen--><a class="headerlink" href="#geolocation-in-the-siteplanner" title="Link to this heading">#</a></h3>
+<h3>Geolocation in the <em>SitePlanner</em><a class="headerlink" href="#geolocation-in-the-siteplanner" title="Link to this heading">#</a></h3>
 <p>To access the <em><strong>SitePlanner</strong></em> in SIMULTAN open the corresponding <code class="docutils literal notranslate"><span class="pre">.spdxf</span></code> file (see <a class="reference internal" href="#siteplanner"><span class="std std-numref">Fig. 6</span></a>).</p>
 <figure class="align-default" id="siteplanner">
 <img alt="_images/siteplanner.png" src="_images/siteplanner.png" />
@@ -618,9 +616,8 @@ In the ribbon interface, click on <em>Geo-Reference Manager</em>. This opens a c
 <h1>Modeling Guidelines<a class="headerlink" href="#modeling-guidelines" title="Link to this heading">#</a></h1>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>Start with or import the provided template file <code class="docutils literal notranslate"><span class="pre">template_esbo_and_shades.simultan</span></code>, which contains all necessary structures for operating the IDA-ICE Plugin.</p>
+<p>Start with or import the provided template file <a class="reference download internal" download="" href="_downloads/4df39d491a81ead0d06572e15a5e1842/template_esbo_and_shades.simultan"><span class="xref download myst">template_esbo_and_shades.simultan</span></a>, which contains all necessary structures for operating the IDA-ICE Plugin.</p>
 </div>
-<!-- link zu template fehlt -->
 <figure class="align-default" id="geo-simultan">
 <a class="reference internal image-reference" href="_images/geo_simultan.png"><img alt="_images/geo_simultan.png" src="_images/geo_simultan.png" style="height: 350px;" />
 </a>
@@ -855,7 +852,7 @@ Comfort indicators like overheating hours, temperature profiles, or air quality 
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#geometrical-modeling">Geometrical Modeling</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ida-ice-specific-geometry-considerations">IDA-ICE Specific Geometry Considerations</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geolocation-in-the-siteplanner">Geolocation in the <em>SitePlanner</em> <!-- Name nur frei übersetzt, fachbegriff abfragen--></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geolocation-in-the-siteplanner">Geolocation in the <em>SitePlanner</em></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#orientation-within-the-siteplanner">Orientation within the <em>SitePlanner</em></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#control-the-positioning-of-geometries-within-the-geometryviewer">Control the positioning of geometries within the <em>GeometryViewer</em></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-shading-elements-for-the-ida-ice-simulation">Adding Shading Elements for the IDA-ICE Simulation</a></li>
