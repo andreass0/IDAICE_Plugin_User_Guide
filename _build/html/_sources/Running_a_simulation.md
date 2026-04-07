@@ -42,6 +42,6 @@ Simulation tab. Choose the cases you want to run or simply run the whole simulat
 ```
 
 ```{note}
-To import the results into SIMULTAN you need to run the Energy Loads simulation. For now only those results will be 
+To import the results into SIMULTAN you need to run the Custom simulation. For now only those results will be 
 imported into SIMULTAN. 
 ```

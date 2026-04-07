@@ -14,7 +14,7 @@ name: import_results
 Button to import the results of the simulation back into SIMULTAN.
 ```
 
-The results will be stored under the `Taxonomie: Results Zone`.Under `IDA ICE Analysis` the
+The results will be stored under the `Taxonomie: IDA ICE Analysis > Results`.Under `Results` the
 plugin creates a sub-component for each simulation Zone in the data model (see {numref}`results_comp`). <!-- stimmt nicht, herrausfinden wie es wirklich ist-->
 
 ```{figure} img/results_comp.png
