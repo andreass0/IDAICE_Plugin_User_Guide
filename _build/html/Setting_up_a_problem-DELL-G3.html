@@ -1,0 +1,912 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Setting up a problem &#8212; IDA-ICE-Plugin for SIMULTAN (Work in Progress)</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Setting_up_a_problem';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Running a simulation" href="Running_a_simulation.html" />
+    <link rel="prev" title="Getting started with the IDA-ICE Plugin" href="Getting_started_with_the_IDAICE_Plugin.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="IDA-ICE-Plugin for SIMULTAN (Work in Progress) - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="IDA-ICE-Plugin for SIMULTAN (Work in Progress) - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    IDA-ICE-Plugin User Guide
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Inhalt</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Getting_started_with_the_IDAICE_Plugin.html">Getting started with the IDA-ICE Plugin</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Setting up a problem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Running_a_simulation.html">Running a simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Results_of_the_simulation.html">Results of the simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Sync_Import.html">Sync Import</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SIMULTAN_Datastructure_to_incorporate_the_IDAICE_Data_model.html">SIMULTAN Datastructure to incorporate the IDA-ICE Data model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LICENSE.html">Copyright and license agreements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="References.html">References</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/andreass0/IDAICE_Plugin_User_Guide" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/andreass0/IDAICE_Plugin_User_Guide/issues/new?title=Issue%20on%20page%20%2FSetting_up_a_problem.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Setting_up_a_problem.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Setting up a problem</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datastructure-for-the-plugin">Datastructure for the plugin</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#geometrical-modelling">Geometrical modelling</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modelling-guidelines">Modelling guidelines</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#user-interface">User Interface <!-- Neuer Sektor | Reihenfolge mit oberigen Kapitel vllt tauschen --></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#building-envelope">Building Envelope</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#opaque-building-components-key-parameter-and-layer-parameters">Opaque building components: Key parameter and layer parameters</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#transparent-building-components-key-parameter-and-layer-parameters">Transparent building components: Key parameter and layer parameters</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#shading-building-components-key-parameter-and-layer-parameters">Shading building components: Key parameter and layer parameters</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hvac-system">HVAC-System</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#materials">Materials</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#internal-gains">Internal Gains</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#connecting-components-with-the-geometry">Connecting components with the geometry</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="setting-up-a-problem">
+<h1>Setting up a problem<a class="headerlink" href="#setting-up-a-problem" title="Link to this heading">#</a></h1>
+<p>A short overview of the representation of the data in the data model will be given in the beginning.</p>
+<hr class="docutils" />
+<!-- Taxonomien einfügen, Taxonomien sind einzigartige Schlüssel, SImultan arbeitet im Hintergrund anssschließlich über die Keys, abhängigkeiten | Plugin erwartet bei bestimmt zugewiesenen TExonomien bestimmte WErte usw. VIdeo 00:02:02-->
+<section id="datastructure-for-the-plugin">
+<h2>Datastructure for the plugin<a class="headerlink" href="#datastructure-for-the-plugin" title="Link to this heading">#</a></h2>
+<p>In <a class="reference internal" href="#ida-data"><span class="std std-numref">Fig. 3</span></a> a simplified depiction of the needed datastructure to run the plugin is given. This data structure
+holds all the necessary information to enable simplified dynamic multizone climate and energy simulations in IDA-ICE</p>
+<figure class="align-default" id="ida-data">
+<a class="reference internal image-reference" href="_images/schematic_comp_ida.jpg"><img alt="_images/schematic_comp_ida.jpg" src="_images/schematic_comp_ida.jpg" style="height: 500px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 3 </span><span class="caption-text">Simplified depiction of the needed datastructure to run the plugin is given.</span><a class="headerlink" href="#ida-data" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>A more in depth look into the SIMULTAN representation of the data for building physics simulations is given in the
+chapter <a class="reference internal" href="SIMULTAN_Datastructure_to_incorporate_the_IDAICE_Data_model.html"><span class="std std-doc">SIMULTAN Datastructure to incorporate the IDA-ICE Data model</span></a>
+.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Although this data structure can be implemented manually, it is strongly recommended to use the provided templates and export them to
+existing models or adjust them as needed. Manuel modelling is always prone to errors and could result in very time
+consuming efforts when trying to fix those.</p>
+</div>
+<!-- Link zu Templates fehlt -->
+</section>
+<hr class="docutils" />
+<section id="geometrical-modelling">
+<h2>Geometrical modelling<a class="headerlink" href="#geometrical-modelling" title="Link to this heading">#</a></h2>
+<p>The geometry is created in the Geometry Editor of the SIMULTAN Editor. Please consult
+the <a class="reference external" href="https://github.com/bph-tuwien/SIMULTAN.Documentation/wiki">SIMULTAN Editor User Guide</a>
+for further information on how to use this Geometry Editor. Or watch our <a class="reference external" href="https://www.youtube.com/watch?v=YDDNtA6lkFU&amp;amp;t=1s">Videos on YouTube</a>. <!-- Neu --></p>
+<hr class="docutils" />
+<section id="modelling-guidelines">
+<h3>Modelling guidelines<a class="headerlink" href="#modelling-guidelines" title="Link to this heading">#</a></h3>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Either import or start with the provided template file <code class="docutils literal notranslate"><span class="pre">template_esbo_and_shades.simultan</span></code>. All the necessary datastructure to operate the
+IDA-ICE-plugin will be provided there.</p>
+</div>
+<!-- Direkten Link einfügen -->
+<p>In <a class="reference internal" href="#geo-simultan"><span class="std std-numref">Fig. 4</span></a> it can be seen that the plugin uses a reference geometry (white) for the dynamic simulation.
+The reference geometry, representing the outer building envelope, can for example be an architectural model or a
+designated model used for the building physics simulations.</p>
+<figure class="align-default" id="geo-simultan">
+<a class="reference internal image-reference" href="_images/geo_simultan.png"><img alt="_images/geo_simultan.png" src="_images/geo_simultan.png" style="height: 350px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 4 </span><span class="caption-text">Example of the geometry of a <em>Tiny House</em> modelled with the Geometry Editor of the SIMULTAN Editor.</span><a class="headerlink" href="#geo-simultan" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>For the simulation the reference geometry is exported to IDA-ICE, therefore all of the geometry dependant information
+needed for the simulation has to be linked to this model.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The geometry file for the IDA-ICE analysis has to be called <strong>idaice_analysis.simgeo</strong>.</p>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="user-interface">
+<h2>User Interface <!-- Neuer Sektor | Reihenfolge mit oberigen Kapitel vllt tauschen --><a class="headerlink" href="#user-interface" title="Link to this heading">#</a></h2>
+<p>The IDA-ICE-Plugin comes with a user interface <code class="xref std std-numref docutils literal notranslate"><span class="pre">UserInterface_example</span></code> to help with the creation of the needed data structure for the plugin. The user interface is very user-friendly and ensures that you keep an overview and do not make any unnecessary mistakes by navigating manually. <!-- Formulierung nochmal überarbeiten!!--></p>
+<figure class="align-default" id="position-construction">
+<img alt="_images/position-construction.png" src="_images/position-construction.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 5 </span><span class="caption-text">Possibilities with the IDA-ICE plugin</span><a class="headerlink" href="#position-construction" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>It is very important to work carefully in the user interface, because changes are applied directly, even without explicitly saving or simply closing the user interface.</p>
+</div>
+<!-- Wortwahl: "Method"-->
+<!-- noch klären wie es wirklich intern in ida-ice vorgeht und werter bearbeitet, ... -->
+<hr class="docutils" />
+<section id="building-envelope">
+<h3>Building Envelope<a class="headerlink" href="#building-envelope" title="Link to this heading">#</a></h3>
+<p>Since most of the data of the building envelope will already be provided with an architectual model the structure of the
+plugin focuses on expanding the already existing information, so it is containing all the calculation relevant
+information and can be exported to IDA-ICE.</p>
+<p>In the following the key-parameters and the structure of the components to export them are addressed. In regard of the
+building envelope IDA-ICE is differentiating between the following main categories:</p>
+<ul>
+<li><p><strong>Opaque building components</strong></p>
+<figure class="align-center" id="fig-opaque-building-components">
+<a class="reference internal image-reference" href="_images/Opaque-building-components.png"><img alt="_images/Opaque-building-components.png" src="_images/Opaque-building-components.png" style="height: 225px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 6 </span><span class="caption-text">Overview of all Opaque building components</span><a class="headerlink" href="#fig-opaque-building-components" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p><strong>Transparent building components:</strong></p>
+<ul class="simple">
+<li><p>Window</p></li>
+<li><p>Door</p></li>
+</ul>
+</li>
+<li><p><strong>Shading building components</strong></p></li>
+</ul>
+<hr class="docutils" />
+<section id="opaque-building-components-key-parameter-and-layer-parameters">
+<h4>Opaque building components: Key parameter and layer parameters<a class="headerlink" href="#opaque-building-components-key-parameter-and-layer-parameters" title="Link to this heading">#</a></h4>
+<p>in the example you can see the data structure for a <strong>GROUND-SLAB</strong>. The procedure is analogues for the other opaque building components.</p>
+<p>To export Opaque building components using the IDA-ICE user interface, please follow these instructions:</p>
+<ul class="simple">
+<li><p>Open the <code class="docutils literal notranslate"><span class="pre">construction</span></code> tab in Simultan <!-- Kontrollieren --></p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">construction</span></code> tab with all its functions <!-- Vllt bisschen kleiner --></p></li>
+</ul>
+<figure class="align-default" id="overview-constructiontab">
+<img alt="_images/overview-constructiontab.png" src="_images/overview-constructiontab.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 7 </span><span class="caption-text">Brief overview of the functions of the construction tab</span><a class="headerlink" href="#overview-constructiontab" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To create a new construction, press the NEW button, then simply assign the following parameters to your preferences. The parameters are explained in more detail below.</p>
+<p>This is how quickly it is possible to create new constructions with the IDA-ICE user interface!</p>
+</div>
+<ol class="arabic simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">Select</span> <span class="pre">construction:</span></code></strong><br />
+Provides an overview of all objects that are already connected to IDA-ICE Surface Types. It gives you a good overview and lets you edit all the surfaces connected to the IDA-ICE-Plugin with just a few clicks. <!-- Ausdruck! --></p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">Edit</span> <span class="pre">construction:</span></code></strong><br />
+This is where the important information for the export to IDA-ICE is added. <!-- Auschmücken und Unterpunkte näher erklären! --></p></li>
+</ol>
+<p>2.1 <strong>Consturction Name</strong><br />
+2.2 <strong>Surface Type:</strong> <a class="reference internal" href="#opaque-building-components-key-parameter-and-layer-parameters"><span class="xref myst">opaque building components</span></a><br />
+2.3 <strong>Layers:</strong><br />
+Shows the structure of the selected construction and the different materials it is made of. You can switch between materials for further information. These are displayed in the three parameters <strong>layer name</strong>, <strong>material</strong> and <strong>thickness</strong>.</p>
+<ul class="simple">
+<li><p>Layer Name: Shows the name of your choosen Layer. <!-- Kontrollieren ob es wirklich nur diese Funktion hat! --></p></li>
+<li><p>Material: Shows the material of your choosen Layer, <a class="reference internal" href="#materials"><span class="xref myst"><strong>Materials</strong></span></a></p></li>
+<li><p>Thickness: Shows the Thickness (m) of your choosen Layer</p></li>
+</ul>
+<p>All changes have a direct impact on the data model. This makes it possible to make changes quickly and effectively without losing the overview! <!-- Probieren ob automatisch jede komponente in der geometrie einem IDA-ICE surface type zugewissen wird, bzw. ob auch objekte ohne zuweisung im User Interface angezeigt werden--></p>
+</section>
+<hr class="docutils" />
+<section id="transparent-building-components-key-parameter-and-layer-parameters">
+<h4>Transparent building components: Key parameter and layer parameters<a class="headerlink" href="#transparent-building-components-key-parameter-and-layer-parameters" title="Link to this heading">#</a></h4>
+<p>The datastructure to export transparent building components will be shown for a Fenster (window). The procedure is analogues for a
+door and other <code class="docutils literal notranslate"><span class="pre">glass</span> <span class="pre">constructions</span></code>. <!-- --></p>
+<figure class="align-default" id="transperentbuildingcomponents-ui">
+<img alt="_images/TransperentBuildingComponents-UI.png" src="_images/TransperentBuildingComponents-UI.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 8 </span><span class="caption-text">Example of the data structure for a window</span><a class="headerlink" href="#transperentbuildingcomponents-ui" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The “Glass Constructions definitions” tab is pretty much identical in structure to <a class="reference internal" href="#opaque-building-components-key-parameter-and-layer-parameters"><span class="xref myst">“Constructions definitions”</span></a>. The only difference is in the parameters.</p>
+<p>The parameters in the image relate to the material properties of transparent components (such as windows) in the IDA ICE building simulation software. These values strongly influence the thermal and solar behavior of the glazing. Here is an explanation of the terms and their meaning.</p>
+<ol class="arabic simple">
+<li><p><strong>Name:</strong><br />
+Any name to name the glass constructions.</p></li>
+<li><p><strong>Solar Heat Gain Coeff(g)</strong><br />
+Proportion of solar radiation that enters the building through the window (direct + secondary through heating of the glass).</p></li>
+<li><p><strong>Solar Transmittance(T)</strong><br />
+Proportion of directly transmitted solar radiation (without secondary heat conduction).</p></li>
+<li><p><strong>Visible Transmittance(Tvis):</strong><br />
+Proportion of visible light that passes through the glazing.</p></li>
+<li><p><strong>Thermal Conductivity(U):</strong><br />
+Heat transfer coefficient - how well the window conducts heat.</p></li>
+<li><p><strong>Internal Emissivity:</strong><br />
+Radiant heat emission from the inner surface (e.g. glass) to the inside.</p></li>
+<li><p><strong>External Emissivity:</strong>
+The opposite of 6. so for the outside of the window</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>These values are used in IDA ICE to:</p>
+<ul class="simple">
+<li><p>Calculate heat loss in winter and heat input in summer</p></li>
+<li><p>simulate the daylight input, risk of overheating and the energy requirement for heating/cooling</p></li>
+<li><p>find optimal window configurations in terms of energy efficiency</p></li>
+</ul>
+</div>
+</section>
+<hr class="docutils" />
+<section id="shading-building-components-key-parameter-and-layer-parameters">
+<h4>Shading building components: Key parameter and layer parameters<a class="headerlink" href="#shading-building-components-key-parameter-and-layer-parameters" title="Link to this heading">#</a></h4>
+<p>A central element in IDA-ICE is the consideration of shading, as it has a considerable influence on daylight, cooling and heating loads and the indoor climate. This is why the plugin has a separate area for this, as you can see in <a class="reference internal" href="#shades-ui"><span class="std std-numref">Fig. 9</span></a>.</p>
+<figure class="align-default" id="shades-ui">
+<img alt="_images/Shades-UI.png" src="_images/Shades-UI.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 9 </span><span class="caption-text">User Interface Shading Surface definitions</span><a class="headerlink" href="#shades-ui" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>As you can see, we have decided to use the same structure throughout the Plugin. So that users can find their way around as quickly as possible and concentrate on the essentials.</p>
+<p>The individual parameters relate to the surface properties of a material or surface in IDA ICE. They influence thermal radiation, light reflection and the transmission of daylight and energy. Here is a detailed explanation of the individual parameters:</p>
+<ol class="arabic simple">
+<li><p><strong>Name:</strong><br />
+Any name to name the shading.</p></li>
+<li><p><strong>Longwave Emissivity:</strong><br />
+Indicates how strongly a surface can emit long-wave heat radiation (infrared).</p></li>
+<li><p><strong>Shortwave Reflectance:</strong><br />
+Proportion of short-wave sunlight reflected by the surface (in %).</p></li>
+<li><p><strong>Roughness:</strong><br />
+Beschreibt, wie rau eine Oberfläche ist, was sich auf die Streuung von Licht auswirkt.</p></li>
+<li><p><strong>Specularity:</strong><br />
+How strongly a surface reflects (directionally).</p></li>
+<li><p><strong>Transparency:</strong><br />
+How much visible light is transmitted through the surface.</p></li>
+</ol>
+<p>The needed parameters to enable the export and simulation with the plugin can be seen in <code class="xref std std-numref docutils literal notranslate"><span class="pre">shade_para</span></code>.</p>
+<p>The parameters for the shadings change for each material. This is precisely why this user interface is so important. In IDA-ICE, a distinction is made not only between materials but also between shading types. Here is the most important thing you need to know about them:</p>
+<hr class="docutils" />
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Shading Type</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Typical Parameter Variability</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Fixed Shading</p></td>
+<td><p>Overhangs, balconies, louvers – permanently attached to the facade</p></td>
+<td><p>Material (e.g., concrete, metal, wood), size, transparency (e.g., perforated panels)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Horizontal Shading</p></td>
+<td><p>Horizontal louvers, awnings</p></td>
+<td><p>Material, spacing, angle, transparency</p></td>
+</tr>
+<tr class="row-even"><td><p>Vertical Shading</p></td>
+<td><p>Side fins, vertical louvers</p></td>
+<td><p>Material, height, spacing, transparency</p></td>
+</tr>
+<tr class="row-odd"><td><p>Context/Environmental Shading</p></td>
+<td><p>Neighboring buildings, trees, walls</p></td>
+<td><p>Shape, size, material (e.g., tree crowns as partially transparent)</p></td>
+</tr>
+<tr class="row-even"><td><p>Window-Integrated Shading</p></td>
+<td><p>Blinds, roller shades, venetian blinds mounted on the window</p></td>
+<td><p>Material, opening degree, control (fixed/variable), transparency</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- überlegen rauszulöschen, unnötige information, nicht auf das wesentliche konzentriet-->
+</section>
+</section>
+<hr class="docutils" />
+<section id="hvac-system">
+<h3>HVAC-System<a class="headerlink" href="#hvac-system" title="Link to this heading">#</a></h3>
+<p>The HVAC-System is implemented via the ESBO-Plant of IDA-ICE. <a class="reference internal" href="#esbo-simultan"><span class="std std-numref">Fig. 10</span></a> shows all the possible inputs
+which are exported with the plugin.</p>
+<figure class="align-default" id="esbo-simultan">
+<img alt="_images/Esbo-UI.png" src="_images/Esbo-UI.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 10 </span><span class="caption-text">SIMULTAN components for the different ESBO-Plant components.</span><a class="headerlink" href="#esbo-simultan" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The <strong>Edit Component</strong> area contains the defining parameters for the various HVAC components. These differ completely between the individual components.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>All components can be easily switched off in the user interface. This separates all data connected to the component. As you can see in the screenshot.</p>
+</div>
+<figure class="align-default" id="esbo-off">
+<img alt="_images/ESBOplant-UI.png" src="_images/ESBOplant-UI.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 11 </span><span class="caption-text">A switched off component</span><a class="headerlink" href="#esbo-off" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Like all other functions in the IDA-ICE-Plugin, changes in the user interface have a direct effect on the data structure. As a result, these functions are powerful and should be used with caution. In the following scrennshots <a class="reference internal" href="#system-on"><span class="std std-numref">Fig. 12</span></a> and <a class="reference internal" href="#system-off"><span class="std std-numref">Fig. 13</span></a> I have shown the effects on Building Services when an <strong>HVAC-System</strong> is switched off in <strong>ESBO-plant</strong>.</p>
+<figure class="align-default" id="system-on">
+<img alt="_images/esbo-on.png" src="_images/esbo-on.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 12 </span><span class="caption-text">HVAC-System turned on</span><a class="headerlink" href="#system-on" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="system-off">
+<img alt="_images/esbo_off.png" src="_images/esbo_off.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 13 </span><span class="caption-text">HVAC-System turned off</span><a class="headerlink" href="#system-off" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If you are exporting redundant HVAC-Systems or HVAC-Systems which are in conflict with each other for the
+dynamic simulation IDA-ICE will show an error message.</p>
+</div>
+<!-- nicht sicher ob es auch beim User Interface noch passend ist-->
+<!-- am ende noch bisschen text eventuelle noch bisschen informationen über HVAC SYstem / Esbo-Plant in IDA ICE allgemein-->
+</section>
+<section id="materials">
+<h3>Materials<a class="headerlink" href="#materials" title="Link to this heading">#</a></h3>
+<!-- anordnung der Überschirft klären!!-->
+<p><code class="docutils literal notranslate"><span class="pre">Materials</span></code> have been given their own area in the <strong>IDA-ICE-Plugin</strong>. This once again allows users to keep their materials organized and to proceed in a structured manner.</p>
+<figure class="align-default" id="materials-ui">
+<img alt="_images/materials_UI.png" src="_images/materials_UI.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 14 </span><span class="caption-text">User Interface for materials</span><a class="headerlink" href="#materials-ui" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>As you can see, we have also used a simple layout here to maximize user-friendliness. In <strong>the materials definitions section</strong>, you can <strong>delete</strong> materials, <strong>copy</strong> materials to customize them and <strong>create completely new materials</strong>. To do the latter, fill in the parameters using the description below.</p>
+<ol class="arabic simple">
+<li><p><strong>Name:</strong><br />
+Any name to name the material.</p></li>
+<li><p><strong>Thermal Conductivity:</strong><br />
+Indicates how well the material conducts heat.<br />
+Value 0: This means that the material does not conduct any heat at all - it acts as perfect insulation (which does not occur in reality).</p></li>
+<li><p><strong>Density:</strong><br />
+Indicates how much mass one cubic meter of the material has.</p></li>
+<li><p><strong>Specific Heat:</strong><br />
+Indicates how much energy (in joules) is required to heat 1 kg of material by 1 Kelvin.</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>These parameters are essential for thermal simulation in IDA ICE. They determine how the material as part of a component (e.g. wall, floor) conducts and stores heat.</p>
+</div>
+<p>The newly created material is then displayed directly in the construction tab under <strong>material</strong>. This means that materials only have to be created once and can then be universally linked to the various components.</p>
+</section>
+<hr class="docutils" />
+<section id="internal-gains">
+<h3>Internal Gains<a class="headerlink" href="#internal-gains" title="Link to this heading">#</a></h3>
+<p>The modelling of internal gains due to occupant behaviour is also possible. The SIMULTAN representation is stored under
+the component <code class="docutils literal notranslate"><span class="pre">Nutzung</span></code>. This component stores sub-components for each simulation-zone and the assigned internal gains.</p>
+<figure class="align-default" id="inernal-gains-comp">
+<img alt="_images/inernal_gains_comp.png" src="_images/inernal_gains_comp.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 15 </span><span class="caption-text">SIMULTAN components with the underlying defining parameters for the different ESBO-Plant components.</span><a class="headerlink" href="#inernal-gains-comp" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The sub-components consist of <code class="docutils literal notranslate"><span class="pre">Equipment</span></code>, <code class="docutils literal notranslate"><span class="pre">Light</span></code>, <code class="docutils literal notranslate"><span class="pre">Occupants</span></code> each with the needed parameters to describe the needed
+information for the simulation.</p>
+<!-- Herrausfinden ob diese Kapitel noch notwendig sind!!!-->
+<!-- SyncImport und Taxonomie Update nicht hinzugefügt, keine Information darüber, wenn es hinzugefügt wird dann in Results_of_the_simulation.md-->
+<p><strong>Equipment</strong></p>
+<figure class="align-default" id="equipment-para">
+<img alt="_images/equipment_para.png" src="_images/equipment_para.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 16 </span><span class="caption-text">SIMULTAN component for the description of internal gains by equipments with the underlying defining parameters.</span><a class="headerlink" href="#equipment-para" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p><strong>Light</strong></p>
+<figure class="align-default" id="id1">
+<img alt="_images/light_para.png" src="_images/light_para.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 17 </span><span class="caption-text">SIMULTAN component for the description of internal gains by light with the underlying defining parameters.</span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p><strong>Occupants</strong></p>
+<figure class="align-default" id="id2">
+<img alt="_images/occupant_para.png" src="_images/occupant_para.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 18 </span><span class="caption-text">SIMULTAN component for the description of internal gains by occupants with the underlying defining parameters.</span><a class="headerlink" href="#id2" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="connecting-components-with-the-geometry">
+<h2>Connecting components with the geometry<a class="headerlink" href="#connecting-components-with-the-geometry" title="Link to this heading">#</a></h2>
+<p>The before created components are a representation of the information needed for the dynamic simulation. Connect the
+components to the geometry as needed. Please consult
+the <a class="reference external" href="https://github.com/bph-tuwien/SIMULTAN.Documentation/wiki">SIMULTAN Editor User Guide</a>
+for general information on how to link components and geometrical information.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Getting_started_with_the_IDAICE_Plugin.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Getting started with the IDA-ICE Plugin</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Running_a_simulation.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Running a simulation</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datastructure-for-the-plugin">Datastructure for the plugin</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#geometrical-modelling">Geometrical modelling</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modelling-guidelines">Modelling guidelines</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#user-interface">User Interface <!-- Neuer Sektor | Reihenfolge mit oberigen Kapitel vllt tauschen --></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#building-envelope">Building Envelope</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#opaque-building-components-key-parameter-and-layer-parameters">Opaque building components: Key parameter and layer parameters</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#transparent-building-components-key-parameter-and-layer-parameters">Transparent building components: Key parameter and layer parameters</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#shading-building-components-key-parameter-and-layer-parameters">Shading building components: Key parameter and layer parameters</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hvac-system">HVAC-System</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#materials">Materials</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#internal-gains">Internal Gains</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#connecting-components-with-the-geometry">Connecting components with the geometry</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Copyright (c) 2022 RWT Plus ZT GmbH and TU Wien
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

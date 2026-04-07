@@ -1,5 +1,0 @@
-(References)=
-# References
-
-```{bibliography}
-```
